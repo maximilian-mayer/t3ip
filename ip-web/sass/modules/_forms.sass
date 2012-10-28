@@ -1,0 +1,357 @@
+/* forms
+ * ====================================================================
+ */
+
+
+$form-fieldPadding: 0.25em !default
+$label-float: none
+$label-align: left
+
+
+
+h2
+  margin: 0 auto 1em auto
+  padding: 0.25em 0
+  margin: 0.5em auto
+  border-bottom: 1px solid rgba($grey, 0.5)
+  +box-shadow(0 1px 0 rgba($white, 0.5))
+  text-shadow: 1px 1px 1px $white
+  color: $color-text
+  text-align: center
+  width: 96%
+
+.box-devider
+  //background: transparent inline-image("devider-line.png") repeat-x 50%
+  text-align: center
+  margin: 1em 2% 0em
+
+  p
+    background-color: $color-bodyBg
+    display: inline
+    padding: 0 0.5em
+    text-shadow: 1px 1px 1px $white
+
+form
+  // width: 300px
+  // margin: 0 auto
+  overflow: hidden
+  padding: 0 2%
+  ol, ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+  li
+    clear: both
+    padding: $form-fieldPadding 0
+    position: relative
+
+  .full,
+  .wide,
+  .half,
+  .small
+    float: left
+    clear: none
+    +box-sizing(border-box)
+
+    input
+      width: 100%
+      +box-sizing(border-box)
+
+  .full
+    width: 100%
+  .wide
+    width: 73%
+    & + .small
+      margin-left: 4%
+  .half
+    width: 48%
+    & + .half
+      margin-left: 4%
+    &:nth-child(2n)
+      margin-left: 0
+    &.nl
+      float: none
+      clear: both
+      margin-left: 0
+  .small
+    width: 23%
+    font-size: 1em
+    & + .wide
+      margin-left: 4%
+
+  input.input-tiny
+    width: 10%
+
+  input.input-small
+    width: 20%
+
+  input.input-medium
+    width: 33%
+
+  input.input-large
+    width: 50%
+
+  input.input-xlarge
+    width: 66%
+
+  input.input-xxlarge
+    width: 80%
+
+  input.input-full
+    width: 100%
+
+  input, textarea
+    &::-webkit-input-placeholder
+      color: $lightgrey
+    &:-moz-placeholder
+      color: $lightgrey
+label
+  float: $label-float
+  padding: $form-fieldPadding 0
+  cursor: pointer
+  font-weight: bold
+  //white-space: nowrap
+  display: inline-block
+  //width: 100%
+  margin: 0.5em 0 0 0
+  line-height: 1.2
+  text-align: $label-align
+  color: inherit
+  position: relative
+  text-shadow: 1px 1px 1px #fff
+  @media screen and (min-width: 481px)
+    float: left
+    display: inline-block
+    width: 30%
+    margin-top: 0
+
+.label
+  @extend label
+  display: block
+  cursor: inherit
+  text-align: right
+
+  label
+    float: none
+    margin: 0
+    width: auto
+
+fieldset
+  padding: 0
+  font-size: 1em
+
+  legend
+    font-weight: bold
+    font-size: 1.5em
+
+  sup
+    font-size: 1.2em
+    top: -0.2em
+    cursor: help
+
+  .options
+    margin: 0
+    @media screen and (min-width: 481px)
+      width: 60%
+
+    .fieldwrapper
+      @media screen and (min-width: 481px)
+        float: left
+        width: 50%
+
+    label
+      display: inline-block
+      width: 100%
+      font-weight: normal
+      margin: 0 0.5em 0 0
+      @media screen and (min-width: 481px)
+        margin: 0
+
+    legend
+      @extend label
+      font-weight: bold
+      font-size: 1em
+      margin: 0.5em 0 -0.75em
+      @media screen and (min-width: 481px)
+        width: 50%
+        margin: 0
+
+  li em
+    display: none //maybe temp
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 1.2
+    padding: 0.5em 0
+    color: #000
+    text-shadow: 1px 1px 1px #fff
+
+    @media screen and (min-width: 481px)
+      margin-left: 30%
+      width: 30%
+
+
+
+//input[type="submit"],
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="password"],
+input[type="search"],
+input[type="button"],
+textarea,
+button
+  width: 100%
+  padding: $form-fieldPadding * 2 // 0.5% – percentage is buggy
+  border: 1px solid $color-border
+  color: $color-text
+  font-size: 16px // prevent input zoom on iOS
+  +border-radius(4px)
+  +box-sizing(border-box)
+  +box-shadow(0 0 0 $color-text)
+  +transition-property(box-shadow)
+  +transition-duration(0.2s)
+  +transition-timing-function(ease-out)
+
+  @media screen and (min-width: 481px)
+    width: 30%
+
+input:focus
+  border-color: $color-main
+  +box-shadow(0 0 5px $color-main)
+  color: $color-text
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+input[type="checkbox"] + label,
+input[type="radio"] + label
+  float: left
+  display: inline-block
+  text-align: left
+  width: inherit
+  vertical-align: text-top
+  width: auto
+  margin: 0 0 0 0.5%
+  padding: 0 0 0.5em
+
+input[type="button"],
+input[type="submit"],
+button
+  +box-sizing(border-box)
+  border: none
+  // background-color: lighten($color-text, 90%)
+  border: 1px solid $color-main
+  font-weight: bold
+  margin: 0.25em 0
+  // overflow: visible
+  padding: ($form-fieldPadding * 2) ($form-fieldPadding * 8)
+  width: auto
+  background-color: $color-main
+  color: $white
+  border-radius: 5px
+  text-shadow: 1px 1px 1px rgba($color-text, 0.5)
+  +box-shadow(inset 0 1px 0px rgba($white, 0.8))
+  +background-image(linear-gradient(top, lighten($color-main, 20%), $color-main))
+  +nowrap
+
+
+
+textarea
+  width: 100%
+  +box-sizing(border-box)
+
+legend.label + input[type="checkbox"]
+  margin: 0.5em 0 0
+
+select
+  width: 100%
+  font-size: 16px
+  +box-sizing(border-box)
+  border-radius: 4px
+  border: 1px solid $color-text
+  padding: $form-fieldPadding
+  @media screen and (min-width: 481px)
+    width: 30%
+
+option
+  padding: 0
+
+.help
+  position: absolute
+  top: 0.5em
+  left: 115%
+  background-color: rgba($color-text,0.9)
+  padding: 0.5em 1em
+  color: #fff
+  text-shadow: 1px 1px 1px rgba($color-text, 1)
+  border-radius: 0 4px 4px 4px
+  z-index: 1
+  width: 78%
+  // +single-transition(all 300ms ease-out)
+
+  +transition-property(left)
+  +transition-duration(0.3s)
+  +transition-timing-function(ease-out)
+
+  -webkit-transform: translateZ(0)
+  @media screen and (min-width: 481px)
+    left: 65%
+    width: 30%
+    top: 0.3em
+    opacity: 0
+
+  &:before
+    content: 'i'
+    display: block
+    width: 32px
+    height: 32px
+    position: absolute
+    left: -32px
+    top: 0
+    background-color: rgba($color-text,0.9)
+    border-radius: 4px 0 0 4px
+    text-align: center
+    font-size: 1.5em
+    cursor: pointer
+
+
+.focused
+  .help
+    left: 104%
+    top: 0.25em
+    @media screen and (min-width: 481px)
+      left: 65%
+      width: 30%
+      top: 0.25em
+      opacity: 0.99
+.showhelp
+  .help
+    left: 11%
+    // &:before
+    //   content: '»'
+
+    @media screen and (min-width: 481px)
+      left: 65%
+      width: 30%
+      top: 0.25em
+
+
+.btn-toolbar
+  +pie-clearfix()
+  margin-top: 1em
+
+  .icon
+    vertical-align: baseline // temp -> middle
+    margin: 0 0.25em
+    font-style: normal
+    font-size: 1em
+    line-height: 1
+
+
+

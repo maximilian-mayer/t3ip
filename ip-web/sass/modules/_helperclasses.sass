@@ -1,0 +1,73 @@
+/* helperclasses
+ * ====================================================================
+ */
+.right
+  float: right
+.left
+  float: left
+.float-none
+  float: none
+.clear
+  clear: both
+.text-left
+  text-align: left
+.text-right
+  text-align: right
+.text-center
+  text-align: center
+.text-justify
+  text-align: justify
+.valign-top
+  vertical-align: top
+.valign-bottom
+  vertical-align: bottom
+.valign-middle
+  vertical-align: middle
+.hide,
+.nomail
+  display: none
+.bold
+  font-weight: 700
+.italic
+  font-style: italic
+.underline
+  border-bottom: 1px solid
+img.alignCenter
+  display: block
+  margin-left: auto
+  margin-right: auto
+img.alignLeft
+  float: left
+  margin: 4px 10px 4px 0
+img.alignRight
+  float: right
+  margin: 4px 0 4px 10px
+.pos-rel
+  position: relative
+.pos-abs
+  position: absolute
+.small
+  font: normal px2em($base-fontsize * 0.8) / $base-lineheight $font-main
+.uppercase
+  text-transform: uppercase
+
+
+
+
+.link-more
+
+
+
+
+.link-action
+
+
+%btn
+  display: inline-block
+  padding: 1em
+
+.btn-action
+  @extend %btn
+  background-color: $color-main
+  +link-colors($white,$black,$white,$white,$black)
+  font-weight: bold

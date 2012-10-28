@@ -1,0 +1,122 @@
+/* Grids based on semantic.gs
+ * =======================================================================
+ */
+
+.wrapper
+  @extend .clearfix
+  //margin: 20px auto 0
+  //padding: 20px 0 0
+
+// 1-column-grid
+.grid-100
+  width: 100%
+  margin: 0
+  .col1
+
+    .grid-50
+      +row(12)
+      margin: 0 -7px
+      .col1
+        +column(6)
+      .col2
+        +column(6)
+
+    .grid-33
+      +row(12)
+      .col1
+        +column(4)
+      .col2
+        +column(4)
+      .col2
+        +column(4)
+
+// 66%-36%-grid
+.grid-6633
+  margin: 0 -12px
+  .col1, .col2
+    float: left
+  .col1
+    +column(6)
+  .col2
+    +column(3)
+
+  //nested columns
+  .grid-50
+    margin: 0 -12px
+    .col1
+      +column(3)
+    .col2
+      +column(3)
+  .grid2575
+    .col1
+      margin: 0 1.5% 0 0
+      width: 23.5%
+    .col2
+      margin: 0 0 0 1.5% 
+      width: 73.5%
+
+// 75%-25%-grid
+.grid-7525
+  .col1, .col2
+    float: left
+  .col1
+    margin: 0 1.5% 0 0
+    width: 73.5%
+  .col2
+    margin: 0 0 0 1.5%
+    width: 23.5%
+
+  //nested columns
+  .grid-50
+    +row(6)
+    .col1
+      +column(3)
+    .col2
+      +column(3)
+
+
+// 50-50-grid
+.grid-50
+  .col1, .col2
+    float: left
+    width: 48.5%
+    //+box-sizing(border-box)
+    //padding: 0 5px
+  .col1
+    margin: 0 1.5% 0 0
+  .col2
+    margin: 0 0 0 1.5%
+
+  @media screen and (max-width: 481px)
+    .col1, .col2
+      float: none
+      width: 96%
+
+// 25%-75%-grid
+.grid-2575
+  .col1, .col2
+    float: left
+  .col1
+    margin: 0 1.5% 0 0
+    width: 23.5%
+  .col2
+    margin: 0 0 0 1.5%
+    width: 73.5%
+
+// 33%-66%-grid
+.grid-3366
+  margin: 0 -12px
+  .col1, .col2
+    float: left
+  .col1
+    +column(3)
+  .col2
+    +column(6)
+.grid-2244
+  margin: 0 -12px
+  .col1, .col2
+    float: left
+  .col1
+    +column(2)
+  .col2
+    +column(4)

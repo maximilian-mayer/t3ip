@@ -1,0 +1,297 @@
+/* forms
+ * ====================================================================
+ */
+
+$color-btn: #0171b9
+$color-btnForward: #fff
+$color-border: #414141
+
+$nav-color: #414141
+$nav-colorCurrent: #f60
+$nav-colorDone: #00254f
+
+$form-padding: 0.25em !default
+
+// errors
+.error-container
+  display: none
+  //background: $color-bg image-url("icons/ico-error.png") no-repeat 1em 1em
+  //background-origin: content-box
+  margin: 0 2% 1em
+  padding: 1em 1em 1em 3em
+
+  h3
+    color: #cc0000
+    font-size: px2em(12)
+    margin: 0 !important
+
+  li:before
+    content: '\2013\2000'
+
+label.error
+  color: #c00
+  position: relative
+  z-index: 1
+  &.showlayer
+    em
+      display: block
+  em
+    +border-radius()
+    +box-shadow(0 0 5px #999)
+    display: none
+    background-color: #f3f3f3 !important
+    font-style: normal
+    min-width: 33%
+    padding: 2.25em 1em 0.75em
+    top: -0.25em
+    left: -1em
+    z-index: -1
+
+input.error
+  border: 1px solid #c00
+
+.nav-tabbed
+
+  +pie-clearfix()
+  +nowrap()
+  list-style-type: none
+  padding: 0
+  margin: 0
+  //overflow: hidden
+
+  li
+    background-color: $color-lightgrey
+    display: inline
+    font-weight: bold
+    line-height: 2
+    color: $nav-color
+    font-size: 1.2em
+    margin: 0
+    padding: 0.35em 0.7em
+    overflow: hidden
+    border:
+      color: $color-lightgrey
+      style: solid
+      width: 1px 1px 0
+
+    .nav-text
+      padding: $form-padding
+
+form
+  ol, ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+  li
+    clear: both
+    padding: $form-padding 0
+
+  .full,
+  .wide,
+  .half,
+  .small
+    float: left
+    clear: none
+    +box-sizing(border-box)
+
+    input
+      width: 100%
+      +box-sizing(border-box)
+
+  .full
+    width: 100%
+  .wide
+    width: 73%
+    & + .small
+      margin-left: 4%
+  .half
+    width: 48%
+    & + .half
+      margin-left: 4%
+    &:nth-child(2n)
+      margin-left: 0
+    &.nl
+      float: none
+      clear: both
+      margin-left: 0
+  .small
+    width: 23%
+    font-size: 1em
+    & + .wide
+      margin-left: 4%
+
+  input.input-tiny
+    width: 50px
+
+  input.input-small
+    width: 100px
+
+  input.input-medium
+    width: 150px
+
+  input.input-large
+    width: 200px
+
+  input.input-xlarge
+    width: 250px
+
+  input.input-xxlarge
+    width: 300px
+
+  input.input-full
+    width: 100%
+
+  input, textarea
+    &::-webkit-input-placeholder
+      color: $color-grey
+    &:-moz-placeholder
+      color: $color-grey
+
+fieldset
+  padding: 0
+  font-size: 1em
+  &.options
+    margin: 0 4%
+  fieldset, p, ol, ul
+    //font-size: px2em(12,12)
+  fieldset
+    margin: 0 2%
+
+    fieldset.options
+      margin: 0 5% 2%
+
+  &.half + .half
+    margin-left: 4%
+  legend
+    @extend .visuallyhidden
+  sup
+    font-size: 1.2em
+    top: -0.2em
+    cursor: help
+
+  .options legend
+    @extend label
+  .options label
+    width: inherit
+    margin: 0 0.5em 0 0
+  .options .options label
+    width: 37% // not really good
+
+  .optional
+    margin: 0.5em 2%
+
+  .radiowrapper
+    width: 3%
+    margin-top: 3px
+    float: left
+
+    + label,
+    + label
+      float: left
+      width: 34.5% // not really good
+      margin: 0 1%
+
+  li em
+    display: none //maybe temp
+
+label
+  //white-space: nowrap
+  width: 36%
+  float: left
+  padding: $form-padding 0 //0.5% 0
+  margin: 0 2%
+  text-align: right
+  color: inherit
+  position: relative
+
+.label
+  @extend label
+  display: block
+  cursor: inherit
+  text-align: right
+
+  label
+    float: none
+    margin: 0
+    width: auto
+
+
+//input[type="submit"],
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="password"],
+input[type="search"],
+input[type="button"],
+textarea,
+button
+  width: 50%
+  padding: $form-padding  // 0.5% – percentage is buggy
+  border: 1px solid $color-border
+  color: $color-text
+  +single-transition(box-shadow, 0.2s)
+
+input:focus
+  border-color: $color-highlight
+  +box-shadow(0 0 5px $color-highlight)
+  color: $color-main
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+input[type="checkbox"] + label,
+input[type="radio"] + label
+  float: none
+  display: inline-block
+  text-align: left
+  width: inherit
+  vertical-align: text-top
+  width: 96%
+  margin: 0 0 0 0.5%
+  padding: 0 0 0.5em
+
+textarea
+  width: 100%
+  +box-sizing(border-box)
+
+legend.label + input[type="checkbox"]
+  margin: 0.5em 0 0
+select
+  width: inherit
+
+input[type="button"],
+input[type="submit"],
+button
+  +box-sizing(border-box)
+  // border: none
+  // background-color: lighten($color-text, 90%)
+  border: 1px solid $color-btn
+  // font-weight: bold
+  // margin-right: 0.25em
+  // overflow: visible
+  padding: 4px //$form-padding
+  width: auto
+  background-color: $color-btn
+  color: $white
+
+option
+  padding: 0
+
+
+.btn-toolbar
+  +pie-clearfix()
+
+  .icon
+    vertical-align: middle
+    margin: 0 0.25em
+
+.highlight-box
+  background-color: $color-bg
+  color: $color-main
+  padding: 1em
+  margin: 2%

@@ -1,0 +1,213 @@
+// Media-Queries
+// mobile first approach
+
+// common breakpoint for smartphones (iPhone, old Samsung, WP7 phones) portrait mode
+$mq-mobile        	  : 320px !default;
+// common breakpoint for smartphones (iPhone, Lumia) landscape mode
+$mq-mobile-landscape	: 480px !default;
+// common breakpoint for tablets (iPad) portrait mode
+$mq-tablet        	  : 768px !default;
+// common breakpoint for tablets (iPad) landscape mode and all time favourite desktop screens
+$mq-tablet-landscape	: 1024px !default;
+// common breakpoint for tablets (Transformer, Xoom) landscape mode desktop screens
+$mq-desktop	          : 1280px !default;
+
+// common breakpoint for smartphones (Samsung Galaxy, Google Nexus, HTC One) portrait mode
+$mp-mobile-large      : 360px !default;
+// common breakpoint for tablets (Playbook, Kindle Fire) portrait mode
+$mq-tablet-small      : 600px !default;
+
+
+////////////////
+// newer/special breakpoints
+////////////////
+
+// breakpoint for iPhone5 landscape mode
+$mq-iphone5-landscape: 568px !default;
+
+// breakpoint for tablets (Galaxy Nexus 7 Chrome Browser) portrait mode
+$mq-nexus7-portrait: 603px !default;
+
+
+
+// Everything above and including the mobile portrait
+@mixin phone-up {
+	@media (min-width : $mq-mobile + 1) {
+		@content;
+	}
+}
+
+// Both portrait and landscape
+@mixin phone-only {
+	@media (max-width : $mq-mobile-landscape) {
+		@content;
+	}
+}
+
+// Everything up to and including the portrait width of the phone
+// Since it's the smallest query it doesn't need a min
+@mixin phone-portrait-only {
+	@media (max-width : $mq-mobile) {
+		@content;
+	}
+}
+
+// Everything up to and including the mobile portrait
+@mixin phone-portrait-and-below {
+	@media (max-width : $mq-mobile) {
+		@content;
+	}
+}
+
+// Everything above and including the mobile portrait
+@mixin phone-portrait-and-up {
+	@media (min-width : $mq-mobile) {
+		@content;
+	}
+}
+
+// for phone width larger smartphone screens
+@mixin phone-large-portrait-up {
+	@media (min-width : $mq-mobile-large + 1) {
+		@content;
+	}
+}
+
+// Everthing larger than a portrait mobile up until mobile landscape
+@mixin phone-landscape-only {
+	@media only screen and (min-width : $mq-mobile + 1) and (max-width : $mq-mobile-landscape) {
+		@content;
+	}
+}
+
+// Everything up to and including the mobile landscape width
+@mixin phone-landscape-and-below {
+	@media only screen and (max-width : $mq-mobile-landscape) {
+		@content;
+	}
+}
+
+// Everything above and including the mobile landscape width
+@mixin phone-landscape-and-up {
+	@media only screen and (min-width : $mq-mobile + 1) {
+		@content;
+	}
+}
+
+
+// Everything above and including the mobile landscape width
+@mixin phone-up {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) {
+		@content;
+	}
+}
+
+// Both the portrait and landscape width of the tablet
+// Larger than a landscape mobile but less than or equal to a landscape tablet
+@mixin tablet-only {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-landscape) {
+		@content;
+	}
+}
+
+// Everything larger than mobile landscape up until the portrait width of the tablet
+@mixin tablet-portrait-only {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet) {
+		@content;
+	}
+}
+
+// Everything below and including the portrait width of the tablet
+@mixin tablet-portrait-and-below {
+	@media only screen and (max-width : $mq-tablet) {
+		@content;
+	}
+}
+
+// Everything above and including the portrait width of the tablet
+@mixin tablet-portrait-and-up {
+	@media only screen and (min-width : $mq-mobile-landscape + 1) {
+		@content;
+	}
+}
+
+// Larger than portrait but less than or equal to the landscape width
+@mixin tablet-landscape-only {
+	@media only screen and (min-width : $mq-tablet + 1) and (max-width : $mq-tablet-landscape) {
+		@content;
+	}
+}
+
+// Up to and including the tablet landscape
+@mixin tablet-landscape-and-below {
+	@media only screen and (max-width : $mq-tablet-landscape) {
+		@content;
+	}
+}
+
+// Everything larger than portrait tablet
+@mixin tablet-landscape-up {
+	@media only screen and (min-width : $mq-tablet-landscape) {
+		@content;
+	}
+}
+
+
+// Everything larger than portrait tablet
+@mixin tablet {
+	@media only screen and (min-width : $mq-tablet) {
+		@content;
+	}
+}
+
+
+// Everything larger than a landscape tablet
+@mixin desktop-and-up {
+	@media only screen and (min-width : $mq-tablet-landscape + 1) {
+		@content;
+	}
+}
+
+// Everything below and including the desktop
+@mixin desktop-and-below {
+	@media only screen and (max-width : $mq-desktop) {
+		@content;
+	}
+}
+
+// Everything larger than a landscape tablet but less than or equal to the desktop
+@mixin desktop-only {
+	@media only screen and (min-width : $mq-tablet-landscape + 1) and (max-width : $mq-desktop) {
+		@content;
+	}
+}
+// Everything below and including the desktop
+@mixin desktop {
+	@media only screen and (max-width : $mq-desktop + 1) {
+		@content;
+	}
+}
+
+// Retina screens have a 1.5 pixel ratio, not 2
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+		@content;
+	}
+}
+
+
+
+
+// newer breakpoint mixins
+
+@mixin iphone5-landscape {
+	@media (max-width : $mq-iphone5-landscape) {
+		@content;
+	}
+}
+
+@mixin nexus7-portrait {
+	@media (max-width : $mq-nexus7-portrait) {
+		@content;
+	}
+}
