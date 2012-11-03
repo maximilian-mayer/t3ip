@@ -2,13 +2,13 @@
  * ==================================================================
  */
 
-
 .m-stage
 	background-color: $color-main
 	min-height: 350px
 	position: relative
 	z-index: 10
-
+	+phone-up()
+		min-height: 280px
 	+tablet()
 		min-height: image-height("dummy/stage-bg_mini.png") - 90px
 		margin: 0 0 110px
@@ -74,21 +74,21 @@
 		color: $white
 		font-size: px2em(18)
 
-		// +phone-portrait-and-up()
-		// 	float: left
-		// 	width: 50%
+		+phone-up()
+			float: left
+			width: 50%
 
-		// 	// temp
-		// 	+nowrap()
+			// temp
+			+nowrap()
 
 		+tablet()
 			float: none
 			width: 100%
 
 
-		// +desktop()
-		// 	float: left
-		// 	width: 50%
+		+tablet-landscape-up()
+			float: left
+			width: 50%
 
 		// 	// temp
 		// 	+nowrap()
@@ -112,25 +112,27 @@
 
 	label
 		display: none
-		+tablet-landscape-up()
+		+phone-up()
 			display: inline-block
-			width: 20%
+			width: 40%
 			color: $white
 			font:
 				family: 'Share-Bold', $font-main
 				size: px2em(24,16)
 			line-height: 52px
+			float: left
+		+tablet()
+			width: 25%
 
 	.input-wrapper
 		display: inline-block
 		background-color: rgba($black, 0.2)
 		width: 100%
 		+phone-up()
-			width: 40%
+			width: 60%
 		+tablet()
-			width: 30%
-		+tablet-landscape-up()
-			width: 40%
+			width: 35%
+
 	.search-input,
 	.search-submit
 		background-color: transparent
@@ -158,3 +160,22 @@
 .m-login
 	@extend .nav-language
 
+
+
+
+
+
+
+
+//test
+.csc-textpic
+	+clearfix()
+.csc-textpic-imagewrap
+	float: left
+	width: 30%
+.csc-textpic-text
+	float: left
+	width: 70%
+
+	h3
+		margin-top: 0

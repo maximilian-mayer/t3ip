@@ -13,7 +13,7 @@
 
 	.nav-handler
 		display: block
-		background: $lightgrey url("../img/icons/ico-navlist.png") no-repeat 50%
+		background: $lightergrey url("../img/icons/ico-navlist.png") no-repeat 50%
 		text-indent: -999px
 
 		&:active, &:focus
@@ -29,6 +29,8 @@
 		+phone-up()
 			display: block
 			margin: 0 0 1em
+		+tablet()
+			text-align: center
 
 		> li
 			text-transform: uppercase
@@ -42,7 +44,10 @@
 			+transition-timing-function(ease-out)
 
 			+phone-up()
-				float: left
+				display: inline-block
+				font-size: px2em(13)
+			+tablet-landscape-up()
+				font-size: px2em(15)
 
 			&.act a, &.cur a
 				color: $color-main
@@ -53,6 +58,10 @@
 		padding: 1em 1em 0.5em
 		display: block
 		border-bottom: 3px solid transparent
+		+phone-up()
+			padding: 1em 0.75em 0.5em
+		+tablet-landscape-up()
+			padding: 1em 1em 0.5em
 
 		//.no-touch &:hover
 		&:hover
@@ -65,10 +74,10 @@
 .nav-language
 	float: right
 	height: 50px
-	background-color: $lightgrey
-	margin: 1em 10px
-	border: 1px solid darken($lightgrey, 20)
-	outline: 5px solid $lightgrey
+	background-color: $lightergrey
+	margin: 1em 10px 1em 0
+	border: 1px solid $lightgrey
+	outline: 5px solid lighten($lightgrey, 20)
 	+box-shadow(inset -1px 1px 0 rgba($white, 0.5))
 	+phone-up()
 		margin-top: 25px
@@ -83,8 +92,8 @@
 		text-align: center
 		font-weight: bold
 		line-height: 48px
-		border-left: 1px solid darken($lightgrey, 20)
+		border-left: 1px solid $lightgrey
 		+box-shadow(inset -1px 1px 0 rgba($white, 0.5))
 
-		+phone-up()
+		+tabletsmall()
 			display: inline-block

@@ -4,8 +4,10 @@
 
 
 //$icons-sprite-positon: 50%
-//$icons-sprite-dimensions: true
-$icons-spacing: 50px
+
+//$normal-sprite-dimensions: true
+$normal-spacing: 50px
+@import "icons/normal/*.png"
 
 .icon
 	height: 48px
@@ -14,40 +16,57 @@ $icons-spacing: 50px
 	vertical-align: middle
 
 
+// $sprites: sprite-map("icons/normal/*.png")
+// $sprites-retina: sprite-map("icons/retina/*.png")
 
-$sprites: sprite-map("icons/normal/*.png")
-$sprites-retina: sprite-map("icons/retina/*.png")
+// .sprite
+// 	background-image: sprite-url($sprites)
+// 	background-repeat: no-repeat
+// 	display: inline-block
+// 	vertical-align: middle
+// 	// should be calculated for @each $sprite-name if different icon size
+// 	//width: ceil(image-width(sprite-path($sprites)))
 
-.sprite
-	background-image: sprite-url($sprites)
-	background-repeat: no-repeat
-	display: inline-block
-	vertical-align: middle
-	// should be calculated for @each $sprite-name if different icon size
-	//width: ceil(image-width(sprite-path($sprites)))
+// @each $sprite-name in sprite-names($sprites)
+// 	.#{$sprite-name}
+// 		@extend .sprite
+// 		background-position: sprite-position($sprites, $sprite-name)
+// 		// could be outsourced if height/width is always the same on each element
+// 		height: image-height(sprite-file($sprites, $sprite-name))
+// 		width: image-width(sprite-file($sprites, $sprite-name))
 
-@each $sprite-name in sprite-names($sprites)
-	.#{$sprite-name}
-		@extend .sprite
-		background-position: sprite-position($sprites, $sprite-name)
-		// could be outsourced if height/width is always the same on each element
-		height: image-height(sprite-file($sprites, $sprite-name))
-		width: image-width(sprite-file($sprites, $sprite-name))
+// @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)
+// 	.retina-sprite
+// 		background-image: sprite-url($sprites-retina)
+// 		background-size: ceil(image-width(sprite-path($sprites-retina)) / 2) auto
 
-@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)
-	.retina-sprite
-		background-image: sprite-url($sprites-retina)
-		background-size: ceil(image-width(sprite-path($sprites-retina)) / 2) auto
-
-	@each $sprite-name in sprite-names($sprites)
-		.#{$sprite-name}
-			@extend .retina-sprite
-			@if (sprite-position($sprites, $sprite-name) != sprite-position($sprites-retina, $sprite-name))
-				$ypos: round(nth(sprite-position($sprites-retina, $sprite-name), 2) / 2)
-				background-position: 0 $ypos
+// 	@each $sprite-name in sprite-names($sprites)
+// 		.#{$sprite-name}
+// 			@extend .retina-sprite
+// 			@if (sprite-position($sprites, $sprite-name) != sprite-position($sprites-retina, $sprite-name))
+// 				$ypos: round(nth(sprite-position($sprites-retina, $sprite-name), 2) / 2)
+// 				background-position: 0 $ypos
 
 
 
 // .ico-tick
-// 	height: 32px
-// 	width: 32px
+
+.ico-tick
+	+normal-sprite(ico-tick)
+	height: 32px
+	width: 32px
+
+
+.ico-globe,
+.ico-lock-locked
+	+normal-sprite(ico-globe)
+	header &
+		+normal-sprite(ico-globe, false, 12px, 12px)
+		height: 48px
+		width: 48px
+
+.ico-lock-locked
+	+normal-sprite(ico-lock-locked)
+	header &
+		+normal-sprite(ico-lock-locked, false, 12px, 12px)
+

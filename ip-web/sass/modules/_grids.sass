@@ -52,7 +52,7 @@
       margin: 0 1.5% 0 0
       width: 23.5%
     .col2
-      margin: 0 0 0 1.5% 
+      margin: 0 0 0 1.5%
       width: 73.5%
 
 // 75%-25%-grid
@@ -112,6 +112,7 @@
     +column(3)
   .col2
     +column(6)
+
 .grid-2244
   margin: 0 -12px
   .col1, .col2
@@ -120,3 +121,18 @@
     +column(2)
   .col2
     +column(4)
+
+.grid-33
+  margin: 0
+  .col1, .col2, .col3
+    float: left
+    width: 33%
+    @media screen and (max-width: 481px)
+      float: none
+      width: 100%
+  // .col1
+  //   +column(4)
+  // .col2
+  //   +column(4)
+  // .col3
+  //   +column(4)

@@ -1,3 +1,4 @@
+
 // Media-Queries
 // mobile first approach
 
@@ -211,3 +212,11 @@ $mq-nexus7-portrait: 603px !default;
 		@content;
 	}
 }
+@mixin tabletsmall {
+	@media (min-width : $mq-tablet-small) {
+		@content;
+	}
+}
+
+// don't forget the new IE8 viewport CSS
+@-ms-viewport{ width: device-width; }

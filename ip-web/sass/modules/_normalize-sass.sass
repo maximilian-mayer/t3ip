@@ -121,13 +121,19 @@ a
 // headlines
 #{headings()}
 	font-weight: normal
-	text-rendering: optimizeLegibility
+	// text-rendering optimizeLegibility caused bug width letter-spacing
+	//text-rendering: optimizeLegibility
+	footer &
+		color: if($color-footerBg == black, $white, $color-text)
+
 
 $headline-var: h !default
 @for $i from 1 through 6
 	#{$headline-var}#{$i} a, .#{$headline-var}#{$i} a
 		font-size: 1em
 		text-decoration: none
+
+
 
 //headlines
 h1, .h1
@@ -141,9 +147,11 @@ h2, .h2
 	color: $color-h2
 
 h3, .h3
-	font: normal $h3-fontsize / 1.4 $font-main
+	font: bold $h3-fontsize / 1.4 $font-main
 	//margin: px2em(18, 30) 0
+	margin-bottom: 0.5em
 	color: $color-h3
+	text-transform: uppercase
 
 h4, .h4
 	font: normal $h4-fontsize / 1.4 $font-main
