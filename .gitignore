@@ -2,4 +2,6 @@
 .DS_Store
 ._*
 *.sublime-*
-/.sass-cache/
+*/.sass-cache/
+*.sass-cache*
+.DS_Store
