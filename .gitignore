@@ -1,0 +1,5 @@
+.project
+.DS_Store
+._*
+*.sublime-*
+/.sass-cache/
