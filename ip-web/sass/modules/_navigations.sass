@@ -24,13 +24,16 @@
 			display: none
 
 	ul
-		@extend .clearfix
+		overflow: hidden
+		position: relative
 		display: none
+		padding: 0 0.5em
+		+nowrap()
 		+phone-up()
 			display: block
-			margin: 0 0 1em
-		+tablet()
-			text-align: center
+			max-width: $containerMax
+			margin: 0 auto
+
 
 		> li
 			text-transform: uppercase
@@ -45,13 +48,21 @@
 
 			+phone-up()
 				display: inline-block
+				font-size: px2em(12)
+				margin: 0
+			+tablet()
 				font-size: px2em(13)
 			+tablet-landscape-up()
-				font-size: px2em(15)
+				font-size: px2em(16)
 
-			&.act a, &.cur a
-				color: $color-main
-				border-bottom: 3px solid $color-main
+			&.act, &.cur
+				a
+					// border-bottom: 3px solid $color-main
+					color: $color-main
+				li a
+					border-bottom: none
+
+
 	a
 		color: $grey
 		font-weight: bold
@@ -59,17 +70,40 @@
 		display: block
 		border-bottom: 3px solid transparent
 		+phone-up()
+			padding: 1em 0.4em 0.5em
+		+tablet()
 			padding: 1em 0.75em 0.5em
 		+tablet-landscape-up()
 			padding: 1em 1em 0.5em
+
 
 		//.no-touch &:hover
 		&:hover
 			color: $color-main
 			border-bottom-color: $color-main
 
+.nav-sub
+	border-top: 2px solid lighten($color-main, 20)
+
+	ul
+		max-width: $containerMax
+		margin: 0 auto
+		white-space: normal
+
+		> li
+			text-transform: none
+
+		a
+			color: $color-main
+			padding: 1em 0.75em 0.5em
 
 
+			&:hover, &:active, &:focus
+				color: $black
+
+
+
+// nav language
 
 .nav-language
 	float: right
@@ -79,6 +113,12 @@
 	border: 1px solid $lightgrey
 	outline: 5px solid lighten($lightgrey, 20)
 	+box-shadow(inset -1px 1px 0 rgba($white, 0.5))
+
+	&:hover, &:active, &:focus
+		background-color: $color-main
+		border: 1px solid lighten($color-main, 30)
+		outline: 5px solid lighten($color-main, 30)
+
 	+phone-up()
 		margin-top: 25px
 

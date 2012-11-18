@@ -17,7 +17,17 @@ header
 	border:
 		bottom: 2px solid $lightergrey
 	.inner-wrap
-		padding: 0
+		padding: 0 1em 0 0
+
+	.content &
+		border-bottom: none
+
+.content
+	aside
+		background-color: lighten($color-main, 40)
+		border: 1px solid $color-main
+		padding: 1em
+
 
 footer
 	@extend .clearfix
@@ -72,7 +82,7 @@ footer
 		display: inline-block
 		background: none
 		width: 160px
-		height: 67px
+		height: auto
 		margin-top: 0.5em
 
 

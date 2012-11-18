@@ -117,10 +117,13 @@ a
 	&:hover, &:active
 		outline: 0
 
+	.content &
+		text-decoration: underline
 
 // headlines
 #{headings()}
 	font-weight: normal
+	margin: 0 0 1em
 	// text-rendering optimizeLegibility caused bug width letter-spacing
 	//text-rendering: optimizeLegibility
 	footer &
@@ -137,12 +140,12 @@ $headline-var: h !default
 
 //headlines
 h1, .h1
-	font: normal $h1-fontsize / 1.4 $font-main
-	//margin: px2em(22, 38) 0
+	font: bold $h1-fontsize / 1.4 $font-main
+	//margin: px2em(24, 32) 0
 	color: $color-h1
 
 h2, .h2
-	font: normal $h2-fontsize / 1.4 $font-main
+	font: bold $h2-fontsize / 1.4 $font-main
 	//margin: px2em(21, 35) 0
 	color: $color-h2
 
@@ -154,12 +157,12 @@ h3, .h3
 	text-transform: uppercase
 
 h4, .h4
-	font: normal $h4-fontsize / 1.4 $font-main
+	font: bold $h4-fontsize / 1.4 $font-main
 	//margin: px2em(16, 24) 0
 	color: $color-h4
 
 h5, .h5
-	font: normal $h5-fontsize / 1.4 $font-main
+	font: bold $h5-fontsize / 1.4 $font-main
 	//margin: px2em(12, 18) 0
 	color: $color-h5
 
@@ -191,7 +194,6 @@ pre
 	//margin: rhythm(1) 0
 	// edit swo
 	margin: 0 0 1em
-	font-size: px2em(15)
 
 pre,
 code,

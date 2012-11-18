@@ -12,6 +12,9 @@
 	+tablet()
 		min-height: image-height("dummy/stage-bg_mini.png") - 90px
 		margin: 0 0 110px
+	.sub &
+		margin: 0
+		min-height: 50px
 
 		.stage-imagery
 			background: transparent url("../img/dummy/stage-bg_mini.png") no-repeat 0px 20px
@@ -41,24 +44,31 @@
 	h2
 		color: $white
 		width: auto
-		font-size: px2em(18)
-		font-family: 'Share-Regular', $font-main
+		font: normal px2em(18)/ 1 'Share-Regular', $font-main
 		margin-top: 0
 		+phone-up()
 			max-width: 60%
-		+tablet()
 			font-size: px2em(24)
 		+tablet-landscape-up()
 			margin-top: px2em(48,24)
 			margin-left: px2em(48,24)
+		.sub &
+			margin: 0
+			max-width: 100%
+		.firstline
+			display: block
+			font-size: px2em(32,18)
+			line-height: 1.2
+			font-family: 'Share-Bold', $font-main
+			margin-bottom: 0.5em
+			+phone-up()
+				margin-bottom: 0
 
-	.firstline
-		display: block
-		font-size: px2em(32,18)
-		line-height: 1.2
-		font-family: 'Share-Bold', $font-main
-
-
+		.secondline
+			.sub &
+				display: none
+				+phone-up()
+					display: block
 .m-featurelist
 	list-style-type: none
 	margin: 1em 0
@@ -107,6 +117,8 @@
 	z-index: 1
 	background-color: rgba($black, 0.2)
 
+	.sub &
+		position: relative
 	+tablet()
 		//padding-left: px2em(64,16)
 
@@ -123,6 +135,8 @@
 			float: left
 		+tablet()
 			width: 25%
+		.sub &
+			display: none
 
 	.input-wrapper
 		display: inline-block
@@ -132,6 +146,9 @@
 			width: 60%
 		+tablet()
 			width: 35%
+
+		.sub &
+			width: 100%
 
 	.search-input,
 	.search-submit
@@ -156,6 +173,8 @@
 		text-indent: -999px
 
 
+.sub .search-input
+	width: 70%
 
 .m-login
 	@extend .nav-language
@@ -167,15 +186,16 @@
 
 
 
-//test
-.csc-textpic
-	+clearfix()
-.csc-textpic-imagewrap
-	float: left
-	width: 30%
-.csc-textpic-text
-	float: left
-	width: 70%
 
-	h3
-		margin-top: 0
+// //test
+// .csc-textpic
+// 	+clearfix()
+// .csc-textpic-intext-left-nowrap .csc-textpic-imagewrap
+// 	float: left
+// 	width: 30%
+// .csc-textpic-intext-left-nowrap .csc-textpic-text
+// 	float: left
+// 	width: 70%
+
+// 	h3
+// 		margin-top: 0
