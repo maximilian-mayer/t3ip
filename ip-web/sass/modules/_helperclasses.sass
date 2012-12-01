@@ -64,10 +64,22 @@ img.alignRight
 
 %btn
   display: inline-block
-  padding: 1em
+  padding: 0.5em 1em
+  margin: 0 0.5em 1em 0
+  background-color: lighten($lightgrey, 20)
+  border: 1px solid lighten($grey, 20)
+  font-weight: bold
+  +border-radius(2px)
+  color: $grey
+  text-decoration: none
 
-.btn-action
+
+a.button
+  @extend %btn
+
+a.btn-action
   @extend %btn
   background-color: $color-main
   +link-colors($white,$black,$white,$white,$black)
-  font-weight: bold
+  border: none
+

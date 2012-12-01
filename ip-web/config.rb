@@ -7,7 +7,7 @@ sass_dir = "sass"
 images_dir = "img"
 javascripts_dir = "js"
 fonts_dir = "fonts"
-#generated_images_dir = "gen_img"
+generated_images_dir = "gen_img"
 
 #require 'rgbapng'
 environment = :development
@@ -25,7 +25,7 @@ line_comments = false
 asset_cache_buster :none
 #asset_cache_buster {|*args| nil }
 
-require 'breakpoint'
+#require 'breakpoint'
 # Have Growl? http://growl.info
 # 1. run `gem install compass-growl`
 # 2. uncomment the following:

@@ -106,16 +106,13 @@ footer
 	margin: 0
 	padding: 0
 
-
 	> li
-
 		// temp
 		// 123-steps as image
 		background: image-url("dummy/steps.png") no-repeat 50% 0
 		padding-top: 50px !important
 
-
-		+phone-up()
+		+tablet()
 			float: left
 			width: 33.333334%
 			padding: 0 1em
@@ -129,7 +126,8 @@ footer
 			padding-right: 0
 			background-position: 100% 0
 
-
+	h3
+		margin-top: 1em
 
 .headline-devider
 	font-size: px2em(22)
@@ -162,16 +160,7 @@ footer
 		left: .5em
 		margin: 0 -50% 0 0
 
-%button
-	display: inline-block
-	padding: 0.5em 1em
-	margin: 0 0.5em 1em 0
-	background-color: lighten($lightgrey, 20)
-	border: 1px solid lighten($grey, 20)
-	font-weight: bold
-	+border-radius(2px)
-	color: $grey
+		font-size: px2em(14)
 
-a.button
-	@extend %button
+
 

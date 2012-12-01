@@ -39,7 +39,7 @@
 			text-transform: uppercase
 			font-size: px2em(15)
 			margin: 0 0.25em
-
+			position: relative
 
 			// temp
 			+transition-property(display)
@@ -56,6 +56,14 @@
 				font-size: px2em(16)
 
 			&.act, &.cur
+				&:after
+					content: ''
+					border: 10px solid transparent
+					border-bottom-color: rgba($color-main, 0.6)
+					position: absolute
+					bottom: 0
+					left: 50%
+					margin-left: -10px
 				a
 					// border-bottom: 3px solid $color-main
 					color: $color-main
@@ -83,18 +91,25 @@
 			border-bottom-color: $color-main
 
 .nav-sub
-	border-top: 2px solid lighten($color-main, 20)
+	background-color: rgba($color-main, 0.6)
+
+	.nav-wrap
+		//background-color: rgba($black, 0.2)
 
 	ul
 		max-width: $containerMax
 		margin: 0 auto
 		white-space: normal
 
+
 		> li
 			text-transform: none
-
+			&.act, &.cur
+				a
+					border-bottom: 3px solid $color-main
+					color: $black
 		a
-			color: $color-main
+			color: $darkgrey
 			padding: 1em 0.75em 0.5em
 
 
@@ -107,7 +122,7 @@
 
 .nav-language
 	float: right
-	height: 50px
+	height: 42px
 	background-color: $lightergrey
 	margin: 1em 10px 1em 0
 	border: 1px solid $lightgrey
@@ -116,8 +131,17 @@
 
 	&:hover, &:active, &:focus
 		background-color: $color-main
-		border: 1px solid lighten($color-main, 30)
+		border: 1px solid darken($color-main, 10)
 		outline: 5px solid lighten($color-main, 30)
+
+
+		.icon
+			+normal-sprite(ico-globe_hover, false, 8px, 8px)
+
+		.text
+			color: $white
+			+box-shadow(inset -1px 1px 0 lighten($color-main, 30))
+			border-left: 1px solid darken($color-main, 10)
 
 	+phone-up()
 		margin-top: 25px
@@ -128,10 +152,10 @@
 		display: none
 		color: $grey
 		min-width: 80px
-		height: 48px
+		height: 40px
 		text-align: center
 		font-weight: bold
-		line-height: 48px
+		line-height: 40px
 		border-left: 1px solid $lightgrey
 		+box-shadow(inset -1px 1px 0 rgba($white, 0.5))
 

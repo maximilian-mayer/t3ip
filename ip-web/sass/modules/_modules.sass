@@ -7,17 +7,19 @@
 	min-height: 350px
 	position: relative
 	z-index: 10
-	+phone-up()
-		min-height: 280px
-	+tablet()
-		min-height: image-height("dummy/stage-bg_mini.png") - 90px
-		margin: 0 0 110px
+
 	.sub &
 		margin: 0
 		min-height: 50px
 
+	+phone-up()
+		min-height: 280px
+	+tablet()
+		min-height: image-height("dummy/stage-bg_mini.png") - 90px
+		margin-bottom: 75px
+
 		.stage-imagery
-			background: transparent url("../img/dummy/stage-bg_mini.png") no-repeat 0px 20px
+			background: transparent image-url("dummy/stage-bg_mini.png") no-repeat 0px 20px
 			min-height: image-height("dummy/stage-bg_mini.png")
 			position: absolute
 			top: 0
@@ -28,7 +30,6 @@
 			+transition-property(background-position)
 			+transition-duration(0.3s)
 			+transition-timing-function(ease-in)
-
 
 			+phone-up()
 				left: 60%
@@ -45,13 +46,13 @@
 		color: $white
 		width: auto
 		font: normal px2em(18)/ 1 'Share-Regular', $font-main
-		margin-top: 0
+		margin: 0
 		+phone-up()
-			max-width: 60%
 			font-size: px2em(24)
+		+tablet()
+			margin: 0 px2em(48,24) px2em(36,24) px2em(48,24)
 		+tablet-landscape-up()
-			margin-top: px2em(48,24)
-			margin-left: px2em(48,24)
+			margin: px2em(48,24)
 		.sub &
 			margin: 0
 			max-width: 100%
@@ -69,6 +70,7 @@
 				display: none
 				+phone-up()
 					display: block
+
 .m-featurelist
 	list-style-type: none
 	margin: 1em 0
@@ -107,8 +109,6 @@
 			margin-right: 0.25em
 
 
-
-
 .m-globalsearch
 	position: absolute
 	left: 0
@@ -122,6 +122,8 @@
 	+tablet()
 		//padding-left: px2em(64,16)
 
+	fieldset
+		padding: 0
 	label
 		display: none
 		+phone-up()
@@ -130,6 +132,7 @@
 			color: $white
 			font:
 				family: 'Share-Bold', $font-main
+				font-weight: normal
 				size: px2em(24,16)
 			line-height: 52px
 			float: left
@@ -179,10 +182,9 @@
 .m-login
 	@extend .nav-language
 
-
-
-
-
+	&:hover, &:active, &:focus
+		.icon
+			+normal-sprite(ico-lock-locked_hover, false, 8px, 8px)
 
 
 
