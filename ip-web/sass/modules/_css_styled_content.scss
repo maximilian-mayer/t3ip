@@ -1,0 +1,253 @@
+%clearfix {
+	&:before {
+		content: "";
+		display: table;
+	}
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.lt-ie8 & {
+		*zoom: 1;
+	}
+}
+
+
+/* Headers */
+.csc-header-alignment-center {
+	text-align: center;
+}
+
+.csc-header-alignment-right {
+	text-align: right;
+}
+
+.csc-header-alignment-left {
+	text-align: left;
+}
+
+// CSS Styled Content text with picture
+.csc-textpic {
+	@extend %clearfix;
+}
+.csc-textpic-imagewrap {
+	@extend %clearfix;
+
+	img {
+		border: none;
+		display: block;
+		vertical-align: bottom;
+		margin-bottom: 1em;
+
+		.csc-textpic-left &,
+		.csc-textpic-center &,
+		.csc-textpic-right & {
+			display: inline;
+		}
+	}
+	.csc-textpic-imagerow-none {
+		img {
+			display: block;
+		}
+	}
+}
+
+// colSpace around image columns, except for last column
+.csc-textpic-imagecolumn {
+	text-align: center;
+	@media only screen and (min-width: 481px) {
+		float: left;
+		margin-right: 1em;
+	}
+	&.csc-textpic-col {
+		margin-right: 0;
+		float: none;
+	}
+	&.csc-textpic-firstcol {
+		clear: both;
+	}
+	&.csc-textpic-lastcol {
+		margin-right: 0;
+	}
+}
+
+///////////////////////////
+// temp – only for 2 images
+@media only screen and (min-width: 481px) {
+	.csc-textpic-intext-left {
+		.csc-textpic-firstcol {
+			float: left;
+			width: 48%;
+			margin-right: 4%;
+		}
+		.csc-textpic-lastcol {
+			float: left;
+			width: 48%;
+			margin-right: 0;
+		}
+	}
+}
+
+
+
+// float pics left or right
+
+// Right (above or below)
+.csc-textpic-right {
+	> .csc-textpic-imagewrap {
+		text-align: right;
+	}
+	> .csc-textpic-text {
+
+	}
+}
+
+// Left (above or below)
+.csc-textpic-left {
+	> .csc-textpic-imagewrap {
+		text-align: left;
+	}
+	> .csc-textpic-text {
+
+	}
+}
+
+// Left (in text)
+.csc-textpic-intext-left {
+	> .csc-textpic-imagewrap {
+		@media only screen and (min-width: 481px) {
+			float: left;
+			//min-width: 20%;
+			max-width: 36.1%;
+			margin-right: 2%;
+		}
+		@media only screen and (min-width: 600px) {
+			.grid-6633 & {
+				max-width: 320px;
+				margin-right: 0;
+			}
+		}
+		// maybe a larger breakpoint
+		@media only screen and (min-width: 605px) {
+			.grid-6633 & {
+				//min-width: 20%;
+				max-width: 36.1%;
+				margin-right: 2%;
+			}
+		}
+	}
+}
+
+
+
+
+// Right (in text)
+.csc-textpic-intext-right {
+	> .csc-textpic-imagewrap {
+
+		@media only screen and (min-width: 481px) {
+			float: right;
+			//min-width: 20%;
+			max-width: 36.1%;
+			margin-left: 2%;
+		}
+		@media only screen and (min-width: 600px) {
+			.grid-6633 & {
+				max-width: 320px;
+				margin-left: 0;
+			}
+		}
+		// maybe a larger breakpoint
+		@media only screen and (min-width: 605px) {
+			.grid-6633 & {
+				//min-width: 20%;
+				max-width: 36.1%;
+				margin-left: 2%;
+			}
+		}
+	}
+}
+
+// Right (in text, no wrap around)
+.csc-textpic-intext-right-nowrap {
+  @extend .csc-textpic-intext-right;
+
+	> .csc-textpic-text {
+		margin-right: auto !important;
+		@media only screen and (min-width: 481px) {
+			width: 61.8%;
+			float: left;
+		}
+		@media only screen and (min-width: 600px) {
+			width: 100%;
+		}
+		@media only screen and (min-width: 605px) {
+			width: 61.8%;
+		}
+	}
+}
+
+// Left (in text, no wrap around)
+.csc-textpic-intext-left-nowrap {
+  @extend .csc-textpic-intext-left;
+
+	> .csc-textpic-text {
+		margin-left: auto !important;
+		@media only screen and (min-width: 481px) {
+			width: 61.8%;
+			float: right;
+		}
+		@media only screen and (min-width: 600px) {
+			width: 100%;
+		}
+		@media only screen and (min-width: 605px) {
+			width: 61.8%;
+		}
+	}
+}
+
+.csc-textpic-center {
+	.csc-textpic-center-outer {
+		position: relative;
+		right: 50%;
+		float: right;
+		width: 100%;
+	}
+	.csc-textpic-center-inner {
+		position: relative;
+		right: -50%;
+		float: right;
+		width: 100%;
+		text-align: center;
+	}
+	.csc-textpic-imagecolumn {
+		width: 100%;
+		margin-right: 0;
+		margin: 0 auto;
+	}
+}
+
+
+/* Captions */
+.csc-textpic-caption-c .csc-textpic-caption,
+.csc-textpic-imagewrap .csc-textpic-caption-c {
+  text-align: center;
+}
+
+.csc-textpic-caption-r .csc-textpic-caption,
+.csc-textpic-imagewrap .csc-textpic-caption-r {
+  text-align: right;
+}
+
+.csc-textpic-caption-l .csc-textpic-caption,
+.csc-textpic-imagewrap .csc-textpic-caption-l {
+  text-align: left;
+}
+
+
+
+// temp
+.csc-default {
+	margin: 1em 0
+}

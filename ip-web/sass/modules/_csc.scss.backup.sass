@@ -1,0 +1,180 @@
+
+
+/* Clear floats after csc-textpic and after csc-textpic-imagerow */
+
+
+.csc-uploads
+  li {
+  overflow: hidden;
+}
+
+
+/* Set padding for tables */
+.csc-textpic
+  .csc-textpic-imagewrap
+    table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.csc-textpic
+  .csc-textpic-imagewrap
+    table
+      td {
+  padding: 0;
+  vertical-align: top;
+}
+
+/* Settings for figure and figcaption (HTML5) */
+.csc-textpic
+  .csc-textpic-imagewrap
+  figure,
+.csc-textpic
+  figure.csc-textpic-imagewrap {
+  margin: 0;
+  display: table;
+}
+
+
+
+
+/* Border just around the image */
+.border {
+  border: 2px solid black;
+  padding: 2px 2px;
+}
+
+
+
+/* Space below each image (also in-between rows) */
+.csc-textpic
+  .csc-textpic-imagewrap
+    .csc-textpic-image {
+  margin-bottom: 10px;
+}
+
+.csc-textpic
+  .csc-textpic-imagewrap
+    .csc-textpic-imagerow-last
+      .csc-textpic-image {
+  margin-bottom: 0;
+}
+
+/* colSpace around image columns, except for last column */
+.csc-textpic-imagecolumn,
+  td.csc-textpic-imagecolumn
+    .csc-textpic-image {
+  margin-right: 10px;
+}
+
+.csc-textpic-imagecolumn.csc-textpic-lastcol,
+td.csc-textpic-imagecolumn.csc-textpic-lastcol
+  .csc-textpic-image {
+  margin-right: 0;
+}
+
+/* Add margin from image-block to text (in case of "Text w/ images") */
+
+.csc-textpic-intext-left
+  .csc-textpic-imagewrap,
+.csc-textpic-intext-left-nowrap
+  .csc-textpic-imagewrap {
+  margin-right: 10px;
+}
+
+.csc-textpic-intext-right
+  .csc-textpic-imagewrap,
+.csc-textpic-intext-right-nowrap
+  .csc-textpic-imagewrap {
+  margin-left: 10px;
+}
+
+/* Positioning of images: */
+
+/* Center (above or below) */
+.csc-textpic-center
+  .csc-textpic-imagewrap,
+.csc-textpic-center
+  figure.csc-textpic-imagewrap {
+  overflow: hidden;
+}
+
+
+
+.csc-textpic
+  .csc-textpic-imagerow-last,
+.csc-textpic
+  .csc-textpic-imagerow-none
+    .csc-textpic-last {
+  margin-bottom: 0;
+}
+
+/* Browser fixes: */
+
+
+/* Fix for unordered and ordered list with image "In text, left" */
+.csc-textpic-intext-left
+  ol,
+.csc-textpic-intext-left
+  ul {
+  padding-left: 40px;
+  overflow: auto;
+}
+
+/* File Links */
+.csc-uploads {
+  padding: 0;
+}
+
+.csc-uploads
+  > li {
+  list-style: none outside none;
+  margin: 1em 0;
+}
+
+.csc-uploads
+  img {
+  float: left;
+  padding-right: 1em;
+  vertical-align: top;
+}
+
+.csc-uploads
+  span {
+  display: block;
+}
+
+.csc-uploads
+  span.csc-uploads-fileName {
+  text-decoration: underline;
+}
+
+/* Table background colors: */
+
+.contenttable-color-1 {
+  background-color: red;
+}
+
+.contenttable-color-2 {
+  background-color: blue;
+}
+
+.contenttable-color-240 {
+  background-color: gray;
+}
+
+.contenttable-color-241 {
+  background-color: black;
+}
+
+.contenttable-color-242 {
+  background-color: white;
+}
+
+.contenttable-color-243 {
+  background-color: green;
+}
+
+.contenttable-color-244 {
+  background-color: yellow;
+}
