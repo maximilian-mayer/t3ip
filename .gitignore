@@ -4,7 +4,7 @@
 *.sublime-*
 */.sass-cache/
 *.sass-cache*
-.DS_Store
+*.DS_Store
 
 ip-web/sftp-config.json
 
@@ -20,4 +20,8 @@ ip-web/sass/.DS_Store
 
 ip-web/sass/.DS_Store
 
-ip-web/.DS_Store
+*/.DS_Store
+
+*/old_templates/*
+*/TypoScript_old/*
+*/ts/*

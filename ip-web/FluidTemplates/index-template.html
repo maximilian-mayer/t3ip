@@ -1,0 +1,42 @@
+
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+		<![endif]-->
+
+	<div class="container">
+		<header>
+			<div class="inner-wrap">
+				<f:cObject typoscriptObjectPath="lib.logo" />
+
+				<f:cObject typoscriptObjectPath="lib.navLanguage" />
+				<f:cObject typoscriptObjectPath="lib.login" />
+			</div>
+		</header>
+		<nav class="nav-main">
+			<a href="#" id="navigation" class="nav-handler ir">Main Navigation</a>
+			<f:cObject typoscriptObjectPath="menu.firstlevel" />
+			<f:cObject typoscriptObjectPath="menu.secondlevel" />
+		</nav>
+		<f:cObject typoscriptObjectPath="lib.stage" />
+
+		<div role="main" class="content">
+		<!--TYPO3SEARCH_begin-->
+		<div class="inner-wrap">
+			<section class="wrapper grid-6633">
+				<div class="col1">
+					<f:cObject typoscriptObjectPath="lib.content" />
+				</div>
+				<aside class="col2">
+					<f:cObject typoscriptObjectPath="lib.contentright" />
+				</aside>
+			</section>
+		</div>
+		<!--TYPO3SEARCH_end-->
+		</div>
+		<footer>
+			<div class="inner-wrap">
+				<f:cObject typoscriptObjectPath="lib.login" />
+			</div>
+		</footer>
+	</div>
+
