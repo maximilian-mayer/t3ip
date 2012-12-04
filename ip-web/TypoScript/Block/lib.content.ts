@@ -30,5 +30,5 @@ lib.content.stdWrap.replacement {
 
 lib.content {
 	# Wrap it in the markers for the search engine, so it knows that this part has to be indexed
-	stdWrap.wrap = <!--TYPO3SEARCH_begin--> | <!--TYPO3SEARCH_end-->
+	#stdWrap.wrap = <!--TYPO3SEARCH_begin--> | <!--TYPO3SEARCH_end-->
 }

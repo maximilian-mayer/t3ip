@@ -57,15 +57,16 @@
 .csc-textpic-imagecolumn {
 	text-align: center;
 	@media only screen and (min-width: 481px) {
-		float: left;
+		display: inline-block;
 		margin-right: 1em;
+		vertical-align: top;
+		width: auto;
+		max-width: 100%;
 	}
 	&.csc-textpic-col {
 		margin-right: 0;
-		float: none;
 	}
 	&.csc-textpic-firstcol {
-		clear: both;
 	}
 	&.csc-textpic-lastcol {
 		margin-right: 0;
@@ -208,23 +209,27 @@
 }
 
 .csc-textpic-center {
-	.csc-textpic-center-outer {
-		position: relative;
-		right: 50%;
-		float: right;
-		width: 100%;
-	}
-	.csc-textpic-center-inner {
-		position: relative;
-		right: -50%;
-		float: right;
-		width: 100%;
-		text-align: center;
-	}
+	// .csc-textpic-center-outer {
+	// 	position: relative;
+	// 	right: 50%;
+	// 	float: right;
+	// 	width: 100%;
+	// }
+	// .csc-textpic-center-inner {
+	// 	position: relative;
+	// 	right: -50%;
+	// 	float: right;
+	// 	width: 100%;
+	// 	text-align: center;
+	// }
+	text-align: center;
 	.csc-textpic-imagecolumn {
-		width: 100%;
+		// width: 100%;
 		margin-right: 0;
 		margin: 0 auto;
+	}
+	> .csc-textpic-text {
+		text-align: left;
 	}
 }
 

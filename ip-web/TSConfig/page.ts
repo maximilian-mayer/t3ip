@@ -4,7 +4,7 @@
 
 # Show only the chosen columns in the page module
 # 0=normal, 1=left, 2=right, 3=border
-mod.SHARED.colPos_list = 1,0,2
+#mod.SHARED.colPos_list = 1,0,2
 
 # Set the default label and flag
 mod.SHARED.defaultLanguageLabel = English
@@ -17,10 +17,10 @@ TCEFORM {
 	pages {
 		layout {
 			# Rename the default options for the layout field in table pages
-			altLabels.0 = Standard 3 columns
-			altLabels.1 = Columns left & main
-			altLabels.2 = Columns main & right
-			altLabels.3 = Column main only
+			#altLabels.0 = Standard 3 columns
+			#altLabels.1 = Columns left & main
+			#altLabels.2 = Columns main & right
+			#altLabels.3 = Column main only
 		}
 		# There is no need for the Alias field in page properties when we use RealURL
 		alias.disabled = 1

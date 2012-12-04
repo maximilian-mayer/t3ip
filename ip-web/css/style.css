@@ -1035,6 +1035,7 @@ footer .copyright {
 .headline-devider:after {
   left: 0.5em;
   margin: 0 -50% 0 0;
+  font-size: 0.875em;
 }
 
 /* Layout

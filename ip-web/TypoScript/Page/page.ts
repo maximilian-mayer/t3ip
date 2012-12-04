@@ -27,6 +27,6 @@ page {
       default.value = {$filepaths.templates}main-template.html
       2 = TEXT
       2.value = {$filepaths.templates}index-template.html
+    }
   }
-
 }

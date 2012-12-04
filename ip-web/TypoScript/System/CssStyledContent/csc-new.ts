@@ -960,7 +960,8 @@ tt_content.image.20 {
 					key.field = imageorient
 					# above-center
 					0 = TEXT
-					0.value = <div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"> | </div></div>
+					#0.value = <div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"> | </div></div>
+					0.value =  |
 					# below-center
 					8 < .0
 				}

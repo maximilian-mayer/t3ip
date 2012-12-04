@@ -23,12 +23,12 @@ lib.footer = COA
 
 lib.footer.10 < styles.content.getLeft
 lib.footer.10.select.pidInList = {$contentpage.footerPID}
-lib.footer.10.stdWrap.wrap = <div class="footerFrame">|</div>
+#lib.footer.10.stdWrap.wrap = <div class="footerFrame">|</div>
 
 lib.footer.20 < styles.content.get
 lib.footer.20.select.pidInList = {$contentpage.footerPID}
-lib.footer.20.stdWrap.wrap = <div class="footerFrame">|</div>
+#lib.footer.20.stdWrap.wrap = <div class="footerFrame">|</div>
 
 lib.footer.30 < styles.content.getRight
 lib.footer.30.select.pidInList = {$contentpage.footerPID}
-lib.footer.30.stdWrap.wrap = <div class="footerFrame-last">|</div>
+#lib.footer.30.stdWrap.wrap = <div class="footerFrame-last">|</div>

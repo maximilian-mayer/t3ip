@@ -2,10 +2,10 @@
 # <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/constants.ts">
 
 
-<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/constants.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/TtNews/constants.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/JqueryColorbox/constants.ts">
-<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/WtSpamshield/constants.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/constants.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/TtNews/constants.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/JqueryColorbox/constants.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/WtSpamshield/constants.ts">
 
 filepaths {
 	# cat=filepaths; type=string; label=HTML Templates: Location of the (X)HTML templates relative to site
@@ -91,7 +91,7 @@ styles.content {
 	imgtext {
 		maxW = 651
 		maxWInText = 651
-		borderThick = 1
+		borderThick = 0
 		linkWrap.newWindow = 1
 	}
 	uploads {
