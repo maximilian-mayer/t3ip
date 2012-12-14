@@ -89,11 +89,11 @@ footer[role="contentinfo"]
 		width: round(image-width("TYPO3-logo-new.png") / 1.5)
 		height: round(image-height("TYPO3-logo-new.png") / 1.5)
 
-		@media only screen and (max-width: 319px)
+		+respond-max(319px)
 			width: round(image-width("TYPO3-logo-new.png") / 2)
 			height: round(image-height("TYPO3-logo-new.png") / 2)
 
-		+phone-up()
+		+respond-min(481px)
 			width: image-width("TYPO3-logo-new.png")
 			height: image-height("TYPO3-logo-new.png")
 			margin-top: 0
@@ -102,10 +102,10 @@ footer[role="contentinfo"]
 			background: transparent image-url("TYPO3-logo-new.svg") no-repeat
 			+background-size(round(image-width("TYPO3-logo-new.png") / 1.5) auto)
 
-			@media only screen and (max-width: 319px)
+			+respond-max(319px)
 				+background-size(round(image-width("TYPO3-logo-new.png") / 2) auto)
 
-			+phone-up()
+			+respond-min(481px)
 				+background-size(image-width("TYPO3-logo-new.png") auto)
 
 
@@ -127,11 +127,11 @@ footer[role="contentinfo"]
 		background: image-url("dummy/steps.png") no-repeat 50% 0
 		padding-top: 50px !important
 
-		+tablet()
+		+respond-min(768px)
 			float: left
 			width: 33.333334%
 			padding: 0 1em
-		+tablet-landscape-up()
+		+respond-min(1024px)
 			padding: 0 5em 0 1em
 
 		&:first-child

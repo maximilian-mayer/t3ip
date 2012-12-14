@@ -59,7 +59,7 @@
 // colSpace around image columns, except for last column
 .csc-textpic-imagecolumn {
 	text-align: center;
-	@media only screen and (min-width: 481px) {
+	@include respond-min(481px) {
 		display: inline-block;
 		margin-right: 1em;
 		vertical-align: top;
@@ -69,7 +69,7 @@
 	&.csc-textpic-col {
 		margin-right: 0;
 	}
-	@media only screen and (min-width: 481px) {
+	@include respond-min(481px) {
 		&.csc-textpic-firstcol {
 		}
 	}
@@ -83,7 +83,7 @@
 
 ///////////////////////////
 // temp – only for 2 images
-@media only screen and (min-width: 481px) {
+@include respond-min(481px) {
 	.csc-textpic-intext-left {
 		.csc-textpic-firstcol {
 			float: left;
@@ -125,20 +125,20 @@
 // Left (in text)
 .csc-textpic-intext-left {
 	> .csc-textpic-imagewrap {
-		@media only screen and (min-width: 481px) {
+		@include respond-min(481px) {
 			float: left;
 			//min-width: 20%;
 			max-width: 36.1%;
 			margin-right: 2%;
 		}
-		@media only screen and (min-width: 600px) {
+		@include respond-min(600px) {
 			.grid-6633 & {
 				max-width: 320px;
 				margin-right: 0;
 			}
 		}
 		// maybe a larger breakpoint
-		@media only screen and (min-width: 605px) {
+		@include respond-min(605px) {
 			.grid-6633 & {
 				//min-width: 20%;
 				max-width: 36.1%;
@@ -155,20 +155,20 @@
 .csc-textpic-intext-right {
 	> .csc-textpic-imagewrap {
 
-		@media only screen and (min-width: 481px) {
+		@include respond-min(481px) {
 			float: right;
 			//min-width: 20%;
 			max-width: 36.1%;
 			margin-left: 2%;
 		}
-		@media only screen and (min-width: 600px) {
+		@include respond-min(600px) {
 			.grid-6633 & {
 				max-width: 320px;
 				margin-left: 0;
 			}
 		}
 		// maybe a larger breakpoint
-		@media only screen and (min-width: 605px) {
+		@include respond-min(605px) {
 			.grid-6633 & {
 				//min-width: 20%;
 				max-width: 36.1%;
@@ -184,14 +184,14 @@
 
 	> .csc-textpic-text {
 		margin-right: auto !important;
-		@media only screen and (min-width: 481px) {
+		@include respond-min(481px) {
 			width: 61.8%;
 			float: left;
 		}
-		@media only screen and (min-width: 600px) {
+		@include respond-min(600px) {
 			width: 100%;
 		}
-		@media only screen and (min-width: 605px) {
+		@include respond-min(605px) {
 			width: 61.8%;
 		}
 	}
@@ -203,14 +203,14 @@
 
 	> .csc-textpic-text {
 		margin-left: auto !important;
-		@media only screen and (min-width: 481px) {
+		@include respond-min(481px) {
 			width: 61.8%;
 			float: right;
 		}
-		@media only screen and (min-width: 600px) {
+		@include respond-min(600px) {
 			width: 100%;
 		}
-		@media only screen and (min-width: 605px) {
+		@include respond-min(605px) {
 			width: 61.8%;
 		}
 	}

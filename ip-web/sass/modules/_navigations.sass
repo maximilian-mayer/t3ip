@@ -22,7 +22,7 @@
 		// 	+ ul
 		// 		display: block
 
-		+phone-up()
+		+respond-min(481px)
 			display: none
 
 	ul
@@ -31,7 +31,7 @@
 		display: none
 		padding: 0 0.5em
 		+nowrap()
-		+phone-up()
+		+respond-min(481px)
 			display: block
 			max-width: $containerMax
 			margin: 0 auto
@@ -50,13 +50,13 @@
 			+transition-duration(0.2s)
 			+transition-timing-function(ease-out)
 
-			+phone-up()
+			+respond-min(481px)
 				display: inline-block
 				font-size: px2em(12)
 				margin: 0
-			+tablet()
+			+respond-min(768px)
 				font-size: px2em(13)
-			+tablet-landscape-up()
+			+respond-min(1024px)
 				font-size: px2em(16)
 
 			&.act, &.cur
@@ -81,11 +81,11 @@
 		padding: 1em 1em 0.5em
 		display: block
 		border-bottom: 3px solid transparent
-		+phone-up()
+		+respond-min(481px)
 			padding: 1em 0.4em 0.5em
-		+tablet()
+		+respond-min(768px)
 			padding: 1em 0.75em 0.5em
-		+tablet-landscape-up()
+		+respond-min(1024px)
 			padding: 1em 1em 0.5em
 
 
@@ -147,7 +147,7 @@
 			+box-shadow(inset -1px 1px 0 lighten($color-main, 30))
 			border-left: 1px solid darken($color-main, 10)
 
-	+phone-up()
+	+respond-min(481px)
 		margin-top: 25px
 
 	.icon
@@ -163,5 +163,5 @@
 		border-left: 1px solid $lightgrey
 		+box-shadow(inset -1px 1px 0 rgba($white, 0.5))
 
-		+tabletsmall()
+		+respond-min(600px)
 			display: inline-block

@@ -32,7 +32,7 @@
 
 // 66%-36%-grid
 .grid-6633
-  @media screen and (min-width: 600px)
+  +respond-min(600px)
     .col1, .col2
       float: left
     .col1
@@ -42,7 +42,7 @@
       margin: 0 0 0 1.5333333%
       width: 38.5333333%
 
-  @media screen and (min-width: 768px)
+  +respond-min(768px)
     .col1
       width: 64.53333333%
     .col2
@@ -66,7 +66,7 @@
 
 // 75%-25%-grid
 .grid-7525
-  @media screen and (min-width: 604px)
+  +respond-min(605px)
     .col1, .col2
       float: left
     .col1
@@ -97,7 +97,7 @@
   .col2
     margin: 0 0 0 1.5%
 
-  @media screen and (max-width: 604px)
+  +respond-min(605px)
     .col1, .col2
       float: none
       width: 96%
@@ -136,7 +136,7 @@
   margin: 0
   .col1, .col2, .col3
 
-    @media screen and (min-width: 481px)
+    @include respond-min(481px)
       float: left
       width: 33%
   // .col1

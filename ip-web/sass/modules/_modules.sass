@@ -12,9 +12,9 @@
 		margin: 0
 		min-height: 50px
 
-	+phone-up()
+	+respond-min(481px)
 		min-height: 280px
-	+tablet()
+	+respond-min(768px)
 		min-height: image-height("dummy/stage-bg-new_mini.png") - 80px
 		margin-bottom: 40px
 
@@ -31,7 +31,7 @@
 			+transition-duration(0.3s)
 			+transition-timing-function(ease-in)
 
-			+phone-up()
+			+respond-min(481px)
 				left: 60%
 			// +break5()
 			// 	background-position: 600px 20px
@@ -55,11 +55,11 @@
 		.no-fontface &
 			font-size: px2em(16)
 
-		+phone-up()
+		+respond-min(481px)
 			font-size: px2em(24)
-		+tablet()
+		+respond-min(768px)
 			margin: 0 px2em(48,24) px2em(36,24) px2em(48,24)
-		+tablet-landscape-up()
+		+respond-min(1024px)
 			margin: px2em(48,24)
 
 		.sub &
@@ -78,7 +78,7 @@
 		.secondline
 			.sub &
 				display: none
-				+phone-up()
+				+respond-min(481px)
 					display: block
 
 .m-featurelist
@@ -87,7 +87,7 @@
 	padding: 0
 	overflow: hidden
 
-	+tablet()
+	+respond-min(768px)
 		width: 50%
 		margin-left: px2em(48,16)
 
@@ -96,19 +96,19 @@
 		color: $white
 		font-size: px2em(18)
 
-		+phone-up()
+		+respond-min(481px)
 			float: left
 			width: 50%
 
 			// temp
 			+nowrap()
 
-		+tablet()
+		+respond-min(768px)
 			float: none
 			width: 100%
 
 
-		+tablet-landscape-up()
+		+respond-min(1024px)
 			float: left
 			width: 50%
 
@@ -131,14 +131,14 @@
 		position: relative
 		display: none
 
-		+tabletsmall()
+		+respond-min(600px)
 			display: block
 
 	fieldset
 		padding: 0
 	label
 		display: none
-		+phone-up()
+		+respond-min(480px)
 			display: inline-block
 			width: 40%
 			color: $white
@@ -148,7 +148,7 @@
 				size: px2em(24,16)
 			line-height: 52px
 			float: left
-		+tablet()
+		+respond-min(768px)
 			width: 25%
 		.sub &
 			display: none
@@ -158,9 +158,9 @@
 		background-color: rgba($black, 0.2)
 		width: 100%
 
-		+phone-up()
+		+respond-min(481px)
 			width: 60%
-		+tablet()
+		+respond-min(768px)
 			width: 33%
 
 		.sub &
@@ -181,7 +181,7 @@
 		.sub &
 			min-width: 85px
 			width: 65%
-		+phone-portrait-and-up()
+		+respond-min(481px)
 			width: 70%
 
 		&::-webkit-input-placeholder

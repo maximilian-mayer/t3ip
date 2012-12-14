@@ -8,7 +8,7 @@ Special condition comment wrap for including extra CSS file for Internet Explore
 */
 
 page.includeCSS {
-	ltIE9 = {$filepaths.css}ltIE9.css
+	ltIE9 = {$filepaths.css}all-old-ie.css
 	ltIE9.media = screen
 	ltIE9.allWrap = <!--[if lt IE 9]>|<![endif]-->
 
