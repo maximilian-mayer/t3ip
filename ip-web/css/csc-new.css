@@ -12,15 +12,18 @@
 }
 
 /* Headers */
-.csc-header-alignment-center {
+.csc-header-alignment-center,
+.align-center {
   text-align: center;
 }
 
-.csc-header-alignment-right {
+.csc-header-alignment-right,
+.align-right {
   text-align: right;
 }
 
-.csc-header-alignment-left {
+.csc-header-alignment-left,
+.align-left {
   text-align: left;
 }
 

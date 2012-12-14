@@ -15,15 +15,18 @@
 
 
 /* Headers */
-.csc-header-alignment-center {
+.csc-header-alignment-center,
+.align-center {
 	text-align: center;
 }
 
-.csc-header-alignment-right {
+.csc-header-alignment-right,
+.align-right {
 	text-align: right;
 }
 
-.csc-header-alignment-left {
+.csc-header-alignment-left,
+.align-left {
 	text-align: left;
 }
 
@@ -66,10 +69,15 @@
 	&.csc-textpic-col {
 		margin-right: 0;
 	}
-	&.csc-textpic-firstcol {
+	@media only screen and (min-width: 481px) {
+		&.csc-textpic-firstcol {
+		}
 	}
 	&.csc-textpic-lastcol {
 		margin-right: 0;
+	}
+	&.csc-textpic-lastcol + .csc-textpic-firstcol {
+
 	}
 }
 

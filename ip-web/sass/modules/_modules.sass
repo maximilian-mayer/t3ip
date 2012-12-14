@@ -15,12 +15,12 @@
 	+phone-up()
 		min-height: 280px
 	+tablet()
-		min-height: image-height("dummy/stage-bg_mini.png") - 90px
-		margin-bottom: 75px
+		min-height: image-height("dummy/stage-bg-new_mini.png") - 80px
+		margin-bottom: 40px
 
 		.stage-imagery
-			background: transparent image-url("dummy/stage-bg_mini.png") no-repeat 0px 20px
-			min-height: image-height("dummy/stage-bg_mini.png")
+			background: transparent image-url("dummy/stage-bg-new_mini.png") no-repeat 0px 20px
+			min-height: image-height("dummy/stage-bg-new_mini.png")
 			position: absolute
 			top: 0
 			left: 40%
@@ -45,25 +45,35 @@
 	h2
 		color: $white
 		width: auto
-		font: normal px2em(18)/ 1 'Share-Regular', $font-main
+		font:
+			weight: normal
+			size: px2em(18)
+			family: 'Share-Regular', $font-main
+		line-height: 1.2
 		margin: 0
+
+		.no-fontface &
+			font-size: px2em(16)
+
 		+phone-up()
 			font-size: px2em(24)
 		+tablet()
 			margin: 0 px2em(48,24) px2em(36,24) px2em(48,24)
 		+tablet-landscape-up()
 			margin: px2em(48,24)
+
 		.sub &
 			margin: 0
 			max-width: 100%
+
 		.firstline
 			display: block
-			font-size: px2em(32,18)
-			line-height: 1.2
+			font-size: px2em(24)
 			font-family: 'Share-Bold', $font-main
-			margin-bottom: 0.5em
-			+phone-up()
-				margin-bottom: 0
+			margin-bottom: 0
+
+			.no-fontface &
+				font-size: px2em(20)
 
 		.secondline
 			.sub &
@@ -119,8 +129,10 @@
 
 	.sub &
 		position: relative
-	+tablet()
-		//padding-left: px2em(64,16)
+		display: none
+
+		+tabletsmall()
+			display: block
 
 	fieldset
 		padding: 0
@@ -145,21 +157,32 @@
 		display: inline-block
 		background-color: rgba($black, 0.2)
 		width: 100%
+
 		+phone-up()
 			width: 60%
 		+tablet()
-			width: 35%
+			width: 33%
 
 		.sub &
 			width: 100%
 
-	.search-input,
-	.search-submit
+	.search-input
+		+box-sizing(border-box)
 		background-color: transparent
+		display: inline-block
 		border: none
 		padding: 1em 0 1em 1em
-		width: 78%
 		color: $white
+		min-width: 130px
+		width: 60%
+		height: 52px
+		line-height: 1
+		font-size: px2em(18,16)
+		.sub &
+			min-width: 85px
+			width: 65%
+		+phone-portrait-and-up()
+			width: 70%
 
 		&::-webkit-input-placeholder
 			color: $white
@@ -167,17 +190,21 @@
 			color: $white
 
 	.search-submit
+		@extend .search-input
+		+border-radius(0)
+		+box-sizing(content-box)
 		background: rgba($black, 0.4) image-url("icons/retina/ico-search.png")	no-repeat 50%
-		background-size: 50% 50%
-		width: 52px
-		height: 52px
-		display: inline-block
-		float: right
+		+background-size(50% 50%)
+		min-width: 1em
+		width: auto
+		height: 1em
 		text-indent: -999px
+		float: right
+		padding: 1em
 
-
-.sub .search-input
-	width: 70%
+		.sub &
+			min-width: 1em
+			width: 1em
 
 .m-login
 	@extend .nav-language

@@ -12,24 +12,27 @@
 	padding: $padding
 	width: 100%
 
-header
+header[role="banner"]
 	@extend .clearfix
 	border:
 		bottom: 2px solid $lightergrey
 	.inner-wrap
 		padding: 0 1em 0 0
 
+		@media only screen and (max-width: 319px)
+			padding: 0
+
 	.content &
 		border-bottom: none
 
 .content
-	aside
+	aside[role="complementary"]
 		background-color: lighten($color-main, 40)
 		border: 1px solid $color-main
 		padding: 1em
 
 
-footer
+footer[role="contentinfo"]
 	@extend .clearfix
 	background-color: $darkgrey //$color-footerBg
 	color: if($color-footerBg == black, $white, $color-text)
@@ -81,18 +84,30 @@ footer
 	a
 		display: inline-block
 		background: none
-		width: 160px
-		height: auto
 		margin-top: 0.5em
 
+		width: round(image-width("TYPO3-logo-new.png") / 1.5)
+		height: round(image-height("TYPO3-logo-new.png") / 1.5)
 
-		@media screen and (min-width: 481px)
-			width: 230px
+		@media only screen and (max-width: 319px)
+			width: round(image-width("TYPO3-logo-new.png") / 2)
+			height: round(image-height("TYPO3-logo-new.png") / 2)
+
+		+phone-up()
+			width: image-width("TYPO3-logo-new.png")
+			height: image-height("TYPO3-logo-new.png")
 			margin-top: 0
 
-		.no-inlinesvg &
-			background: transparent image-url("TYPO3-logo-new.png") no-repeat
-			+background-size(160px auto)
+		.svg &
+			background: transparent image-url("TYPO3-logo-new.svg") no-repeat
+			+background-size(round(image-width("TYPO3-logo-new.png") / 1.5) auto)
+
+			@media only screen and (max-width: 319px)
+				+background-size(round(image-width("TYPO3-logo-new.png") / 2) auto)
+
+			+phone-up()
+				+background-size(image-width("TYPO3-logo-new.png") auto)
+
 
 			img
 				display: none
@@ -116,7 +131,7 @@ footer
 			float: left
 			width: 33.333334%
 			padding: 0 1em
-		+tablet()
+		+tablet-landscape-up()
 			padding: 0 5em 0 1em
 
 		&:first-child

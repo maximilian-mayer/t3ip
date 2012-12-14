@@ -140,31 +140,51 @@ $headline-var: h !default
 
 //headlines
 h1, .h1
-	font: bold $h1-fontsize / 1.4 $font-main
-	//margin: px2em(24, 32) 0
+	font:
+		weight: bold
+		size: $h1-fontsize
+		family: $font-main
 	color: $color-h1
+	line-height: 1.4
+	//margin: px2em(24, 32) 0
 
 h2, .h2
-	font: bold $h2-fontsize / 1.4 $font-main
+	font:
+		weight: bold
+		size: $h2-fontsize
+		family: $font-main
 	//margin: px2em(21, 35) 0
 	color: $color-h2
+	line-height: 1.4
 
 h3, .h3
-	font: bold $h3-fontsize / 1.4 $font-main
+	font:
+		weight: bold
+		size: $h3-fontsize
+		family: $font-main
 	//margin: px2em(18, 30) 0
 	margin-bottom: 0.5em
 	color: $color-h3
+	line-height: 1.4
 	text-transform: uppercase
 
 h4, .h4
-	font: bold $h4-fontsize / 1.4 $font-main
+	font:
+		weight: bold
+		size: $h4-fontsize
+		family: $font-main
 	//margin: px2em(16, 24) 0
 	color: $color-h4
+	line-height: 1.4
 
 h5, .h5
-	font: bold $h5-fontsize / 1.4 $font-main
+	font:
+		weight: bold
+		size: $h5-fontsize
+		family: $font-main
 	//margin: px2em(12, 18) 0
 	color: $color-h5
+	line-height: 1.4
 
 h6, .h6
 	font: bold px2em(10) / #{$base-lineheight} $font-main

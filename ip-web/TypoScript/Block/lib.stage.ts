@@ -1,15 +1,22 @@
 lib.stage = COA
 lib.stage {
-	wrap = <section class="m-stage"><div class="inner-wrap">|</div></section>
-
 	10 = TEXT
-	10 {
-		dataWrap = <h2><span class="firstline">{page:title}</span><span class="secondline">###subtitle</span></h2>
-		outerWrap = <section class="wrapper grid-6633"><div class="col1">|
-	}
-	20 =< lib.searchbox
+	10.dataWrap = <h2><span class="firstline">{page:title}</span><span class="secondline">{page:subtitle}</span></h2>
+}
+
+
+[globalVar = TSFE:id = 1]
+lib.stage {
+	20 = TEXT
 	20 {
-		stdWrap.outerWrap = </div>|</section>
-		stdWrap.innerWrap = <div class="col2">|</div>
+		value (
+<ul class="m-featurelist">
+    <li><i class="icon ico-tick" aria-hidden="true"></i> Yes, it‘s responsive</li>
+    <li><i class="icon ico-tick" aria-hidden="true"></i> Change the language</li>
+    <li><i class="icon ico-tick" aria-hidden="true"></i> New standard theme</li>
+    <li><i class="icon ico-tick" aria-hidden="true"></i> HTML5/CSS3 featured</li>
+</ul>
+		)
 	}
 }
+[end]

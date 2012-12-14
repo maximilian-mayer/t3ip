@@ -42,7 +42,7 @@ page.headerData {
 
 	)
 	200 = TEXT
-	200.dataWrap = <script src="{$filepaths.scripts}vendor/modernizr-2.6.2.custom.js">|</script>
+	200.dataWrap = <script src="{$filepaths.scripts}vendor/modernizr-2.6.1.min.js">|</script>
 
 }
 

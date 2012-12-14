@@ -15,6 +15,7 @@ menu.secondlevel < menu
 menu.secondlevel {
 	entryLevel = 1
 	wrap = <div class="nav-sub">|</div>
+	stdWrap.required = 1
 
 
 	# Copy the configuration of the first level of this menu to level 2 and 3 if neede

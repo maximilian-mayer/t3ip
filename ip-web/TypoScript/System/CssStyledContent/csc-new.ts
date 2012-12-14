@@ -425,16 +425,16 @@ tt_content.stdWrap {
 						value = <div
 					}
 
-					menu < .default
-					menu {
-						override = <nav id="c{field:uid}"
-						override {
-							if {
-								value = html5
-								equals.data = TSFE:config|config|doctype
-							}
-						}
-					}
+					#menu < .default
+					#menu {
+					#	override = <nav id="c{field:uid}"
+					#	override {
+					#		if {
+					#			value = html5
+					#			equals.data = TSFE:config|config|doctype
+					#		}
+					#	}
+					#}
 				}
 				insertData = 1
 			}
@@ -486,15 +486,15 @@ tt_content.stdWrap {
 						value = >|</div>
 					}
 
-					menu < .default
-					menu {
-						override = >|</nav>
-						override {
-							if {
-								value = html5
-								equals.data = TSFE:config|config|doctype
-							}
-						}
+					#menu < .default
+					#menu {
+					#	override = >|</nav>
+					#	override {
+					#		if {
+					#			value = html5
+					#			equals.data = TSFE:config|config|doctype
+					#		}
+					#	}
 					}
 				}
 			}
@@ -1173,6 +1173,17 @@ tt_content.bullets {
 			2.wrap = <li class="even">|</li>
 		}
 		dataWrap = <ul class="csc-bulletlist csc-bulletlist-{field:layout}">|</ul>
+
+		# real ordered list for introduction package
+		dataWrap {
+			override = <ol class="csc-bulletlist csc-bulletlist-{field:layout}">|</ol>
+			override {
+				if {
+					value = 1
+					equals.field = layout
+				}
+			}
+		}
 	 	editIcons = tt_content: bodytext, [layout]
 	 	editIcons.beforeLastTag = 1
 	 	editIcons.iconTitle.data = LLL:EXT:css_styled_content/pi1/locallang.php:eIcon.bullets
@@ -1180,6 +1191,7 @@ tt_content.bullets {
 	 	prefixComment = 2 | Bullet list:
 	}
 }
+
 
 
 # *****************
@@ -1829,7 +1841,8 @@ tt_content.menu {
 		2 {
 			stdWrap < tt_content.menu.20.default.stdWrap
 			stdWrap {
-				outerWrap = <div class="csc-sitemap">|</div>
+				#outerWrap = <div class="csc-sitemap">|</div>
+				outerWrap = |
 			}
 			1 = TMENU
 			1 {
@@ -1837,7 +1850,9 @@ tt_content.menu {
 				target =
 				target.override = {$PAGE_TARGET}
 				expAll = 1
-				wrap = <ul>|</ul>
+				#wrap = <ul>|</ul>
+				wrap = <ul class="csc-sitemap">|</ul>
+
 				NO {
 					stdWrap.htmlSpecialChars = 1
 					wrapItemAndSub = <li>|</li>

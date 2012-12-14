@@ -4,37 +4,52 @@
 		<![endif]-->
 
 	<div class="container sub">
-		<header>
+		<header role="banner">
 			<div class="inner-wrap">
 				<f:cObject typoscriptObjectPath="lib.logo" />
 
-				<f:cObject typoscriptObjectPath="lib.navLanguage" />
-				<f:cObject typoscriptObjectPath="lib.login" />
+				<!-- <f:cObject typoscriptObjectPath="menu.language" /> -->
+				<!-- <f:cObject typoscriptObjectPath="lib.login" /> -->
+				<a href="" class="nav-language"><i class="icon ico-globe" aria-hidden="true"></i> <span class="text">English</span></a>
+				<a href="" class="m-login"><i class="icon ico-lock-locked" aria-hidden="true"></i> <span class="text">Login</span></a>
 			</div>
 		</header>
 		<nav class="nav-main">
-			<a href="#" id="navigation" class="nav-handler ir">Main Navigation</a>
+			<h2 class="nav-handler ir"><a href="#" id="nav_anchor">Main Navigation</a></h2>
 			<f:cObject typoscriptObjectPath="menu.firstlevel" />
 			<f:cObject typoscriptObjectPath="menu.secondlevel" />
 		</nav>
-		<f:cObject typoscriptObjectPath="lib.stage" />
-
+		<section class="m-stage">
+			<div class="inner-wrap">
+				<section class="wrapper grid-6633">
+					<div class="col1">
+						<f:cObject typoscriptObjectPath="lib.stage" />
+					</div>
+					<div class="col2">
+						<f:cObject typoscriptObjectPath="lib.searchbox" />
+					</div>
+				</section>
+			</div>
+		</section>
 		<div role="main" class="content">
 		<div class="inner-wrap">
 			<section class="wrapper grid-6633">
 				<div class="col1">
 					<f:cObject typoscriptObjectPath="lib.content" />
 				</div>
-				<aside class="col2">
+				<aside role="complementary" class="col2">
 					<f:cObject typoscriptObjectPath="lib.contentright" />
 				</aside>
 			</section>
 		</div>
 		</div>
-		<footer>
+		<footer role="contentinfo">
 			<div class="inner-wrap">
-				<f:cObject typoscriptObjectPath="lib.footer" />
+				<div class="wrapper grid-33">
+					<f:cObject typoscriptObjectPath="lib.footer" />
+				</div>
 			</div>
+			<h5 class="copyright">The TYPO3 Introduction Package by the <f:link.external uri="http://www.typo3.org">TYPO3 community</f:link.external> is licensed: </h5>
 		</footer>
 	</div>
 
