@@ -11,10 +11,10 @@ lib.stage {
 	20 {
 		value (
 <ul class="m-featurelist">
-    <li><i class="icon ico-tick" aria-hidden="true"></i> Yes, it‘s responsive</li>
-    <li><i class="icon ico-tick" aria-hidden="true"></i> Change the language</li>
-    <li><i class="icon ico-tick" aria-hidden="true"></i> New standard theme</li>
-    <li><i class="icon ico-tick" aria-hidden="true"></i> HTML5/CSS3 featured</li>
+    <li class="icon-ok-circle"> Yes, it‘s responsive</li>
+    <li class="icon-ok-circle"> Change the language</li>
+    <li class="icon-ok-circle"> New standard theme</li>
+    <li class="icon-ok-circle"> HTML5/CSS3 featured</li>
 </ul>
 		)
 	}

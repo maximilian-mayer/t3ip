@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'fontello';
+  src: url("../fonts/fontello.eot");
+  src: url("../fonts/fontello.eot?#iefix") format("embedded-opentype"), url("../fonts/fontello.woff") format("woff"), url("../fonts/fontello.ttf") format("truetype"), url("../fonts/fontello.svg#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 article,
 aside,
 details,
@@ -158,7 +166,10 @@ h5, .h5 {
 }
 
 h6, .h6 {
-  font: bold 0.625em / 1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.75em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
 }
 
 abbr[title] {
@@ -370,57 +381,99 @@ abbr[title] {
   border-bottom: none;
 }
 
-.normal-sprite, .ico-tick, .ico-globe,
-.ico-lock-locked, header .ico-globe, header
-.ico-lock-locked, .nav-language:hover .icon, .m-login:hover .icon, .nav-language:active .icon, .m-login:active .icon, .nav-language:focus .icon, .m-login:focus .icon {
+.normal-sprite, .nav-language:hover .icon, .m-login:hover .icon, .nav-language:active .icon, .m-login:active .icon, .nav-language:focus .icon, .m-login:focus .icon {
   background: url('../gen_img/icons/normal-s1069f8976b.png') no-repeat;
 }
 
-.icon {
-  height: 48px;
-  width: 48px;
+.icon-youtube:before, .icon-cog:before, .icon-ok-circle:before, .icon-cc:before, .icon-twitter-circled:before, .icon-linkedin-squared:before, .icon-facebook-circled:before, .icon-gplus-circled:before, .icon-linkedin-circled:before, .icon-globe:before, .icon-user:before, .icon-search-1:before, .icon-lock:before, .icon-slideshare-circled:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+  speak: none;
   display: inline-block;
-  vertical-align: middle;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
 }
 
-.ico-tick {
-  background-position: 0 -296px;
-  height: 32px;
-  width: 32px;
+.icon-youtube:before {
+  content: "\55";
 }
 
-.ico-globe,
-.ico-lock-locked {
-  background-position: 0 -148px;
-}
-.ico-globe:hover, .ico-globe.ico-globe-hover,
-.ico-lock-locked:hover,
-.ico-lock-locked.ico-globe-hover {
-  background-position: 0 0;
-}
-header .ico-globe, header
-.ico-lock-locked {
-  background-position: 8px -140px;
-  height: 40px;
-  width: 40px;
-}
-header .ico-globe:hover, header .ico-globe.ico-globe-hover, header
-.ico-lock-locked:hover, header
-.ico-lock-locked.ico-globe-hover {
-  background-position: 8px 8px;
+.icon-cog:before {
+  content: "\2699";
 }
 
-.ico-lock-locked {
-  background-position: 0 -222px;
+.icon-ok-circle:before {
+  content: "\2714";
 }
-.ico-lock-locked:hover, .ico-lock-locked.ico-lock-locked-hover {
-  background-position: 0 -74px;
+.m-stage .icon-ok-circle:before {
+  font-size: 2em;
+  vertical-align: sub;
+  line-height: 1;
+  margin-right: 0;
 }
-header .ico-lock-locked {
-  background-position: 8px -214px;
+
+.icon-cc:before {
+  content: "\e7a5";
 }
-header .ico-lock-locked:hover, header .ico-lock-locked.ico-lock-locked-hover {
-  background-position: 8px -66px;
+
+.icon-twitter-circled:before {
+  content: "\f30a";
+}
+
+.icon-linkedin-squared:before {
+  content: "\f30c";
+}
+
+.icon-facebook-circled:before {
+  content: "\f30d";
+}
+
+.icon-gplus-circled:before {
+  content: "\f310";
+}
+
+.icon-linkedin-circled:before {
+  content: "\f319";
+}
+
+.icon-globe:before {
+  content: "\1f30e";
+  vertical-align: sub;
+  line-height: 1;
+  margin-right: 0;
+}
+
+.icon-user:before {
+  content: "\1f464";
+}
+
+.icon-search-1:before {
+  content: "\e800";
+}
+
+.icon-lock:before {
+  content: "\1f512";
+  vertical-align: sub;
+  line-height: 1;
+  margin-right: 0;
+}
+
+.icon-slideshare-circled:before {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  content: "S";
+  line-height: 1;
+  border-radius: 50%;
+  background-color: white;
+  color: #515151;
+}
+
+.icon-slideshare-circled:hover:before {
+  background-color: #ff8700;
 }
 
 /* addition resets and defaults
@@ -926,8 +979,47 @@ footer[role="contentinfo"] h4:first-child {
 footer[role="contentinfo"] a {
   color: white !important;
 }
-footer[role="contentinfo"] a:hover {
+.no-touch footer[role="contentinfo"] a:hover, .no-touch footer[role="contentinfo"] a:active, .no-touch footer[role="contentinfo"] a:focus {
   color: #ff8700 !important;
+}
+footer[role="contentinfo"] .col1, footer[role="contentinfo"] .col2, footer[role="contentinfo"] .col3 {
+  margin: 0 0 2em;
+}
+footer[role="contentinfo"] .col1, footer[role="contentinfo"] .col2, footer[role="contentinfo"] .col3 {
+  margin-bottom: 1em;
+}
+footer[role="contentinfo"] .col1, footer[role="contentinfo"] .col2 {
+  float: left;
+  width: 48%;
+}
+footer[role="contentinfo"] .col1 {
+  margin-right: 2%;
+}
+footer[role="contentinfo"] .col2 {
+  margin-left: 2%;
+}
+footer[role="contentinfo"] .col3 {
+  clear: both;
+  float: none;
+  width: 100%;
+  padding-top: 1em;
+  border-top: 1px solid #424242;
+  -webkit-box-shadow: inset 0 1px 0 #5c5c5c;
+  -moz-box-shadow: inset 0 1px 0 #5c5c5c;
+  box-shadow: inset 0 1px 0 #5c5c5c;
+  text-align: center;
+  border: none;
+  padding-top: 0;
+  text-align: left;
+}
+footer[role="contentinfo"] .grid-33 .col1, footer[role="contentinfo"] .grid-33 .col2, footer[role="contentinfo"] .grid-33 .col3 {
+  float: left;
+  margin: 0;
+  width: 33.3334%;
+  clear: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 footer[role="contentinfo"] ul {
   list-style-type: none;
@@ -939,8 +1031,11 @@ footer[role="contentinfo"] ul a {
   padding: 0.25em 0;
 }
 footer[role="contentinfo"] .copyright {
-  border-top: 1px solid #1c1c1c;
-  margin-top: 2em;
+  border-top: 1px solid #424242;
+  -webkit-box-shadow: inset 0 1px 0 #5c5c5c;
+  -moz-box-shadow: inset 0 1px 0 #5c5c5c;
+  box-shadow: inset 0 1px 0 #5c5c5c;
+  margin-top: 1em;
   padding-top: 1em;
   text-align: center;
 }
@@ -1035,6 +1130,32 @@ footer[role="contentinfo"] .copyright {
   left: 0.5em;
   margin: 0 -50% 0 0;
   font-size: 0.875em;
+}
+
+.socialbar > li {
+  display: inline-block;
+  display: block;
+}
+.socialbar > li > a {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+.socialbar > li > a.icon-slideshare-circled:before {
+  position: relative;
+  top: 1px;
+}
+.socialbar > li > a:before {
+  display: none;
+}
+.socialbar > li span {
+  display: none;
+  display: inline;
+  display: none;
+  display: inline;
 }
 
 /* Layout
@@ -1272,7 +1393,7 @@ footer[role="contentinfo"] .copyright {
   margin-left: 3em;
 }
 .m-featurelist > li {
-  padding: 6px 0;
+  padding: 3px 0;
   color: white;
   font-size: 1.125em;
   float: left;

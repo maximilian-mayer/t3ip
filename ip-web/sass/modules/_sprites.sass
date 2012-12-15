@@ -9,11 +9,11 @@
 $normal-spacing: 50px
 @import "icons/normal/*.png"
 
-.icon
-	height: 48px
-	width: 48px
-	display: inline-block
-	vertical-align: middle
+// .icon
+// 	height: 48px
+// 	width: 48px
+// 	display: inline-block
+// 	vertical-align: middle
 
 
 // $sprites: sprite-map("icons/normal/*.png")
@@ -48,25 +48,124 @@ $normal-spacing: 50px
 // 				background-position: 0 $ypos
 
 
-
 // .ico-tick
-
-.ico-tick
-	+normal-sprite(ico-tick)
-	height: 32px
-	width: 32px
+// 	+normal-sprite(ico-tick)
+// 	height: 32px
+// 	width: 32px
 
 
-.ico-globe,
-.ico-lock-locked
-	+normal-sprite(ico-globe)
-	header &
-		+normal-sprite(ico-globe, false, 8px, 8px)
-		height: 40px
-		width: 40px
+// .ico-globe,
+// .ico-lock-locked
+// 	+normal-sprite(ico-globe)
+// 	header &
+// 		+normal-sprite(ico-globe, false, 8px, 8px)
+// 		height: 40px
+// 		width: 40px
 
-.ico-lock-locked
-	+normal-sprite(ico-lock-locked)
-	header &
-		+normal-sprite(ico-lock-locked, false, 8px, 8px)
+// .ico-lock-locked
+// 	+normal-sprite(ico-lock-locked)
+// 	header &
+// 		+normal-sprite(ico-lock-locked, false, 8px, 8px)
 
+
+%icon:before,
+	font:
+		family: 'fontello'
+		style: normal
+		weight: normal
+		size: 1.5em
+	speak: none
+	display: inline-block
+	text-decoration: inherit
+	width: 1em
+	margin-right: 0.2em
+	text-align: center
+	// // fix buttons height, for twitter bootstrap
+	// line-height: 1em
+	// // Animation center compensation - magrins should be symmetric
+	// // remove if not needed
+	// margin-left: 0.2em
+	// // you can be more comfortable with increased icons size
+	// font-size: 120%
+	// // Uncomment for 3D effect
+	// text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3)
+
+
+.icon-youtube:before
+	@extend %icon:before
+	content: '\55' /* 'U' */
+
+.icon-cog:before
+	@extend %icon:before
+	content: '\2699' /* '⚙' */
+
+.icon-ok-circle:before
+	@extend %icon:before
+	content: '\2714' /* '✔' */
+
+	.m-stage &
+		font-size: 2em
+		vertical-align: sub // best view
+		line-height: 1
+		margin-right: 0
+
+.icon-cc:before
+	@extend %icon:before
+	content: '\e7a5' /* '' */
+
+.icon-twitter-circled:before
+	@extend %icon:before
+	content: '\f30a' /* '' */
+
+.icon-linkedin-squared:before
+	@extend %icon:before
+	content: '\f30c' /* '' */
+
+.icon-facebook-circled:before
+	@extend %icon:before
+	content: '\f30d' /* '' */
+
+.icon-gplus-circled:before
+	@extend %icon:before
+	content: '\f310' /* '' */
+
+.icon-linkedin-circled:before
+	@extend %icon:before
+	content: '\f319' /* '' */
+
+.icon-globe:before
+	@extend %icon:before
+	content: '\1f30e' /* '\1f30e' */
+	vertical-align: sub // best view
+	line-height: 1
+	margin-right: 0
+
+.icon-user:before
+	@extend %icon:before
+	content: '\1f464' /* '\1f464' */
+
+.icon-search-1:before
+	@extend %icon:before
+	content: '\e800' /* '' */
+
+.icon-lock:before
+	@extend %icon:before
+	content: '\1f512' /* '\1f512' */
+	vertical-align: sub // best view
+	line-height: 1
+	margin-right: 0
+
+// fake slideshare icon
+.icon-slideshare-circled:before
+	@extend %icon:before
+	font:
+		family: $font-main
+		weight: bold
+	content: 'S'
+	line-height: 1
+	border-radius: 50%
+	background-color: white
+	color: $darkgrey
+
+.icon-slideshare-circled:hover:before
+	background-color: $color-main

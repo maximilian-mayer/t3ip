@@ -187,7 +187,11 @@ h5, .h5
 	line-height: 1.4
 
 h6, .h6
-	font: bold px2em(10) / #{$base-lineheight} $font-main
+	font:
+		weight: bold
+		size: $h5-fontsize
+		family: $font-main
+	line-height: 1.4
 
 
 abbr[title]
