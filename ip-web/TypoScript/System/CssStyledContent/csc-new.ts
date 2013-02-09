@@ -366,10 +366,14 @@ lib.stdheader {
 		dataWrap {
 			override = <header class="csc-header csc-header-n{cObj:parentRecordNumber}">|</header>
 			override {
+				#if {
+				#	value = html5
+				#	equals.data = TSFE:config|config|doctype
+				#}
 				if {
-					value = html5
-					equals.data = TSFE:config|config|doctype
+					isTrue.field = date
 				}
+
 			}
 		}
 	}
@@ -590,6 +594,9 @@ tt_content.stdWrap {
 }
 
 
+#drop a bracket
+}
+
 
 # *****************
 # CType: header
@@ -799,7 +806,7 @@ tt_content.image.20 {
 				field = imagecaption
 				required = 1
 				parseFunc =< lib.parseFunc
-				br = 1
+				#br = 1
 				trim = 1
 				split.token.char = 10
 				split.token.if.isPositive = {$styles.content.imgtext.imageTextSplit} + {$styles.content.imgtext.captionSplit}
@@ -838,19 +845,30 @@ tt_content.image.20 {
 	# caption/alttext/title/longdescURL splitting
 	imageTextSplit = {$styles.content.imgtext.imageTextSplit}
 
-	borderCol = {$styles.content.imgtext.borderColor}
-	borderThick = {$styles.content.imgtext.borderThick}
-	borderClass = {$styles.content.imgtext.borderClass}
-	colSpace = {$styles.content.imgtext.colSpace}
-	rowSpace = {$styles.content.imgtext.rowSpace}
-	textMargin = {$styles.content.imgtext.textMargin}
+	borderCol =
+	#{$styles.content.imgtext.borderColor}
+	borderThick = 0
+	#{$styles.content.imgtext.borderThick}
+	borderClass =
+	#{$styles.content.imgtext.borderClass}
+	colSpace = 0#
+	{$styles.content.imgtext.colSpace}
+	rowSpace = 0
+	#{$styles.content.imgtext.rowSpace}
+	textMargin = 0
+	#{$styles.content.imgtext.textMargin}
 
-	borderSpace = {$styles.content.imgtext.borderSpace}
-	separateRows = {$styles.content.imgtext.separateRows}
+	borderSpace = 0
+	#{$styles.content.imgtext.borderSpace}
+	separateRows = 0
+	#{$styles.content.imgtext.separateRows}
 	addClasses =
-	addClassesCol = csc-textpic-col
-	addClassesCol.ifEmpty = csc-textpic-firstcol csc-textpic-lastcol
-	addClassesCol.override = csc-textpic-firstcol |*| |*| csc-textpic-lastcol
+	addClassesCol =
+	#csc-textpic-col
+	#addClassesCol.ifEmpty = csc-textpic-firstcol csc-textpic-lastcol
+	addClassesCol.ifEmpty =
+	#addClassesCol.override = csc-textpic-firstcol |*| |*| csc-textpic-lastcol
+	addClassesCol.override =
 	addClassesCol.override.if {
 		isGreaterThan.field = imagecols
 		value = 1
@@ -954,7 +972,10 @@ tt_content.image.20 {
 			}
 			allStdWrap {
 				#wrap = <div class="csc-textpic-imagewrap"> | </div>
-				wrap = <figure class="csc-textpic-imagewrap"> | </figure>
+				#wrap = <figure class="csc-textpic-imagewrap"> | </figure>
+				wrap >
+				dataWrap = <figure class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </figure>
+
 				innerWrap.cObject = CASE
 				innerWrap.cObject {
 					key.field = imageorient
@@ -999,7 +1020,7 @@ tt_content.image.20 {
 				}
 			}
 			#rowStdWrap.wrap = <div class="csc-textpic-imagerow"> | </div>
-			rowStdWrap.wrap = |
+			rowStdWrap.wrap = |<br class="columnbreak">
 			#noRowsStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-none"> | </div>
 			noRowsStdWrap.wrap = <div class="csc-textpic-imagerow-none"> | </div>
 			#lastRowStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-last"> | </div>
@@ -1023,7 +1044,8 @@ tt_content.image.20 {
 			}
 			caption {
 				required = 1
-				wrap = <caption class="csc-textpic-caption###CLASSES###"> | </caption>
+				#wrap = <caption class="csc-textpic-caption###CLASSES###"> | </caption>
+				wrap = <div class="csc-textpic-caption###CLASSES###"> | </div>
 				wrap {
 					override = <figcaption class="csc-textpic-caption###CLASSES###"> | </figcaption>
 					override {

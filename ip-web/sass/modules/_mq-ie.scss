@@ -32,3 +32,9 @@ $old-ie: false !default;
 		@content;
 	}
 }
+
+@media (max-width: 400px) {
+	@-ms-viewport {
+		width: 320px;
+	}
+}

@@ -1,0 +1,263 @@
+
+.nav-main
+	.inner-wrap
+		padding: 0
+
+	h2
+		margin-bottom: 0
+	.nav-handler
+		display: block
+		background: $lightergrey url("../img/icons/ico-navlist.png") no-repeat 50%
+		text-indent: -9999px
+
+		// &:active, &:focus
+		// 	+ ul
+		// 		display: block
+
+		+respond-min(481px)
+			display: none
+
+	> ul
+		overflow: hidden
+		position: relative
+		display: none
+		padding: 0 0.5em
+		+nowrap()
+		+respond-min(481px)
+			display: block
+			max-width: $containerMax
+			margin: 0 auto
+
+		&.active
+			display: block
+
+		> li
+			text-transform: uppercase
+			font-size: px2em(14)
+			margin: 0 0.25em
+			position: relative
+
+			// temp
+			//+transition-property(display)
+			//+transition-duration(0.2s)
+			//+transition-timing-function(ease-out)
+
+			+respond-min(600px)
+				display: inline-block
+				margin: 0
+
+			+respond-min(1024px)
+				font-size: px2em(16)
+
+			&.act, &.cur
+
+				&:after
+					content: ''
+					border: 10px solid transparent
+					border-bottom-color: rgba($color-main, 0.6)
+					position: absolute
+					bottom: 0
+					left: 50%
+					margin-left: -10px
+					+respond-max(480px)
+						bottom: auto
+						left: 0
+						top: 7px
+						border-bottom-color: transparent
+						border-left-color: rgba($color-main, 0.6)
+
+				a
+					// border-bottom: 3px solid $color-main
+					color: $color-main
+				li a
+					border-bottom: none
+
+
+	a
+		color: $grey
+		font-weight: bold
+		padding: 0.5em
+		display: block
+		border-bottom: 2px solid $lightergrey
+		+respond-min(481px)
+			padding: 1em 0.4em 0.5em
+			border-bottom: 2px solid transparent
+		+respond-min(768px)
+			padding: 1em 0.75em 0.5em
+
+		+respond-min(1024px)
+			padding: 1em 1em 0.5em
+
+
+		//.no-touch &:hover
+		&:hover
+			color: $color-main
+			border-bottom-color: $color-main
+
+.nav-sub
+	background-color: rgba($color-main, 0.6)
+
+	.nav-wrap
+		//background-color: rgba($black, 0.2)
+
+	ul
+		max-width: $containerMax
+		margin: 0 auto
+		white-space: normal
+
+
+		> li
+			text-transform: none
+			&.act, &.cur
+				a
+					border-bottom: 3px solid $color-main
+					color: $black
+		a
+			color: $darkgrey
+			padding: 1em 0.75em 0.5em
+
+			&:hover, &:active, &:focus
+				color: $black
+
+
+
+
+
+
+
+
+
+
+.nav-main
+	position: relative
+
+	.inner-wrap
+		padding: 0
+
+	h2
+		margin-bottom: 0
+	.nav-handler
+		display: block
+		background: $lightergrey url("../img/icons/ico-navlist.png") no-repeat 50%
+		text-indent: -9999px
+
+		+respond-min(600px)
+			display: none
+
+	> ul
+		@extend .clearfix
+		+respond-min(600px)
+			max-width: $containerMax
+			margin: 0 auto 0
+
+		> li
+			text-transform: uppercase
+			font-size: px2em(14)
+			font-weight: bold
+			//margin: 0 0.25em
+			//position: relative
+
+			+respond-min(600px)
+				float: left
+				text-transform: none
+			+respond-min(1024px)
+				font-size: px2em(16)
+
+			&:first-child
+				a
+					border-top: none
+
+			@media only screen and (-webkit-max-device-pixel-ratio: 0.75), (max-resolution: 120dpi)
+				//font-size: px2em(16)
+
+
+			&.act, &.cur, &.hassub
+
+				> a:after
+					content: ''
+					border: 10px solid transparent
+					border-bottom-color: rgba($color-main, 0.6)
+					position: absolute
+					bottom: 0
+					left: 50%
+					margin-left: -10px
+					+respond-max(480px)
+						bottom: auto
+						left: 0
+						top: 7px
+						border-bottom-color: transparent
+						border-left-color: rgba($color-main, 0.6)
+						margin-left: 0
+
+				a
+					color: $color-text
+					padding-left: 1.5em
+					+respond-min(600px)
+						padding-left: 0.75em
+
+			&.act, &.hassub
+				+respond-min(600px)
+					margin-bottom: 2.25em
+
+		ul
+			li
+				text-transform: none
+				&.cur
+					> a
+						color: $color-main !important
+			+respond-min(600px)
+				li
+					display: inline-block
+
+					&.act, &.cur, &.hassub
+
+						> a:after
+							content: ''
+							border: 10px solid transparent
+							border-top-color: $white
+							position: absolute
+							top: 100%
+							left: 50%
+							margin-left: -10px
+							z-index: 111
+							+respond-max(480px)
+								bottom: auto
+								left: 0
+								top: 7px
+								border-bottom-color: transparent
+								border-left-color: rgba($color-main, 0.6)
+								margin-left: 0
+
+						a
+							color: $color-text
+
+
+	a
+		display: block
+		padding: 0.5em
+		color: $grey
+		border-top: 1px solid $lightergrey
+		position: relative
+		+respond-min(600px)
+			border-top: none
+			padding: 0.5em 0.75em
+
+
+
+// temp
+.nav-sub
+	+respond-min(600px)
+		position: absolute
+		bottom: 0
+		left: 0
+		z-index: 1111
+		width: 100%
+		background-color: rgba($color-main, 0.6)
+		white-space: nowrap
+		overflow: hidden
+
+		ul
+			max-width: $containerMax
+			margin: 0 auto
+
+

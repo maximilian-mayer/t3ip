@@ -16,4 +16,12 @@ page.includeCSS {
 	style.media = all
 	style.allWrap = <!--[if gt IE 8]><!-->|<!--<![endif]-->
 
+	ltIE9 = {$filepaths.css}all-old-ie.css
+	ltIE9.media = screen
+	ltIE9.allWrap = <!--[if lt IE 9]>|<![endif]-->
+
+	#IE9mobile = {$filepaths.css}ie.css
+	#IE9mobile.allWrap = <!--[if IEMobile]>|<![endif]-->
+
+
 }

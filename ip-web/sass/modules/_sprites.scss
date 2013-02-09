@@ -1,0 +1,185 @@
+/* Icons and Sprites
+ * ===================================================================
+ */
+
+
+//$icons-layout: smart
+// $normal-layout: horizontal
+
+//$icons-sprite-positon: 50%
+
+//$normal-sprite-dimensions: true
+$icons-spacing: 50px;
+@import "icons/*.png";
+
+//$sprites: sprite-map("icons/*.png");
+
+%icon {
+	font: {
+		family: 'icomoon';
+		style: normal;
+		weight: normal;
+		size: 32px;
+	}
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	height: 1em;
+	margin-right: 0.2em;
+	text-align: center;
+	text-indent: 0;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+
+	.no-no-no-webfont & {
+		content: "\0020" !important;
+		vertical-align: middle !important;
+		background-repeat: no-repeat;
+		@extend .icons-sprite;
+		//background-image: sprite-url($icons-sprites);
+	}
+}
+
+@each $sprite-name in sprite-names($icons-sprites) {
+	.icon-#{$sprite-name}:before {
+		@extend %icon;
+		.no-no-no-webfont & {
+			background-position: sprite-position($icons-sprites, $sprite-name);
+		}
+	}
+}
+
+.icon-gplus:before {
+	content: "\e000";
+}
+.icon-twitter:before {
+	content: "\e001";
+}
+.icon-linkedin:before {
+	content: "\e002";
+}
+.icon-locked:before {
+	content: "\e003";
+	font-size: 24px;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 0;
+	vertical-align: top;
+	width: 40px;
+	color: $grey;
+}
+.m-login:hover.icon-locked:before {
+	color: $white
+}
+.m-login.icon-locked:before {
+	@include respond-min(600px) {
+		line-height: 36px;
+		margin-right: 0;
+		text-indent: 0.25em;
+		width: 36px;
+	}
+}
+
+
+.icon-checkmark:before {
+	content: "\e004";
+
+	.m-stage & {
+		font-size: 32px;
+		vertical-align: text-bottom;
+	}
+}
+.icon-cog:before {
+	content: "\e005";
+}
+.icon-number:before {
+	content: "\e006";
+}
+.icon-number-2:before {
+	content: "\e007";
+}
+.icon-number-3:before {
+	content: "\e008";
+}
+.icon-warning:before {
+	content: "\e009";
+}
+.icon-cancel:before {
+	content: "\e00a";
+}
+.icon-plus:before {
+	content: "\e00b";
+}
+.icon-minus:before {
+	content: "\e00c";
+}
+.icon-info:before {
+	content: "\e00d";
+}
+.icon-youtube:before {
+	content: "\e00e";
+}
+.icon-apple:before {
+	content: "\e00f";
+}
+.icon-android:before {
+	content: "\e010";
+}
+.icon-earth:before {
+	content: "\e011";
+	font-size: 24px;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 0;
+	vertical-align: top;
+	width: 40px;
+	color: $grey;
+}
+.nav-language:hover.icon-earth:before {
+	color: $white
+}
+.nav-language.icon-earth:before {
+	@include respond-min(600px) {
+		line-height: 36px;
+		margin-right: 0;
+		text-indent: 0.25em;
+		width: 36px;
+	}
+}
+
+.icon-search:before {
+	content: "\e012";
+
+	.m-globalsearch & {
+		left: 50%;
+		margin: -0.5em 0 0 -0.5em;
+		position: absolute;
+		top: 50%;
+	}
+}
+.icon-user:before {
+	content: "\e013";
+}
+.icon-slideshare-icon:before {
+	content: "\e016";
+}
+.icon-winsows:before {
+	content: "\e014";
+}
+.icon-list:before {
+	content: "\e015";
+
+	position: absolute;
+	left: 50%;
+	top: -0.125em;
+	margin-left: -0.5em;
+
+	color: $grey;
+}
+.icon-typo3-icon:before {
+	content: "\e017";
+}
+.icon-facebook:before {
+	content: "\e018";
+}

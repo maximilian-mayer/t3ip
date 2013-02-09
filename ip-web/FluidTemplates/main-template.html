@@ -10,46 +10,51 @@
 
 				<!-- <f:cObject typoscriptObjectPath="menu.language" /> -->
 				<!-- <f:cObject typoscriptObjectPath="lib.login" /> -->
-				<a href="" class="nav-language"><i class="icon ico-globe" aria-hidden="true"></i> <span class="text">English</span></a>
-				<a href="" class="m-login"><i class="icon ico-lock-locked" aria-hidden="true"></i> <span class="text">Login</span></a>
+				<a href="" class="nav-language icon-earth"> <span class="text">English</span></a>
+				<a href="" class="m-login icon-locked"> <span class="text">Login</span></a>
+				<a href="#search" class="search-handler icon-search"> <span class="text">Search</span></a>
 			</div>
 		</header>
 		<nav class="nav-main">
-			<h2 class="nav-handler ir"><a href="#" id="nav_anchor">Main Navigation</a></h2>
+			<h2 class=""><a href="#" name="nav_anchor" id="nav_anchor" class="nav-handler ir icon-list">Main Navigation</a></h2>
 			<f:cObject typoscriptObjectPath="menu.firstlevel" />
-			<f:cObject typoscriptObjectPath="menu.secondlevel" />
 		</nav>
 		<section class="m-stage">
 			<div class="inner-wrap">
-				<section class="wrapper grid-6633">
+				<div class="wrapper grid-6633">
 					<div class="col1">
 						<f:cObject typoscriptObjectPath="lib.stage" />
 					</div>
 					<div class="col2">
 						<f:cObject typoscriptObjectPath="lib.searchbox" />
 					</div>
-				</section>
+				</div>
 			</div>
 		</section>
 		<div role="main" class="content">
-		<div class="inner-wrap">
-			<section class="wrapper grid-6633">
-				<div class="col1">
-					<f:cObject typoscriptObjectPath="lib.content" />
+			<div class="inner-wrap">
+				<div class="wrapper grid-6633">
+					<div class="col1">
+						<f:cObject typoscriptObjectPath="lib.content" />
+					</div>
+					<aside role="complementary" class="col2">
+						<f:cObject typoscriptObjectPath="lib.contentright" />
+					</aside>
 				</div>
-				<aside role="complementary" class="col2">
-					<f:cObject typoscriptObjectPath="lib.contentright" />
-				</aside>
-			</section>
-		</div>
+			</div>
 		</div>
 		<footer role="contentinfo">
 			<div class="inner-wrap">
-				<div class="wrapper grid-33">
-					<f:cObject typoscriptObjectPath="lib.footer" />
-				</div>
+				<section class="wrapper grid-33">
+					<div class="col1"><f:cObject typoscriptObjectPath="lib.footer.10" /></div>
+					<div class="col2"><f:cObject typoscriptObjectPath="lib.footer.20" /></div>
+					<div class="col3">
+						<h4>TYPO3 in social networks</h4>
+						<f:cObject typoscriptObjectPath="lib.footer.30" />
+					</div>
+				</section>
+				<h5 class="copyright">The TYPO3 Introduction Package by the <f:link.external uri="http://www.typo3.org">TYPO3 community</f:link.external> is licensed: </h5>
 			</div>
-			<h5 class="copyright">The TYPO3 Introduction Package by the <f:link.external uri="http://www.typo3.org">TYPO3 community</f:link.external> is licensed: </h5>
 		</footer>
 	</div>
 

@@ -10,14 +10,13 @@
 
 				<!-- <f:cObject typoscriptObjectPath="menu.language" /> -->
 				<!-- <f:cObject typoscriptObjectPath="lib.login" /> -->
-				<a href="" class="nav-language"><i class="icon-globe" aria-hidden="true"></i> <span class="text">English</span></a>
-				<a href="" class="m-login"><i class="icon-lock" aria-hidden="true"></i> <span class="text">Login</span></a>
+				<a href="" class="nav-language icon-earth"> <span class="text">English</span></a>
+				<a href="" class="m-login icon-locked"> <span class="text">Login</span></a>
 			</div>
 		</header>
 		<nav class="nav-main">
-			<a href="#" id="nav_anchor" class="nav-handler ir">Main Navigation</a>
+			<h2 class=""><a href="#" name="nav_anchor" id="nav_anchor" class="nav-handler ir icon-list">Main Navigation</a></h2>
 			<f:cObject typoscriptObjectPath="menu.firstlevel" />
-			<f:cObject typoscriptObjectPath="menu.secondlevel" />
 		</nav>
 		<section class="m-stage">
 			<div class="inner-wrap">
@@ -33,11 +32,16 @@
 		</div>
 		<footer role="contentinfo">
 			<div class="inner-wrap">
-				<div class="wrapper grid-33">
-					<f:cObject typoscriptObjectPath="lib.footer" />
-				</div>
+				<section class="wrapper grid-33">
+					<div class="col1"><f:cObject typoscriptObjectPath="lib.footer.10" /></div>
+					<div class="col2"><f:cObject typoscriptObjectPath="lib.footer.20" /></div>
+					<div class="col3">
+						<h4>TYPO3 in social networks</h4>
+						<f:cObject typoscriptObjectPath="lib.footer.30" />
+					</div>
+				</section>
+				<h5 class="copyright">The TYPO3 Introduction Package by the <f:link.external uri="http://www.typo3.org">TYPO3 community</f:link.external> is licensed: </h5>
 			</div>
-			<h5 class="copyright">The TYPO3 Introduction Package by the <f:link.external uri="http://www.typo3.org">TYPO3 community</f:link.external> is licensed: </h5>
 		</footer>
 	</div>
 

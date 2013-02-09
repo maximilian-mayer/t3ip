@@ -73,13 +73,20 @@ $normal-spacing: 50px
 		family: 'fontello'
 		style: normal
 		weight: normal
-		size: 1.5em
+		size: 2.5em
 	speak: none
 	display: inline-block
 	text-decoration: inherit
 	width: 1em
+	height: 1em
 	margin-right: 0.2em
 	text-align: center
+	text-indent: 0
+	vertical-align: middle
+	.no-no-no-webfont &
+		content: "\0020" !important
+		vertical-align: middle !important
+
 	// // fix buttons height, for twitter bootstrap
 	// line-height: 1em
 	// // Animation center compensation - magrins should be symmetric
@@ -104,10 +111,13 @@ $normal-spacing: 50px
 	content: '\2714' /* '✔' */
 
 	.m-stage &
-		font-size: 2em
+		font-size: 32px
 		vertical-align: sub // best view
 		line-height: 1
 		margin-right: 0
+	.no-no-no-webfont &
+		background: transparent image-url("dummy/ok-circle.png") no-repeat 0 0
+
 
 .icon-cc:before
 	@extend %icon:before
@@ -135,25 +145,58 @@ $normal-spacing: 50px
 
 .icon-globe:before
 	@extend %icon:before
-	content: '\1f30e' /* '\1f30e' */
+	content: '🌎'  /* '\1f30e' */
+
+.nav-language.icon-globe:before
+	font-size: 32px
 	vertical-align: sub // best view
-	line-height: 1
+	line-height: 40px
+	width: 40px
 	margin-right: 0
+	color: $grey
+
+.nav-language:hover.icon-globe:before
+	color: $white
 
 .icon-user:before
 	@extend %icon:before
-	content: '\1f464' /* '\1f464' */
+	content: '👤' /* '\1f464' */
+
+.icon-lock:before
+	@extend %icon:before
+	content: '🔒' /* '\1f512' */
+
+.m-login.icon-lock:before
+	font-size: 32px
+	vertical-align: sub // best view
+	line-height: 40px
+	width: 40px
+	margin-right: 0
+	color: $grey
+.m-login:hover.icon-lock:before
+	color: $white
 
 .icon-search-1:before
 	@extend %icon:before
 	content: '\e800' /* '' */
 
-.icon-lock:before
-	@extend %icon:before
-	content: '\1f512' /* '\1f512' */
+.search-handler.icon-search-1:before
+	font-size: 32px
 	vertical-align: sub // best view
-	line-height: 1
+	line-height: 40px
+	width: 40px
 	margin-right: 0
+	color: $grey
+
+.search-handler:hover.icon-search-1:before
+	color: $white
+
+.m-globalsearch .icon-search-1:before
+	left: 50%
+	margin: -16px 0 0 -16px
+	position: absolute
+	top: 50%
+	font-size: 2em
 
 // fake slideshare icon
 .icon-slideshare-circled:before
@@ -163,9 +206,13 @@ $normal-spacing: 50px
 		weight: bold
 	content: 'S'
 	line-height: 1
-	border-radius: 50%
+	border-radius: 24px //50%
 	background-color: white
 	color: $darkgrey
 
 .icon-slideshare-circled:hover:before
 	background-color: $color-main
+
+
+
+

@@ -10,9 +10,6 @@ configuration, like dynamic handling.
 
 page.headTag = <head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-#page.headerData.1 = TEXT
-#page.headerData.1.value = <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 page.headerData {
 	199 = TEXT
 	199.wrap = <style>|</style>

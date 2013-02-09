@@ -23,12 +23,21 @@ lib.footer = COA
 
 lib.footer.10 < styles.content.getLeft
 lib.footer.10.select.pidInList = {$contentpage.footerPID}
-lib.footer.10.stdWrap.wrap = <div class="col1">|</div>
+
 
 lib.footer.20 < styles.content.get
 lib.footer.20.select.pidInList = {$contentpage.footerPID}
-lib.footer.20.stdWrap.wrap = <div class="col2">|</div>
 
-lib.footer.30 < styles.content.getRight
-lib.footer.30.select.pidInList = {$contentpage.footerPID}
-lib.footer.30.stdWrap.wrap = <div class="col3">|</div>
+lib.footer.30 = TEXT
+lib.footer.30 {
+	value (
+<ul class="socialbar">
+    <li><a href="#" class="icon-twitter" title="Link to Twitter"><span>Twitter</span></a></li>
+    <li><a href="#" class="icon-facebook" title="Link to Facebook"><span>Facebook</span></a></li>
+    <li><a href="#" class="icon-slideshare-icon" title="Link to Slideshare"><span>SlideShare</span></a></li>
+    <li><a href="#" class="icon-linkedin" title="Link to LinkedIn"><span>LinkedIn</span></a></li>
+    <li><a href="#" class="icon-youtube" title="Link to Youtube"><span>Youtube</span></a></li>
+    <li><a href="#" class="icon-gplus" title="Link to Google+"><span>Google+</span></a></li>
+</ul>
+	)
+}

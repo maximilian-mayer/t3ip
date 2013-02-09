@@ -17,7 +17,7 @@ lib.logo {
 	wrap = <h1 class="logo">|</h1>
 	10 = IMAGE
 	10 {
-		file = {$filepaths.images}TYPO3-logo-new.png
+		file = {$filepaths.images}TYPO3-logo-small.png
 		ext = svg
 		altText = TYPO3 CMS Logo
 		stdWrap.typolink {

@@ -10,7 +10,7 @@ menu = HMENU
 menu {
 	1 = TMENU
 	1 {
-		wrap = <ul id="nav_main">|</ul>
+		wrap = <ul>|</ul>
 
 		# Define the normal state (not active, not selected) of menu items
 		# Using NO=1 to activate normal state is not necessary, but useful when copying
@@ -43,6 +43,12 @@ menu {
 		CUR < .NO
 		CUR {
 			wrapItemAndSub = <li class="cur">|</li>
+		}
+
+		# Copy properties of normal to current state, and then add a CSS class for styling
+		CURIFSUB < .NO
+		CURIFSUB {
+			wrapItemAndSub = <li class="hassub">|</li>
 		}
 	}
 }

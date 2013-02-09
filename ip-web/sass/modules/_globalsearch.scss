@@ -1,0 +1,131 @@
+.m-globalsearch {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgba($black, 0.2);
+
+  label {
+    display: none;
+    @include respond-min(480px) {
+      display: inline-block;
+      width: 40%;
+      color: $white;
+      font: {
+        family: "Share-Bold", $font-main;
+        font-weight: normal;
+        size: px2em(24, 16);
+      };
+      line-height: 52px;
+      float: left;
+    }
+
+    @include respond-min(768px) {
+      width: 25%;
+    }
+
+    .sub & {
+      display: none;
+    }
+  }
+  .input-wrapper {
+    display: inline-block;
+    background-color: rgba($black, 0.2);
+    width: 100%;
+    overflow: hidden;
+    @include respond-min(481px) {
+      width: 60%;
+    }
+
+    @include respond-min(768px) {
+      width: 33%;
+    }
+  }
+  .search-input {
+    @include box-sizing(border-box);
+    background-color: transparent;
+    display: inline-block;
+    border: none;
+    padding: 1em 0 1em 1em;
+    color: $white;
+    min-width: 130px;
+    width: 60%;
+    height: 52px;
+    line-height: 1;
+    font-size: px2em(18, 16);
+
+    @include respond-min(481px) {
+      width: 70%;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $white;
+    }
+    &:-moz-placeholder {
+      color: $white;
+    }
+  }
+  .search-submit {
+    @extend .search-input;
+    border-radius: 0;
+    @include box-sizing(content-box);
+    //background: rgba($black, 0.4) image-url("icons/retina/ico-search.png")	no-repeat 50%
+    background: rgba($black, 0.4);
+    //+background-size(50% 50%)
+    min-width: 1em;
+    width: 52px;
+    height: 52px;
+    text-indent: 110%;
+    overflow: hidden;
+    white-space: nowrap;
+    float: right;
+    padding: 0;
+    position: relative;
+  }
+
+  // different view on subpages
+  .sub & {
+    display: none;
+
+    @include respond-min(600px) {
+      position: relative;
+      display: block;
+
+      .input-wrapper {
+        margin-top: 0;
+        width: 100%;
+      }
+    }
+  }
+  @include respond-max(599px) {
+    .sub &:target {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: $color-main;
+      display: block;
+
+      .inner-wrap {
+        padding: 0 1em;
+      }
+      .input-wrapper {
+        margin-top: 0.4em;
+        width: 100%;
+      }
+      .search-input {
+        vertical-align: bottom;
+        width: 80%;
+
+        border-radius: 0; // does not work
+      }
+      .search-submit {
+        width: 52px
+      }
+
+    }
+  // media query end
+  }
+
+}

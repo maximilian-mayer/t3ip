@@ -17,7 +17,7 @@ lib.searchbox {
 	10 = TEXT
 	10.typolink.parameter = {$plugin.tx_indexedsearch.searchpageID}
 	10.typolink.returnLast = url
-	10.wrap = <section id="search" class="m-globalsearch"><div class="inner-wrap"><form action="|" role="search" method="post" id="indexedsearch"><fieldset>
+	10.wrap = <div id="search" class="m-globalsearch"><div class="inner-wrap"><form action="|" role="search" method="post" id="indexedsearch">
 	20 = COA
 	20 {
 		5 = TEXT
@@ -34,10 +34,10 @@ lib.searchbox {
 			20 = TEXT
 			20.value = <input type="hidden" name="tx_indexedsearch[sections]" value="0" />
 			30 = TEXT
-			30.value = <input name="tx_indexedsearch[submit_button]" value="Search" class="search-submit" type="submit" /></span>
+			30.value = <button name="tx_indexedsearch[submit_button]"  class="search-submit icon-search" type="submit">Search</button></span>
 		}
 	}
 
-	wrap = |</fieldset></form></div></section>
+	wrap = |</form></div></div>
 }
 
