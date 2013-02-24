@@ -94,7 +94,7 @@
 .m-featurelist
 	list-style-type: none
 	margin: 1em 0
-	padding: 0
+	padding: 0 0 0.5em
 	overflow: hidden
 	+respond-max(319px)
 		margin: 0
@@ -103,7 +103,7 @@
 		margin-left: px2em(32,16)
 
 	> li
-		padding: 3px 0
+		//padding: 3px 0
 		color: $white
 		font-size: px2em(18)
 
@@ -133,8 +133,8 @@
 			//+normal-sprite(ico-lock-locked_hover, false, 8px, 8px)
 
 .search-handler
-	+respond-min(600px)
-		display: none
+	//+respond-min(600px)
+	display: none !important
 
 
 

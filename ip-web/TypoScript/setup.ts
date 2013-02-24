@@ -3,7 +3,7 @@
 
 
 # Read in the templates for changes in tt_content, lib.stdHeader etc.
- #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/setup.ts">
+ <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/setup.ts">
  <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/csc-new.ts">
 
 # Read in the templates for the extensions.

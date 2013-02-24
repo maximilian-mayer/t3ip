@@ -1013,6 +1013,10 @@ tt_content.image.20 {
 			fallbackRendering < tt_content.image.20.rendering.singleNoCaption.fallbackRendering.10
 			#allStdWrap.wrap = <div class="csc-textpic-imagewrap"> | </div>
 			allStdWrap.wrap = <figure class="csc-textpic-imagewrap"> | </figure>
+
+			allStdWrap.wrap >
+			allStdWrap.dataWrap = <figure class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </figure>
+
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"> | </div>
 				wrap {

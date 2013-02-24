@@ -41,6 +41,20 @@ TCEFORM.tt_content.section_frame{
 }
 */
 
+TCEFORM.tt_content.header_layout {
+	altLabels {
+		1 = H1
+		2 = H2
+		3 = H3
+		4 = H4
+		5 = H5
+		6 = H6
+	}
+	addItems {
+		7 = H3.headline-devider
+	}
+}
+
   // If an editor creates a page it should be visible to all editors and admins
 TCEMAIN {
 	  // group "all users"

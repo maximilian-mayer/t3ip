@@ -4,7 +4,11 @@ template in the template record.
 */
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/csc-new.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
-sftp://maddesigns.de/kunden/193457_70794/rp-hosting/7016/8016/typo3cms/t3ip/typo3_src-6.0.0/typo3/sysext/css_styled_content/static/constants.txt
+
+# new header
+lib.stdheader.10.7 < lib.stdheader.10.1
+lib.stdheader.10.7.dataWrap = <h3 class="headline-devider">|</h3>
+lib.stdheader.stdWrap.dataWrap = |
 
 # remove class="bodytext" from paragraphs
 lib.parseFunc_RTE {

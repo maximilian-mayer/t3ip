@@ -23,5 +23,5 @@ page.includeCSS {
 	#IE9mobile = {$filepaths.css}ie.css
 	#IE9mobile.allWrap = <!--[if IEMobile]>|<![endif]-->
 
-
+  csc-new = {$filepaths.css}csc-new.css
 }

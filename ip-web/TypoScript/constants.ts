@@ -89,8 +89,8 @@ styles.content {
 	# This defines the maximum width of images inserted in content records of type Images or Text-with-images.
 	# There are seperate settings for images floated next to text (..InText)
 	imgtext {
-		maxW = 651
-		maxWInText = 651
+		maxW = 800
+		maxWInText = 300
 		borderThick = 0
 		linkWrap.newWindow = 1
 	}

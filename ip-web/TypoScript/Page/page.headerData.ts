@@ -7,8 +7,11 @@ page.config, page.includeCSS or page.includeJS or needs special
 configuration, like dynamic handling.
 */
 
-
-page.headTag = <head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+page.headTag (
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+)
+#page.headTag = <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';</script>
 
 page.headerData {
 	199 = TEXT
@@ -36,11 +39,11 @@ page.headerData {
     font-weight: normal;
     font-style: normal;
 }
-
-	)
+)
 	200 = TEXT
 	200.dataWrap = <script src="{$filepaths.scripts}vendor/modernizr-2.6.1.min.js">|</script>
-
+    201 = TEXT
+    201.value = <script>if(navigator.userAgent.match(/(Android (2.0|2.1))|(Nokia)|(Blackberry)|(Opera (Mini|Mobi))|(w(eb)?OSBrowser)|(UCWEB)|(Windows Phone OS)|(XBLWP)|(ZuneWP)/)) {  document.documentElement.className = document.documentElement.className.replace(/\bfontface\b/,'no-no-no-webfont');}</script>
 }
 
 
