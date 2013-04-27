@@ -5,6 +5,7 @@
 //  nav-main (main navigation)
 .nav-main {
   position: relative;
+  overflow: hidden;
   .inner-wrap {
     padding: 0;
   }
@@ -179,16 +180,17 @@
       max-height: 0;
       overflow: hidden;
 
-      @include respond-min(600px) {
-        max-height: 100px;
-        overflow: visible;
-      }
+
   }
 
   .cur.hassub &,
   .act.hassub &,
   .open.hassub & {
     max-height: 499px;
+    @include respond-min(600px) {
+
+      overflow: visible;
+    }
   }
 
 
