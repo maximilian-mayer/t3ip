@@ -968,6 +968,8 @@ tt_content.image.20 {
 			}
 			allStdWrap {
 				wrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
+				wrap >
+				dataWrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
 
 				innerWrap.cObject = CASE
 				innerWrap.cObject {

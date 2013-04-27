@@ -11,6 +11,7 @@ menu {
 	1 = TMENU
 	1 {
 		wrap = <ul>|</ul>
+		expAll = 1
 
 		# Define the normal state (not active, not selected) of menu items
 		# Using NO=1 to activate normal state is not necessary, but useful when copying
@@ -32,13 +33,19 @@ menu {
 			# HTML-encode special characters according to the PHP-function htmlSpecialChars
 			stdWrap.htmlSpecialChars = 1
 		}
-
+		IFSUB < .NO
+		IFSUB {
+			wrapItemAndSub = <li class="hassub">|</li>
+		}
 		# Copy properties of normal to active state, and then add a CSS class for styling
 		ACT < .NO
 		ACT {
 			wrapItemAndSub = <li class="act">|</li>
 		}
-
+		ACTIFSUB < .NO
+		ACTIFSUB {
+			wrapItemAndSub = <li class="hassub act">|</li>
+		}
 		# Copy properties of normal to current state, and then add a CSS class for styling
 		CUR < .NO
 		CUR {
@@ -48,7 +55,7 @@ menu {
 		# Copy properties of normal to current state, and then add a CSS class for styling
 		CURIFSUB < .NO
 		CURIFSUB {
-			wrapItemAndSub = <li class="hassub">|</li>
+			wrapItemAndSub = <li class="hassub cur">|</li>
 		}
 	}
 }

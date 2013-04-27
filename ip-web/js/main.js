@@ -1,16 +1,3 @@
-
-    // function report() { document.getElementsByTagName('div')[0].innerHTML = 'screen.width: '+screen.width+'<br> screen.height: '+screen.height+'<br> window.innerWidth: '+window.innerWidth+'<br> window.innerHeight: '+window.innerHeight+'<br> window.outerWidth: '+window.outerWidth+'<br> window.outerHeight: '+window.outerHeight+'<br> document.documentElement.clientWidth: '+document.documentElement.clientWidth+'<br> document.documentElement.clientHeight: '+document.documentElement.clientHeight+'<br> window.devicePixelRatio: '+window.devicePixelRatio; }
-    // window.addEventListener('load', report, false);
-    // window.addEventListener('resize', report, false);
-    // window.addEventListener('orientationchange', report, false);
-    // window.addEventListener('deviceorientation', report, false);
-    // window.addEventListener('MozOrientation', report, false);
-
-
-
-
-
-
 	// TYPO3 function for decrypting the mail address
 	// decrypt helper function
 		function decryptCharcode(n,start,end,offset) {
@@ -60,37 +47,57 @@ document.getElementById('nav_anchor').addEventListener('click', function(e) {
 
 
 $(function(){
-  var $subnav  = $('#nav_sub');
-  var navpos   = $subnav.offset();
-  var navwidth = $subnav.width();
-  var totalWidth = 0;
-  var screenWidth = window.innerWidth;
 
-  $("> li", $subnav).each(function(){
-    totalWidth += $(this).outerWidth();
-  });
+  if(Modernizr.mq('only screen and (max-width: 599px)')) {
+    $(".hassub").append('<span class="icon-chevron-down" />');
 
-  var diffX = totalWidth - navwidth;
+    $(".icon-chevron-down").on('click', function(e){
+        e.stopPropagation();
+        e.preventDefault();
 
-  $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
-  $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
-
-  $('#nav_lessbtn').hide().css('left',navpos.left);
-
-  $('#nav_morebtn').on('click', function(){
-    $subnav.css({
-      overflow: 'visible',
-			transform: 'translateX(-'+ diffX +'px)'
+        if ($(this).parent().hasClass('open')) {
+          $(this).parent().removeClass('open');
+        } else {
+          $(this).parent().addClass('open');
+        }
     });
-    $(this).hide();
-    $('#nav_lessbtn').show();
-  });
+  }
 
-  $('#nav_lessbtn').on('click', function(){
-    console.log('clicked');
-    $subnav.css('transform', 'translateX(0)');
-    $(this).hide();
-    $('#nav_morebtn').show();
-  });
+
+
+  if(Modernizr.mq('only screen and (min-width: 600px)')) {
+    var $subnav  = $('.hassub.act .second-level, .hassub.cur .second-level');
+    var navpos   = $subnav.offset();
+    var navwidth = $subnav.width();
+    var totalWidth = 0;
+    var screenWidth = window.innerWidth;
+
+    $("> li", $subnav).each(function(){
+      totalWidth += $(this).outerWidth();
+    });
+
+    var diffX = totalWidth - navwidth;
+
+    $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
+    $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
+
+    $('#nav_lessbtn').hide();
+
+    $('#nav_morebtn').on('click', function(){
+      $subnav.css({
+        transform: 'translateX(-'+ diffX +'px)'
+      });
+      $(this).hide();
+      $('#nav_lessbtn').show();
+    });
+
+    $('#nav_lessbtn').on('click', function(){
+      console.log('clicked');
+      $subnav.css('transform', 'translateX(0)');
+      $(this).hide();
+      $('#nav_morebtn').show();
+    });
+  }
+
 });
 

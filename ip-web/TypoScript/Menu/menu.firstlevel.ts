@@ -13,7 +13,7 @@ menu.firstlevel {
 	entryLevel = 0
 	1.wrap = <ul id="nav_main">|</ul>
 	2 < .1
-	2.wrap = <div class="nav-sub"><ul id="nav_sub">|</ul></div>
+	2.wrap = <div class="nav-sub"><ul class="second-level">|</ul></div>
 	#3 < .1
 }
 
