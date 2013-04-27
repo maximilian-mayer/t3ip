@@ -10,12 +10,12 @@ lib.stage {
 	20 = TEXT
 	20 {
 		value (
-<ul class="m-featurelist">
-    <li class="icon-checkmark">Yes, it‘s responsive</li>
-    <li class="icon-checkmark">Change the language</li>
-    <li class="icon-checkmark">New standard theme</li>
-    <li class="icon-checkmark">HTML5/CSS3 featured</li>
-</ul>
+			<ul class="m-featurelist">
+			    <li class="icon-checkmark">Yes, it‘s responsive</li>
+			    <li class="icon-checkmark">New modern theme</li>
+			    <li class="icon-checkmark">HTML5 Markup, CSS3 Styles</li>
+			    <li class="icon-checkmark">free to use</li>
+			</ul>
 		)
 	}
 }

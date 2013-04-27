@@ -57,3 +57,40 @@ document.getElementById('nav_anchor').addEventListener('click', function(e) {
    e.preventDefault();
    return false;
 });
+
+
+$(function(){
+  var $subnav  = $('#nav_sub');
+  var navpos   = $subnav.offset();
+  var navwidth = $subnav.width();
+  var totalWidth = 0;
+  var screenWidth = window.innerWidth;
+
+  $("> li", $subnav).each(function(){
+    totalWidth += $(this).outerWidth();
+  });
+
+  var diffX = totalWidth - navwidth;
+
+  $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
+  $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
+
+  $('#nav_lessbtn').hide().css('left',navpos.left);
+
+  $('#nav_morebtn').on('click', function(){
+    $subnav.css({
+      overflow: 'visible',
+			transform: 'translateX(-'+ diffX +'px)'
+    });
+    $(this).hide();
+    $('#nav_lessbtn').show();
+  });
+
+  $('#nav_lessbtn').on('click', function(){
+    console.log('clicked');
+    $subnav.css('transform', 'translateX(0)');
+    $(this).hide();
+    $('#nav_morebtn').show();
+  });
+});
+

@@ -152,6 +152,8 @@
       margin: 0 auto;
       overflow: hidden;
       padding-bottom: 10px;
+
+      @include single-transition(transform 300ms ease-out);
     }
 
     > li {
@@ -192,32 +194,37 @@
 
 // nav language
 .nav-language {
+  @include box-shadow(inset -1px 1px 0 rgba($white, 0.5));
   float: right;
   height: 42px;
   background-color: $lightergrey;
   margin: 1em 10px 1em -5px;
   border: 1px solid $lightgrey;
   outline: 5px solid lighten($lightgrey, 20);
-  @include box-shadow(inset -1px 1px 0 rgba($white, 0.5));
+
+  @include respond-min(481px) {
+    margin-top: em(25px);
+  }
   @include respond-min(600px) {
-    margin: 1em 10px 1em 0;
+    margin: em(35px) em(10px) 1em 0;
   }
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
     background-color: $color-main;
     border: 1px solid darken($color-main, 10);
     outline: 5px solid lighten($lightgrey, 20);
     .text {
-      color: $white;
       @include box-shadow(inset -1px 1px 0 lighten($color-main, 30));
+      color: $white;
       border-left: 1px solid darken($color-main, 10);
     }
   }
-  @include respond-min(481px) {
-    margin-top: 25px;
-  }
 
   .text {
+    @include box-shadow(inset -1px 1px 0 rgba($white, 0.5));
     display: none;
     color: $grey;
     min-width: 80px;
@@ -226,9 +233,56 @@
     font-weight: bold;
     line-height: 40px;
     border-left: 1px solid $lightgrey;
-    @include box-shadow(inset -1px 1px 0 rgba($white, 0.5));
-    @include respond-min(600px) {
+    @include respond-min(768px) {
       display: inline-block;
     }
   }
+
+  &:hover.icon-earth:before,
+  &.active.icon-earth:before {
+    color: $white
+  }
+
+
+  &.icon-earth:before {
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 0;
+    vertical-align: top;
+    width: 40px;
+    color: $grey;
+
+    @include respond-min(600px) {
+    //  line-height: 36px;
+    //  margin-right: 0;
+    //  text-indent: 0.25em;
+    //  width: 36px;
+    }
+  }
+
+}
+
+
+#nav_lessbtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  z-index: 11;
+
+  font-size: 3em;
+  line-height: 0.7;
+  padding: 0 1em 0.15em 0.15em;
+
+  color: $white;
+  @include background(linear-gradient(right,rgba($color-main, 0), $color-main));
+}
+
+#nav_morebtn {
+  @extend #nav_lessbtn;
+  left: auto;
+  right: 0;
+  padding: 0 0.15em 0.15em 1em;
+  @include background(linear-gradient(left,rgba($color-main, 0), $color-main));
 }

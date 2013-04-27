@@ -61,26 +61,7 @@ $icons-spacing: 50px;
 }
 .icon-locked:before {
 	content: "\e003";
-	font-size: 24px;
-	height: 40px;
-	line-height: 40px;
-	margin-right: 0;
-	vertical-align: top;
-	width: 40px;
-	color: $grey;
 }
-.m-login:hover.icon-locked:before {
-	color: $white
-}
-.m-login.icon-locked:before {
-	@include respond-min(600px) {
-		line-height: 36px;
-		margin-right: 0;
-		text-indent: 0.25em;
-		width: 36px;
-	}
-}
-
 
 .icon-checkmark:before {
 	content: "\e004";
@@ -128,24 +109,6 @@ $icons-spacing: 50px;
 }
 .icon-earth:before {
 	content: "\e011";
-	font-size: 24px;
-	height: 40px;
-	line-height: 40px;
-	margin-right: 0;
-	vertical-align: top;
-	width: 40px;
-	color: $grey;
-}
-.nav-language:hover.icon-earth:before {
-	color: $white
-}
-.nav-language.icon-earth:before {
-	@include respond-min(600px) {
-		line-height: 36px;
-		margin-right: 0;
-		text-indent: 0.25em;
-		width: 36px;
-	}
 }
 
 .icon-search:before {

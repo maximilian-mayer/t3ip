@@ -24,9 +24,12 @@
     bottom: 2px solid $lightergrey;
   };
   .inner-wrap {
-    padding: 0 1em 0 0;
-    @media only screen and (max-width: 319px) {
-      padding: 0;
+    padding: 0;
+    .index & {
+      margin-right: 1em;
+    }
+    @media only screen and (min-width: 321px) {
+      padding: 0 1em 0 0;
     }
   }
   .content & {
