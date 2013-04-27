@@ -1,0 +1,61 @@
+/////////////////////////////////
+//
+// addition resets and defaults
+//
+/////////////////////////////////
+/* addition resets and defaults
+ * ====================================================================
+ */
+
+//temp
+p, .content ol, .content ul, address {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+figcaption {
+  font-size: em(14px);
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+address {
+  font-style: normal;
+}
+
+hr {
+  border: {
+    style: solid;
+    top: none;
+    left: none;
+    right: none;
+    bottom: 1px solid $grey;
+  };
+  width: 100%;
+  margin: 1em auto;
+  &.space {
+    border-bottom-color: transparent;
+    margin: 1em auto 2em !important;
+  }
+}
+
+caption {
+  caption-side: bottom;
+}
+
+caption:before,
+caption:after {
+  content: "\0020\2014\0020";
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+  //width: auto
+}
+
+a:hover, a:active, a:focus {
+  -webkit-tap-highlight-color: rgba($color-main, 0.4);
+}

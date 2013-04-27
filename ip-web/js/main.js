@@ -52,7 +52,8 @@ Node.prototype.toggleClass = function(classname){
 }
 
 
-document.getElementById('nav_anchor').addEventListener('click', function() {
+document.getElementById('nav_anchor').addEventListener('click', function(e) {
    document.getElementById('nav_main').toggleClass('active');
+   e.preventDefault();
    return false;
 });

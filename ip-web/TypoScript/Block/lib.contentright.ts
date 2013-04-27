@@ -3,6 +3,9 @@ TypoScript template which compiles the contents for the right column on the page
 */
 
 lib.contentright = COA
+lib.contentright.stdWrap.outerWrap = <aside role="complementary" class="col2">|</aside>
+lib.contentright.stdWrap.required = 1
+
 
 # The configuration below this condition will only be included on the page loginpageID, or on its subpages
 [PIDinRootline = {$contentpage.loginpageID}]
@@ -18,7 +21,6 @@ lib.contentright {
 		select.uidInList = {$contentpage.loginboxUID}
 	}
 }
-
 # End of the conditional part
 [global]
 

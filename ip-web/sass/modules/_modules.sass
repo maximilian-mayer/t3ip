@@ -46,19 +46,19 @@
 		color: $white
 		width: auto
 		font-weight: normal
-		font-size: px2em(16)
+		font-size: em(16px)
 		line-height: 1.2
 		margin: 0
 		.fontface &
 			font-family: 'Share', $font-main
-			font-size: px2em(18)
+			font-size: em(18px)
 
 		+respond-min(481px)
-			font-size: px2em(24)
+			font-size: em(24px)
 		+respond-min(768px)
-			margin: 0 px2em(48,24) px2em(36,24) px2em(48,24)
+			margin: 0 em(48px,24px) em(36px,24px) em(48px,24px)
 		+respond-min(1024px)
-			margin: px2em(48,24)
+			margin: em(48px,24px)
 
 		.sub &
 			margin: 0
@@ -67,7 +67,7 @@
 		.firstline
 			display: block
 			margin-bottom: 0
-			font-size: px2em(20)
+			font-size: em(20px)
 			font-weight: bold
 			// @include respond-max(599px)
 			// 	overflow: hidden
@@ -75,14 +75,13 @@
 			// 	text-overflow: ellipsis
 			// 	width: 80%
 			.fontface &
-				font-family: 'Share-Bold', $font-main
-				font-size: px2em(24)
-				font-weight: normal
+				font-family: 'Share', $font-main
+				font-size: em(24px)
 
 
 			@media only screen and (-webkit-max-device-pixel-ratio: 0.75)
 			//, (max-resolution: 120dpi)
-				font-size: px2em(24)
+				font-size: em(24px)
 				font-weight: bold
 
 		.secondline
@@ -100,12 +99,12 @@
 		margin: 0
 	+respond-min(768px)
 		width: 50%
-		margin-left: px2em(32,16)
+		margin-left: em(32px,16px)
 
 	> li
 		//padding: 3px 0
 		color: $white
-		font-size: px2em(18)
+		font-size: em(18px)
 
 		+respond-min(481px)
 			float: left

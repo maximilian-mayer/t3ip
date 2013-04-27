@@ -13,9 +13,9 @@
       width: 40%;
       color: $white;
       font: {
-        family: "Share-Bold", $font-main;
+        family: "Share", $font-main;
         font-weight: normal;
-        size: px2em(24, 16);
+        size: em(24px, 16px);
       };
       line-height: 52px;
       float: left;
@@ -53,7 +53,7 @@
     width: 60%;
     height: 52px;
     line-height: 1;
-    font-size: px2em(18, 16);
+    font-size: em(18px, 16px);
 
     @include respond-min(481px) {
       width: 70%;

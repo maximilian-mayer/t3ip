@@ -1,0 +1,438 @@
+// Import your project's base partial. Remove this line if you don't follow
+// Compass best practices. @see http://compass-style.org/help/tutorials/best_practices/
+//@import base
+
+// =============================================================================
+// Variables and Imports
+//
+// If you have a base partial (and you should), you should probably move these
+// lines to your base partial.
+// =============================================================================
+
+// The base font size.
+$base-font-size: 16px !default;
+
+// Overrides default set in Vertical Rhythm partial.
+
+// The base line height determines the basic unit of vertical rhythm.
+// $base-line-height: 24px; // Overrides default set in Vertical Rhythm partial.
+
+// The font sizes for h1-h6. You should set these variables in your _base partial.
+// $h1-font-size: 2 * $base-fontsize !default
+// $h2-font-size: 1.5 * $base-fontsize !default
+// $h3-font-size: 1.17 * $base-fontsize !default
+// $h4-font-size: 1 * $base-fontsize !default
+// $h5-font-size: 0.83 * $base-fontsize !default
+// $h6-font-size: 0.75 * $base-fontsize !default
+
+// Setting this to false will result in smaller output, but no support for ie6 hacks.
+// $legacy-support-for-ie6: true; // Overrides default set in Support partial.
+
+// Setting this to false will result in smaller output, but no support for ie7 hacks.
+// $legacy-support-for-ie7: true; // Overrides default set in Support partial.
+
+// The default font family. You should set $base-font-family in your _base partial.
+$base-font-family: sans-serif !default;
+
+// The amount lists and blockquotes are indented.
+$indent-amount: 40px !default;
+
+// After the default variables are set, import the required Compass partials.
+@import "compass/support";
+@import "compass/css3/box-sizing";
+@import "compass/typography/vertical_rhythm";
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *display: inline;
+    *zoom: 1;
+  }
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+// [hidden]
+//   display: none
+input[hidden] {
+  display: none;
+}
+
+html {
+  font-size: 16px;
+  //font-size: 100% * $base-fontsize / 16px
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  //+adjust-leading-to(1) // result is 1.5em, not good :(
+  line-height: $base-lineheight;
+  height: 100%;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: $font-main;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background: $color-bg;
+  color: $color-text;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+// links
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:visited {
+    color: $link-colorV;
+  }
+  &:hover {
+    color: $link-colorH;
+  }
+  &:focus {
+    color: $link-colorF;
+    outline: thin dotted;
+  }
+  &:active {
+    color: $link-colorA;
+  }
+  &:hover, &:active {
+    outline: 0;
+  }
+  .content & {
+    text-decoration: underline;
+  }
+}
+
+// headlines
+#{headings()} {
+  font-weight: normal;
+  margin: 0 0 1em;
+  // text-rendering optimizeLegibility caused bug width letter-spacing
+  //text-rendering: optimizeLegibility
+  footer & {
+    color: if($color-footerBg == black, $white, $color-text);
+  }
+}
+
+$headline-var: h !default;
+
+@for $i from 1 through 6 {
+  #{$headline-var}#{$i} a, .#{$headline-var}#{$i} a {
+    font-size: 1em;
+    text-decoration: none;
+  }
+}
+
+//headlines
+h1, .h1 {
+  font: {
+    weight: bold;
+    size: $h1-fontsize;
+    family: $font-main;
+  };
+  color: $color-h1;
+  line-height: 1.4;
+}
+
+h2, .h2 {
+  font: {
+    weight: bold;
+    size: $h2-fontsize;
+    family: $font-main;
+  };
+  color: $color-h2;
+  line-height: 1.4;
+}
+
+h3, .h3 {
+  font: {
+    weight: bold;
+    size: $h3-fontsize;
+    family: $font-main;
+  };
+  margin-bottom: 0.5em;
+  color: $color-h3;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+h4, .h4 {
+  font: {
+    weight: bold;
+    size: $h4-fontsize;
+    family: $font-main;
+  };
+  color: $color-h4;
+  line-height: 1.4;
+}
+
+h5, .h5 {
+  font: {
+    weight: bold;
+    size: $h5-fontsize;
+    family: $font-main;
+  };
+  color: $color-h5;
+  line-height: 1.4;
+}
+
+h6, .h6 {
+  font: {
+    weight: bold;
+    size: $h5-fontsize;
+    family: $font-main;
+  };
+  line-height: 1.4;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  margin: rhythm(1) $indent-amount;
+}
+
+dfn {
+  font-style: italic;
+  // edit swo for barrier free navigations
+  @extend .visuallyhidden;
+}
+
+mark {
+  background: $color-mark;
+  color: $black;
+}
+
+p,
+pre {
+  //margin: rhythm(1) 0
+  // edit swo
+  margin: 0 0 1em;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  @if $legacy-support-for-ie6 {
+    _font-family: "courier new", monospace;
+  }
+  @include adjust-font-size-to(1 * $base-font-size);
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+dl,
+menu,
+ol,
+ul {
+  margin: rhythm(1) 0;
+}
+
+dd {
+  margin: 0 0 0 $indent-amount;
+}
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 $indent-amount;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+  // edit swo
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+form {
+  margin: 0;
+}
+
+fieldset {
+  // border-color: #c0c0c0
+  // margin: 0 2px
+  @include apply-side-rhythm-border(top, $lines: 0.35, $width: 1px);
+  @include apply-side-rhythm-border(bottom, $lines: 0.65, $width: 1px);
+  @include apply-side-rhythm-border(left, $lines: 0.625, $width: 1px);
+  @include apply-side-rhythm-border(right, $lines: 0.625, $width: 1px);
+  border: none;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *margin-left: -7px;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *vertical-align: middle;
+  }
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *overflow: visible;
+  }
+}
+
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  @include box-sizing(border-box);
+  padding: 0;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *height: 13px;
+    *width: 13px;
+  }
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  @include box-sizing(content-box);
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  //border-bottom: 1px solid lighten($color-text, 80%)
+  //padding: 0.25em 1em 0.1875em 0
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  //border-bottom: 1px solid lighten($color-text, 60%)
+}
+
+abbr[title] {
+  border-bottom: none;
+}

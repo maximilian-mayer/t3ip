@@ -1,0 +1,171 @@
+@import "font-stack";
+@import "variables";
+%icon {
+	font: {
+		family: 'icomoon';
+		style: normal;
+		weight: normal;
+		size: inherit;
+	}
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	//width: 1em;
+	//height: 1em;
+	//margin-right: 0.2em;
+	text-align: center;
+	text-indent: -1.5em;
+	-webkit-font-smoothing: antialiased;
+
+}
+
+
+.csc-frame-rulerBefore { border-top: 1px solid $lightgrey; padding-top: 1em;}
+.csc-frame-rulerAfter { border-bottom: 1px solid $lightgrey; padding-bottom: 1em; margin-bottom: 1em;}
+.csc-frame-indent { padding-left: 10%; }
+.csc-frame-indent3366 { padding-left: 33%; }
+.csc-frame-indent6633 { padding-right: 33%; }
+.csc-frame-frame1 { background-color: $lightergrey; padding: 1em;  margin-bottom: 2em; }
+.csc-frame-frame2 { background-color: lighten($color-main, 40); padding: 1em; border: 1px solid $color-main; }
+
+
+
+
+/* Bulletlists, specifically */
+.csc-bulletlist-0 {
+
+}
+.csc-bulletlist-1 {
+
+}
+.csc-bulletlist-2 {
+	list-style-type: none;
+
+	li {
+		&:before {
+			@extend %icon;
+			content: "\e004";
+		}
+	}
+}
+.csc-bulletlist-3 {
+	list-style-type: none;
+	margin-left: 1.5em;
+	padding-left: 0;
+	border-bottom: 1px dotted $color-text;
+
+	li {
+		border-top: 1px dotted $color-text;
+		padding: 0.5em 1em;
+		position: relative;
+		&:before {
+			content: "";
+			display: inline-block;
+			border: 0.4em solid;
+			border-color: transparent transparent transparent $color-main;
+			position: absolute;
+			left: 0;
+			top: 0.75em;
+		}
+	}
+}
+
+
+
+
+/*********************/
+/* tables, generally */
+/*********************/
+.contenttable  {
+	th,
+	td {
+		vertical-align: top;
+		border-bottom: 1px solid $lightgrey;
+		padding: 0.25em;
+	}
+
+	/* tables, specifically */
+	&.narrow {
+		th,
+		td,
+		caption {
+			padding: 0.15em;
+			font-size: 90%;
+		}
+	}
+}
+
+.contenttable-2 {
+	th,
+	td {
+		border-bottom: 1px solid $grey;
+	}
+	@for $col from 0 to 10 {
+	  .td-#{$col * 2} {
+	    background-color: $darkwhite;
+	  }
+	}
+	@for $col from 0 to 10 {
+	  .td-#{$col * 2 + 1} {
+	    background-color: $lightergrey;
+	  }
+	}
+}
+
+.contenttable-3 {
+	border: 1px solid $lightgrey;
+
+	th {
+		background-color: $lightgrey;
+	}
+	.tr-even {
+		background-color: $darkwhite;
+	}
+	.tr-odd {
+		background-color: $lightergrey;
+	}
+}
+
+
+
+/************************/
+/* Filelinks, generally */
+/************************/
+.csc-uploads {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	.csc-uploads-icon {
+
+	}
+	.csc-uploads-fileName {
+
+	}
+	.csc-uploads-description {
+		display: block;
+	}
+	.csc-uploads-fileSize {
+		&:before {
+			content: '\0020\0028';
+		}
+		&:after {
+			content: '\0029';
+		}
+	}
+}
+
+.csc-uploads-3 {
+	.csc-uploads-fileName {
+		display: block;
+	}
+}
+
+.csc-sitemap {
+	list-style-type: disc;
+	font-weight: bold;
+	.csc-sitemap {
+		margin: 0;
+		font-weight: normal;
+	}
+}

@@ -499,7 +499,7 @@ tt_content.stdWrap {
 					#			equals.data = TSFE:config|config|doctype
 					#		}
 					#	}
-					}
+					#}
 				}
 			}
 		}
@@ -591,10 +591,6 @@ tt_content.stdWrap {
 	}
 
 	prefixComment = 1 | CONTENT ELEMENT, uid:{field:uid}/{field:CType}
-}
-
-
-#drop a bracket
 }
 
 
@@ -851,8 +847,8 @@ tt_content.image.20 {
 	#{$styles.content.imgtext.borderThick}
 	borderClass =
 	#{$styles.content.imgtext.borderClass}
-	colSpace = 0#
-	{$styles.content.imgtext.colSpace}
+	colSpace = 0
+	#{$styles.content.imgtext.colSpace}
 	rowSpace = 0
 	#{$styles.content.imgtext.rowSpace}
 	textMargin = 0
@@ -971,10 +967,7 @@ tt_content.image.20 {
 				}
 			}
 			allStdWrap {
-				#wrap = <div class="csc-textpic-imagewrap"> | </div>
-				#wrap = <figure class="csc-textpic-imagewrap"> | </figure>
-				wrap >
-				dataWrap = <figure class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </figure>
+				wrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
 
 				innerWrap.cObject = CASE
 				innerWrap.cObject {
@@ -1012,10 +1005,9 @@ tt_content.image.20 {
 			# Multiple images and no caption at all
 			fallbackRendering < tt_content.image.20.rendering.singleNoCaption.fallbackRendering.10
 			#allStdWrap.wrap = <div class="csc-textpic-imagewrap"> | </div>
-			allStdWrap.wrap = <figure class="csc-textpic-imagewrap"> | </figure>
 
 			allStdWrap.wrap >
-			allStdWrap.dataWrap = <figure class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </figure>
+			allStdWrap.dataWrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
 
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"> | </div>

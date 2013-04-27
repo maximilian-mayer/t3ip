@@ -58,18 +58,24 @@
 		img {
 			display: block;
 		}
+		@include respond-max(319px) {
+			.csc-textpic-imagecolumn {
+				display: block;
+				max-width: 100%;
+			}
+		}
 	}
 }
 
 // colSpace around image columns, except for last column
 .csc-textpic-imagecolumn {
 	text-align: center;
-	@include respond-min(481px) {
+	//@include respond-min(481px) {
 		display: inline-block;
 		vertical-align: top;
 		// width: auto;
 		// max-width: 100%;
-	}
+	//}
 	&.csc-textpic-col {
 		margin-right: 0;
 	}
@@ -269,13 +275,22 @@
 [data-csc-cols="3"] {
 	.csc-textpic-imagecolumn {
 		//width: 32.8%;
-		max-width: 32.8%;
+		max-width: 32.5%;
+		@include respond-max(360px) {
+			max-width: 48%;
+		}
 	}
 }
 [data-csc-cols="6"] {
 	.csc-textpic-imagecolumn {
 		//width: 16%;
-		max-width: 16%;
+		max-width: 15.85%;
+		@include respond-max(767px) {
+			max-width: 32%;
+		}
+		@include respond-max(360px) {
+			max-width: 48%;
+		}
 	}
 }
 
@@ -284,13 +299,12 @@
 	width: auto;
 }
 
+/* Bugfix */
+.csc-textpic-intext-left-nowrap .csc-textpic-text {
+	margin-left: auto !important;
+}
+.csc-textpic-intext-right-nowrap .csc-textpic-text {
+	margin-right: auto !important;
+}
 
 
-
-
-// examples
-
-.csc-frame-indent { padding-left: 10%; }
-.csc-frame-indent3366 { padding-left: 33%; }
-.csc-frame-indent6633 { padding-right: 33%; }
-.csc-frame-frame1 { background-color: #ECECEC; padding: 1em;  margin-bottom: 2em; }

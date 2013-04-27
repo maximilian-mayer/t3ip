@@ -47,7 +47,7 @@ config {
 	metaCharset = utf-8
 
 	// Cache settings
-	cache_period = 43200
+	#cache_period = 43200
 	sendCacheHeaders = 1
 
 	// URL Settings

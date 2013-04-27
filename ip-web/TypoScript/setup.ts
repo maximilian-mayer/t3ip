@@ -7,18 +7,18 @@
  <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/csc-new.ts">
 
 # Read in the templates for the extensions.
-#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/FeLogin/setup.ts">
-#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/IndexedSearch/setup.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/FeLogin/setup.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/IndexedSearch/setup.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/TtNews/setup.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/JqueryColorbox/setup.ts">
-#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/WtSpamshield/setup.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Extension/WtSpamshield/setup.ts">
 
 # Read in the templates for the menu parts, like the default menu setup, language menu, header- and footermenu's.
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.firstlevel.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.secondlevel.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.top.ts">
-#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.language.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.language.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Menu/menu.breadcrumb.ts">
 
 # Read in the Lib (Blocks) templates containing TypoScript to generate the building blocks for your website, except menu's.
@@ -29,6 +29,7 @@
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Block/lib.searchbox.ts">
 #<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Block/lib.sitetitle.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Block/lib.stage.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Block/lib.login.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/Block/lib.footer.ts">
 
 # Read in the templates for the page, like page setup, config and header data.
