@@ -101,7 +101,7 @@
 
 	T3IP.calculateNavigationPosition = function (direction, totalWidth) {
 		var navWidth = T3IP.$subnavigation.width();
-		var offset = 30;
+		var offset = 60;
 		var diffX;
 
 		if (direction === 'more') {
