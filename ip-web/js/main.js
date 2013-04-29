@@ -1,5 +1,6 @@
 /**
  * T3IP
+ * Dependecies: Modernizr, jQuery
  */
 
 (function (exports, $) {
@@ -82,10 +83,31 @@
 		$('#nav_lessbtn').hide();
 	};
 
+	// Postion of subnavigation
+	T3IP.currentSubnavigationPosition = 0;
+
+	// Helper function to use transform or left
+	T3IP.transformNavigation = function (value) {
+		var cssChange;
+
+		if (Modernizr.csstransforms) {
+			cssChange = {
+				transform: 'translateX(' + value + ')'
+			};
+		} else {
+			cssChange = {
+				left: value
+			};
+		}
+
+		return cssChange;
+	};
+
 	T3IP.handleNavigationSlide = function ($subnav, totalWidth, navWidth) {
 		var diffX;
 		var difforg;
 		var screenWidth = window.innerWidth;
+
 
 		diffX = totalWidth - navWidth;
 		difforg = totalWidth - navWidth;
@@ -96,9 +118,8 @@
 
 		$(document)
 			.on('click', '#nav_morebtn', function () {
-				$subnav.css({
-					transform: 'translateX(-'+ diffX +'px)'
-				});
+
+				$subnav.css(T3IP.transformNavigation('-' + diffX + 'px'));
 
 				if (diffX < screenWidth) {
 					$(this).hide();
@@ -110,7 +131,7 @@
 			})
 
 			.on('click', '#nav_lessbtn', function () {
-				$subnav.css('transform', 'translateX(0)');
+				$subnav.css(T3IP.transformNavigation('0'));
 
 				if (diffX < screenWidth) {
 					$(this).hide();
