@@ -8,6 +8,11 @@
   // 	+box-sizing(border-box)
 }
 
+.container {
+  font-size: em(16px);
+  //min-height: 100%;
+  background-color: $white;
+}
 // general layout styles
 .inner-wrap {
   @extend .clearfix;
@@ -50,6 +55,9 @@
   @extend .clearfix;
   background-color: $darkgrey;
   color: if($color-footerBg == black, $white, $color-text);
+  .inner-wrap {
+    padding-top: 2em;
+  }
   h4 {
     text-transform: uppercase;
     font-weight: bold;
@@ -135,10 +143,6 @@
   }
 }
 
-.container {
-  font-size: em(16px);
-  min-height: 100%;
-}
 
 // specific layout styles
 
@@ -200,7 +204,7 @@
     // temp
     // 123-steps as image
     background: image-url("steps.png") no-repeat 50% 0;
-    padding-top: 50px !important;
+    padding-top: 4em;
     position: relative;
     @media only screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       background: image-url("steps@2x.png") no-repeat 50% 0;
@@ -209,11 +213,11 @@
     @include respond-min(768px) {
       float: left;
       width: 33.33333%;
-      padding: 0 1em;
+      padding: 4em 1em;
     }
 
     @include respond-min(1024px) {
-      padding: 0 5em 0 1em;
+      padding: 4em 5em 0 1em;
     }
 
     &:first-child {
@@ -241,16 +245,16 @@
         background: $lightgrey;
       }
     }
-    .icon-number {
-      font-family: "icomoon";
-      content: "\e006";
-    }
-    .icon-number-2 {
-      content: "\e007";
-    }
-    .icon-number-3 {
-      content: "\e008";
-    }
+    //.icon-number {
+    //  font-family: "icomoon";
+    //  content: "\e006";
+    //}
+    //.icon-number-2 {
+    //  content: "\e007";
+    //}
+    //.icon-number-3 {
+    //  content: "\e008";
+    //}
   }
   h3 {
     margin-top: 1em;

@@ -80,6 +80,9 @@ a.button
 a.btn-action
   @extend %btn
   background-color: $color-main
-  +link-colors($white,$black,$white,$white,$black)
+  color: $white
   border: none
-
+  &:hover,
+  &:focus,
+  &:active
+    background-color: darken($color-main, 10)

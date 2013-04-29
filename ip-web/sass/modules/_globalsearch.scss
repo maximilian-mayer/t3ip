@@ -48,13 +48,17 @@
     background-color: transparent;
     display: inline-block;
     border: none;
-    padding: 1em 0 1em 1em;
+    padding: 1em 0 0.75em 1em;
     color: $white;
     min-width: 130px;
     width: 60%;
     height: 52px;
     line-height: 1;
     font-size: em(18px, 16px);
+
+    &:focus {
+      outline: none;
+    }
 
     @include respond-min(481px) {
       width: 70%;

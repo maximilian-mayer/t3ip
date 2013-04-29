@@ -32,8 +32,6 @@
       @include single-transition(max-height, 0.3s);
     }
 
-
-
     @include respond-min(600px) {
       max-width: $containerMax;
       margin: 0 auto;
@@ -99,6 +97,9 @@
         @include respond-min(600px) {
           margin-bottom: 2.4em;
         }
+        @include respond-min(1024px) {
+          margin-bottom: 3.6em;
+        }
       }
       @include respond-min(600px) {
         display: inline-block;
@@ -108,6 +109,7 @@
 
       @include respond-min(1024px) {
         font-size: em(16px);
+
       }
 
       @media only screen and (-webkit-max-device-pixel-ratio: 0.75) {}
@@ -125,6 +127,10 @@
       @include respond-min(600px) {
         border-top: none;
         padding: 0.5em 0.75em;
+      }
+      @include respond-min(1024px) {
+        border-top: none;
+        padding: 0.75em 1em;
       }
     }
   }
@@ -224,7 +230,14 @@
       left: 0;
       z-index: -1;
       background-color: #ffb766;
+      @include respond-min(1024px) {
+        min-height: 2.9em;
+      }
     }
+  }
+  @include respond-min(1024px) {
+    top: 2.9em;
+    height: 3.6em;
   }
 
   > ul {
@@ -232,8 +245,9 @@
       max-width: $containerMax;
       margin: 0 auto;
       padding-bottom: 10px;
+      position: relative;
 
-      @include single-transition(transform 300ms ease-out);
+      @include single-transition(left 300ms ease-out);
     }
 
     > li {
@@ -267,6 +281,10 @@
       padding-left: 1.5em;
       @include respond-min(600px) {
         padding-left: 0.75em;
+      }
+      @include respond-min(1024px) {
+        border-top: none;
+        padding: 0.75em 1em;
       }
     }
   }
@@ -357,6 +375,10 @@
   cursor: pointer;
   color: $white;
   @include background(linear-gradient(right,rgba($color-main, 0), $color-main));
+  @include respond-min(1024px) {
+    line-height: 1;
+    padding: 0 1em 0 0.15em;
+  }
 }
 
 #nav_morebtn {

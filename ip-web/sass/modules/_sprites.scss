@@ -113,6 +113,7 @@ $icons-spacing: 50px;
 
 .icon-search:before {
 	content: "\e012";
+	font-size: 24px;
 
 	.m-globalsearch & {
 		left: 50%;
