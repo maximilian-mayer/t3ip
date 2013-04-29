@@ -1,113 +1,152 @@
+/**
+ * T3IP
+ */
+
+(function (exports, $) {
+
+	// Init namespace
+	var T3IP = exports.T3IP || {};
+
+
 	// TYPO3 function for decrypting the mail address
 	// decrypt helper function
-		function decryptCharcode(n,start,end,offset) {
-			n = n + offset;
-			if (offset > 0 && n > end) {
-				n = start + (n - end - 1);
-			} else if (offset < 0 && n < start) {
-				n = end - (start - n - 1);
-			}
-			return String.fromCharCode(n);
+	T3IP.decryptCharcode = function (n, start, end, offset) {
+		n = n + offset;
+		if (offset > 0 && n > end) {
+			n = start + (n - end - 1);
+		} else if (offset < 0 && n < start) {
+			n = end - (start - n - 1);
 		}
-			// decrypt string
-		function decryptString(enc,offset) {
-			var dec = "";
-			var len = enc.length;
-			for(var i=0; i < len; i++) {
-				var n = enc.charCodeAt(i);
-				if (n >= 0x2B && n <= 0x3A) {
-					dec += decryptCharcode(n,0x2B,0x3A,offset);	// 0-9 . , - + / :
-				} else if (n >= 0x40 && n <= 0x5A) {
-					dec += decryptCharcode(n,0x40,0x5A,offset);	// A-Z @
-				} else if (n >= 0x61 && n <= 0x7A) {
-					dec += decryptCharcode(n,0x61,0x7A,offset);	// a-z
-				} else {
-					dec += enc.charAt(i);
+		return String.fromCharCode(n);
+	};
+
+	// decrypt string
+	T3IP.decryptString = function (enc, offset) {
+		var dec = "";
+		var len = enc.length;
+		var i = 0;
+		var n;
+
+		for (; i < len; i++) {
+			n = enc.charCodeAt(i);
+			if (n >= 0x2B && n <= 0x3A) {
+				dec += decryptCharcode(n, 0x2B, 0x3A, offset);	// 0-9 . , - + / :
+			} else if (n >= 0x40 && n <= 0x5A) {
+				dec += decryptCharcode(n, 0x40, 0x5A, offset);	// A-Z @
+			} else if (n >= 0x61 && n <= 0x7A) {
+				dec += decryptCharcode(n, 0x61, 0x7A, offset);	// a-z
+			} else {
+				dec += enc.charAt(i);
+			}
+		}
+		return dec;
+	};
+
+	// decrypt spam-protected emails
+	T3IP.linkTo_UnCryptMailto = function (s) {
+		location.href = decryptString(s, 3);
+	}
+
+	T3IP.toggleNavigation = function (e) {
+		e.preventDefault();
+		$('#nav_main').toggleClass('active');
+	};
+
+	T3IP.initNavigationIcon = function () {
+
+		// Append icon
+		$('.hassub').each(function () {
+			if ($(this).children('.icon-chevron-down').length < 1) {
+				$(this).append('<span class="icon-chevron-down" />');
+			}
+		});
+
+		// Handle click
+		$(document)
+			.off('click', '.icon-chevron-down')
+			.on('click', '.icon-chevron-down', function (e){
+				e.preventDefault();
+
+				$(this).parent().toggleClass('open');
+			});
+	};
+
+	T3IP.initNavigationSlide = function () {
+		var $subnav  = $('.hassub.act .second-level, .hassub.cur .second-level');
+		var navpos   = $subnav.offset();
+		var navwidth = $subnav.width();
+		var totalWidth = 0;
+		var screenWidth = window.innerWidth;
+		var moved = 0;
+
+		$("> li", $subnav).each(function(){
+			totalWidth += $(this).outerWidth();
+		});
+
+		var diffX = totalWidth - navwidth;
+		var difforg = totalWidth - navwidth;
+		if(diffX > screenWidth) {
+			diffX = screenWidth;
+		}
+
+		if(totalWidth > navwidth) {
+			$subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
+			$subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
+			$('#nav_lessbtn').hide();
+
+			$('#nav_morebtn').on('click', function(){
+				$subnav.css({
+					transform: 'translateX(-'+ diffX +'px)'
+				});
+				if(diffX < screenWidth) {
+					$(this).hide();
 				}
-			}
-			return dec;
+				$('#nav_lessbtn').show();
+				diffX = difforg;
+			});
+
+			$('#nav_lessbtn').on('click', function(){
+				$subnav.css('transform', 'translateX(0)');
+				if(diffX < screenWidth) {
+					$(this).hide();
+				}
+				$('#nav_morebtn').show();
+			});
 		}
-			// decrypt spam-protected emails
-		function linkTo_UnCryptMailto(s) {
-			location.href = decryptString(s,3);
+	}
+
+	// Check if on small screen and apply options for navigation
+	T3IP.initNavigation = function () {
+
+		if (Modernizr.mq('only screen and (max-width: 599px)')) {
+			T3IP.initNavigationIcon();
 		}
 
-/* toggleClass function */
-Node.prototype.toggleClass = function(classname){
-    this.className = this.className.indexOf(classname) === -1 ? this.className + " " + classname : this.className.replace(classname, "");
-    return this;
-}
+		if (Modernizr.mq('only screen and (min-width: 600px)')) {
+			T3IP.initNavigationSlide();
+		}
+
+	};
 
 
-document.getElementById('nav_anchor').addEventListener('click', function(e) {
-   document.getElementById('nav_main').toggleClass('active');
-   e.preventDefault();
-   return false;
-});
+	// Initialize application
+	(function () {
+
+		// Toggle for navigation
+		$(document).on('click', '#nav_anchor', T3IP.toggleNavigation);
+
+		// Detect navigation changes
+		$(window).on('load orientationchange resize', T3IP.initNavigation);
+	}());
 
 
-$(function(){
+	// Make namespace globally available
+	exports.T3IP = T3IP;
 
-  if(Modernizr.mq('only screen and (max-width: 599px)')) {
-    $(".hassub").append('<span class="icon-chevron-down" />');
-
-    $(".icon-chevron-down").on('click', function(e){
-        e.stopPropagation();
-        e.preventDefault();
-
-        if ($(this).parent().hasClass('open')) {
-          $(this).parent().removeClass('open');
-        } else {
-          $(this).parent().addClass('open');
-        }
-    });
-  }
+}(window, jQuery));
 
 
-
-  if(Modernizr.mq('only screen and (min-width: 600px)')) {
-    var $subnav  = $('.hassub.act .second-level, .hassub.cur .second-level');
-    var navpos   = $subnav.offset();
-    var navwidth = $subnav.width();
-    var totalWidth = 0;
-    var screenWidth = window.innerWidth;
-    var moved = 0;
-
-    $("> li", $subnav).each(function(){
-      totalWidth += $(this).outerWidth();
-    });
-
-    var diffX = totalWidth - navwidth;
-    var difforg = totalWidth - navwidth;
-    if(diffX > screenWidth) {
-      diffX = screenWidth;
-    }
-
-    if(totalWidth > navwidth) {
-      $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
-      $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
-      $('#nav_lessbtn').hide();
-
-      $('#nav_morebtn').on('click', function(){
-        $subnav.css({
-          transform: 'translateX(-'+ diffX +'px)'
-        });
-        if(diffX < screenWidth) {
-          $(this).hide();
-        }
-        $('#nav_lessbtn').show();
-        diffX = difforg;
-      });
-
-      $('#nav_lessbtn').on('click', function(){
-        $subnav.css('transform', 'translateX(0)');
-        if(diffX < screenWidth) {
-          $(this).hide();
-        }
-        $('#nav_morebtn').show();
-      });
-    }
-  }
-
-});
-
+// Global functions for TYPO3
+var decryptCharcode = T3IP.decryptCharcode;
+var decryptString = T3IP.decryptString;
+var linkTo_UnCryptMailto = T3IP.linkTo_UnCryptMailto;
