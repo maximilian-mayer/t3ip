@@ -56,7 +56,7 @@
 
 		// Append icon
 		$('.hassub').each(function () {
-			if ($(this).children('.icon-chevron-down').length < 1) {
+			if ($('.icon-chevron-down', $(this)).length < 1) {
 				$(this).append('<span class="icon-chevron-down" />');
 			}
 		});
@@ -71,47 +71,68 @@
 			});
 	};
 
-	T3IP.initNavigationSlide = function () {
-		var $subnav  = $('.hassub.act .second-level, .hassub.cur .second-level');
-		var navpos   = $subnav.offset();
-		var navwidth = $subnav.width();
-		var totalWidth = 0;
+	T3IP.appendNavigationSlide = function ($element) {
+
+		if ($('#nav_morebtn', $element).length < 1) {
+			$element
+				.prepend('<div id="nav_lessbtn">&#171;</div>')
+				.append('<div id="nav_morebtn">&#187;</div>');
+		}
+
+		$('#nav_lessbtn').hide();
+	};
+
+	T3IP.handleNavigationSlide = function ($subnav, totalWidth, navWidth) {
+		var diffX;
+		var difforg;
 		var screenWidth = window.innerWidth;
-		var moved = 0;
 
-		$("> li", $subnav).each(function(){
-			totalWidth += $(this).outerWidth();
-		});
+		diffX = totalWidth - navWidth;
+		difforg = totalWidth - navWidth;
 
-		var diffX = totalWidth - navwidth;
-		var difforg = totalWidth - navwidth;
-		if(diffX > screenWidth) {
+		if (diffX > screenWidth) {
 			diffX = screenWidth;
 		}
 
-		if(totalWidth > navwidth) {
-			$subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
-			$subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
-			$('#nav_lessbtn').hide();
-
-			$('#nav_morebtn').on('click', function(){
+		$(document)
+			.on('click', '#nav_morebtn', function () {
 				$subnav.css({
 					transform: 'translateX(-'+ diffX +'px)'
 				});
-				if(diffX < screenWidth) {
-					$(this).hide();
-				}
-				$('#nav_lessbtn').show();
-				diffX = difforg;
-			});
 
-			$('#nav_lessbtn').on('click', function(){
-				$subnav.css('transform', 'translateX(0)');
-				if(diffX < screenWidth) {
+				if (diffX < screenWidth) {
 					$(this).hide();
 				}
+
+				$ ('#nav_lessbtn').show();
+
+				diffX = difforg;
+			})
+
+			.on('click', '#nav_lessbtn', function () {
+				$subnav.css('transform', 'translateX(0)');
+
+				if (diffX < screenWidth) {
+					$(this).hide();
+				}
+
 				$('#nav_morebtn').show();
 			});
+	};
+
+	T3IP.initNavigationSlide = function () {
+		var $subnav = $('.hassub.act .second-level, .hassub.cur .second-level');
+		var totalWidth = 0;
+		var navWidth = $subnav.width();
+
+		$('> li', $subnav).each(function () {
+			totalWidth += $(this).outerWidth();
+		});
+
+
+		if (totalWidth > navWidth) {
+			T3IP.appendNavigationSlide($subnav.parent());
+			T3IP.handleNavigationSlide($subnav, totalWidth, navWidth);
 		}
 	}
 
