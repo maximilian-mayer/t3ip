@@ -83,57 +83,66 @@
 		$('#nav_lessbtn').hide();
 	};
 
+	// Subnavigation
+	T3IP.$subnavigation = $('.hassub.act .second-level, .hassub.cur .second-level');
+
 	// Postion of subnavigation
-	T3IP.currentSubnavigationPosition = 0;
+	T3IP.currentSubnavigationPosition = function () {
+		return T3IP.$subnavigation.offset().left;
+	};
 
 	// Helper function to use transform or left
 	T3IP.transformNavigation = function (value) {
-		var cssChange;
-
-		if (Modernizr.csstransforms) {
-			cssChange = {
-				transform: 'translateX(' + value + ')'
-			};
-		} else {
-			cssChange = {
-				left: value
-			};
-		}
-
-		return cssChange;
+		return {
+			left: value
+		};
 	};
 
-	T3IP.handleNavigationSlide = function ($subnav, totalWidth, navWidth) {
+	T3IP.calculateNavigationPosition = function (direction, totalWidth) {
+		var navWidth = T3IP.$subnavigation.width();
+		var offset = 30;
 		var diffX;
-		var difforg;
-		var screenWidth = window.innerWidth;
 
+		if (direction === 'more') {
+			diffX = T3IP.currentSubnavigationPosition() - navWidth + offset;
 
-		diffX = totalWidth - navWidth;
-		difforg = totalWidth - navWidth;
+			// Scroll to end
+			if (Math.abs(diffX - navWidth) > totalWidth) {
+				diffX = (totalWidth - navWidth) * -1;
+			}
 
-		if (diffX > screenWidth) {
-			diffX = screenWidth;
+		} else if (direction === 'less') {
+			diffX = T3IP.currentSubnavigationPosition() + navWidth - offset;
+
+			// Scroll to beginning
+			if (diffX > 0) {
+				diffX = 0;
+			}
 		}
 
+		return diffX;
+	};
+
+	T3IP.handleNavigationSlide = function (totalWidth) {
 		$(document)
 			.on('click', '#nav_morebtn', function () {
+				var newPosition = T3IP.calculateNavigationPosition('more', totalWidth);
 
-				$subnav.css(T3IP.transformNavigation('-' + diffX + 'px'));
+				T3IP.$subnavigation.css(T3IP.transformNavigation(newPosition + 'px'));
 
-				if (diffX < screenWidth) {
+				if (Math.abs(newPosition - T3IP.$subnavigation.width()) >= totalWidth) {
 					$(this).hide();
 				}
 
 				$ ('#nav_lessbtn').show();
-
-				diffX = difforg;
 			})
 
 			.on('click', '#nav_lessbtn', function () {
-				$subnav.css(T3IP.transformNavigation('0'));
+				var newPosition = T3IP.calculateNavigationPosition('less', totalWidth);
 
-				if (diffX < screenWidth) {
+				T3IP.$subnavigation.css(T3IP.transformNavigation(newPosition + 'px'));
+
+				if (newPosition >= 0) {
 					$(this).hide();
 				}
 
@@ -142,18 +151,17 @@
 	};
 
 	T3IP.initNavigationSlide = function () {
-		var $subnav = $('.hassub.act .second-level, .hassub.cur .second-level');
 		var totalWidth = 0;
-		var navWidth = $subnav.width();
+		var navWidth = T3IP.$subnavigation.width();
 
-		$('> li', $subnav).each(function () {
+		$('> li', T3IP.$subnavigation).each(function () {
 			totalWidth += $(this).outerWidth();
 		});
 
 
 		if (totalWidth > navWidth) {
-			T3IP.appendNavigationSlide($subnav.parent());
-			T3IP.handleNavigationSlide($subnav, totalWidth, navWidth);
+			T3IP.appendNavigationSlide(T3IP.$subnavigation.parent());
+			T3IP.handleNavigationSlide(totalWidth);
 		}
 	}
 
