@@ -4,6 +4,7 @@
  */
 
 (function (exports, $) {
+	"use strict";
 
 	// Init namespace
 	var T3IP = exports.T3IP || {};
@@ -31,11 +32,11 @@
 		for (; i < len; i++) {
 			n = enc.charCodeAt(i);
 			if (n >= 0x2B && n <= 0x3A) {
-				dec += decryptCharcode(n, 0x2B, 0x3A, offset);	// 0-9 . , - + / :
+				dec += T3IP.decryptCharcode(n, 0x2B, 0x3A, offset);	// 0-9 . , - + / :
 			} else if (n >= 0x40 && n <= 0x5A) {
-				dec += decryptCharcode(n, 0x40, 0x5A, offset);	// A-Z @
+				dec += T3IP.decryptCharcode(n, 0x40, 0x5A, offset);	// A-Z @
 			} else if (n >= 0x61 && n <= 0x7A) {
-				dec += decryptCharcode(n, 0x61, 0x7A, offset);	// a-z
+				dec += T3IP.decryptCharcode(n, 0x61, 0x7A, offset);	// a-z
 			} else {
 				dec += enc.charAt(i);
 			}
@@ -45,8 +46,8 @@
 
 	// decrypt spam-protected emails
 	T3IP.linkTo_UnCryptMailto = function (s) {
-		location.href = decryptString(s, 3);
-	}
+		location.href = T3IP.decryptString(s, 3);
+	};
 
 	T3IP.toggleNavigation = function (e) {
 		e.preventDefault();
@@ -163,7 +164,7 @@
 			T3IP.appendNavigationSlide(T3IP.$subnavigation.parent());
 			T3IP.handleNavigationSlide(totalWidth);
 		}
-	}
+	};
 
 	// Check if on small screen and apply options for navigation
 	T3IP.initNavigation = function () {
@@ -197,6 +198,6 @@
 
 
 // Global functions for TYPO3
-var decryptCharcode = T3IP.decryptCharcode;
-var decryptString = T3IP.decryptString;
-var linkTo_UnCryptMailto = T3IP.linkTo_UnCryptMailto;
+var decryptCharcode = window.T3IP.decryptCharcode;
+var decryptString = window.T3IP.decryptString;
+var linkTo_UnCryptMailto = window.T3IP.linkTo_UnCryptMailto;
