@@ -71,32 +71,42 @@ $(function(){
     var navwidth = $subnav.width();
     var totalWidth = 0;
     var screenWidth = window.innerWidth;
+    var moved = 0;
 
     $("> li", $subnav).each(function(){
       totalWidth += $(this).outerWidth();
     });
 
     var diffX = totalWidth - navwidth;
+    var difforg = totalWidth - navwidth;
+    if(diffX > screenWidth) {
+      diffX = screenWidth;
+    }
 
-    $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
-    $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
+    if(totalWidth > navwidth) {
+      $subnav.parent().append('<div id="nav_morebtn">&#187;</div>');
+      $subnav.parent().prepend('<div id="nav_lessbtn">&#171;</div>');
+      $('#nav_lessbtn').hide();
 
-    $('#nav_lessbtn').hide();
-
-    $('#nav_morebtn').on('click', function(){
-      $subnav.css({
-        transform: 'translateX(-'+ diffX +'px)'
+      $('#nav_morebtn').on('click', function(){
+        $subnav.css({
+          transform: 'translateX(-'+ diffX +'px)'
+        });
+        if(diffX < screenWidth) {
+          $(this).hide();
+        }
+        $('#nav_lessbtn').show();
+        diffX = difforg;
       });
-      $(this).hide();
-      $('#nav_lessbtn').show();
-    });
 
-    $('#nav_lessbtn').on('click', function(){
-      console.log('clicked');
-      $subnav.css('transform', 'translateX(0)');
-      $(this).hide();
-      $('#nav_morebtn').show();
-    });
+      $('#nav_lessbtn').on('click', function(){
+        $subnav.css('transform', 'translateX(0)');
+        if(diffX < screenWidth) {
+          $(this).hide();
+        }
+        $('#nav_morebtn').show();
+      });
+    }
   }
 
 });

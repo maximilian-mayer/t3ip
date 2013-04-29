@@ -13,7 +13,7 @@ lib.stage {
 			<ul class="m-featurelist">
 			    <li class="icon-checkmark">Yes, it‘s responsive</li>
 			    <li class="icon-checkmark">New modern theme</li>
-			    <li class="icon-checkmark">HTML5 Markup, CSS3 Styles</li>
+			    <li class="icon-checkmark">HTML5/CSS3</li>
 			    <li class="icon-checkmark">free to use</li>
 			</ul>
 		)

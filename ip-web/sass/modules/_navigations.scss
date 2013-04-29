@@ -161,8 +161,17 @@
     }
   }
 }
-.cur.hassub.open,
-.act.hassub.open {
+
+.open.hassub {
+  .icon-chevron-down {
+    &:before {
+      content: "\e00c";
+    }
+  }
+}
+
+.cur.open.hassub,
+.act.open.hassub {
   .icon-chevron-down {
     &:before {
       content: "\e00b";
@@ -316,7 +325,7 @@
 
 
   &.icon-earth:before {
-    font-size: 24px;
+    font-size: 21px;
     height: 40px;
     line-height: 40px;
     margin-right: 0;

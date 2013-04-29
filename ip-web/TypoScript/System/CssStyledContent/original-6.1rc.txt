@@ -366,14 +366,10 @@ lib.stdheader {
 		dataWrap {
 			override = <header class="csc-header csc-header-n{cObj:parentRecordNumber}">|</header>
 			override {
-				#if {
-				#	value = html5
-				#	equals.data = TSFE:config|config|doctype
-				#}
 				if {
-					isTrue.field = date
+					value = html5
+					equals.data = TSFE:config|config|doctype
 				}
-
 			}
 		}
 	}
@@ -403,7 +399,7 @@ includeLibs.tx_cssstyledcontent_pi1 = EXT:css_styled_content/pi1/class.tx_csssty
 #**********************************
 # tt_content is started
 #**********************************
-#tt_content >
+tt_content >
 tt_content = CASE
 tt_content.key.field = CType
 tt_content.stdWrap {
@@ -429,16 +425,16 @@ tt_content.stdWrap {
 						value = <div
 					}
 
-					#menu < .default
-					#menu {
-					#	override = <nav id="c{field:uid}"
-					#	override {
-					#		if {
-					#			value = html5
-					#			equals.data = TSFE:config|config|doctype
-					#		}
-					#	}
-					#}
+					menu < .default
+					menu {
+						override = <nav id="c{field:uid}"
+						override {
+							if {
+								value = html5
+								equals.data = TSFE:config|config|doctype
+							}
+						}
+					}
 				}
 				insertData = 1
 			}
@@ -490,16 +486,16 @@ tt_content.stdWrap {
 						value = >|</div>
 					}
 
-					#menu < .default
-					#menu {
-					#	override = >|</nav>
-					#	override {
-					#		if {
-					#			value = html5
-					#			equals.data = TSFE:config|config|doctype
-					#		}
-					#	}
-					#}
+					menu < .default
+					menu {
+						override = >|</nav>
+						override {
+							if {
+								value = html5
+								equals.data = TSFE:config|config|doctype
+							}
+						}
+					}
 				}
 			}
 		}
@@ -592,6 +588,7 @@ tt_content.stdWrap {
 
 	prefixComment = 1 | CONTENT ELEMENT, uid:{field:uid}/{field:CType}
 }
+
 
 
 # *****************
@@ -802,7 +799,7 @@ tt_content.image.20 {
 				field = imagecaption
 				required = 1
 				parseFunc =< lib.parseFunc
-				#br = 1
+				br = 1
 				trim = 1
 				split.token.char = 10
 				split.token.if.isPositive = {$styles.content.imgtext.imageTextSplit} + {$styles.content.imgtext.captionSplit}
@@ -841,30 +838,17 @@ tt_content.image.20 {
 	# caption/alttext/title/longdescURL splitting
 	imageTextSplit = {$styles.content.imgtext.imageTextSplit}
 
-	borderCol =
-	#{$styles.content.imgtext.borderColor}
-	borderThick = 0
-	#{$styles.content.imgtext.borderThick}
-	borderClass =
-	#{$styles.content.imgtext.borderClass}
-	colSpace = 0
-	#{$styles.content.imgtext.colSpace}
-	rowSpace = 0
-	#{$styles.content.imgtext.rowSpace}
-	textMargin = 0
-	#{$styles.content.imgtext.textMargin}
+	borderThick = {$styles.content.imgtext.borderThick}
+	borderClass = {$styles.content.imgtext.borderClass}
+	colSpace = {$styles.content.imgtext.colSpace}
+	textMargin = {$styles.content.imgtext.textMargin}
 
-	borderSpace = 0
-	#{$styles.content.imgtext.borderSpace}
-	separateRows = 0
-	#{$styles.content.imgtext.separateRows}
+	borderSpace = {$styles.content.imgtext.borderSpace}
+	separateRows = {$styles.content.imgtext.separateRows}
 	addClasses =
 	addClassesCol =
-	#csc-textpic-col
-	#addClassesCol.ifEmpty = csc-textpic-firstcol csc-textpic-lastcol
-	addClassesCol.ifEmpty =
-	#addClassesCol.override = csc-textpic-firstcol |*| |*| csc-textpic-lastcol
-	addClassesCol.override =
+	addClassesCol.ifEmpty = csc-textpic-firstcol csc-textpic-lastcol
+	addClassesCol.override = csc-textpic-firstcol |*| |*| csc-textpic-lastcol
 	addClassesCol.override.if {
 		isGreaterThan.field = imagecols
 		value = 1
@@ -873,11 +857,11 @@ tt_content.image.20 {
 	addClassesImage = csc-textpic-first |*| |*| csc-textpic-last
 
 	#
-	imageStdWrap.dataWrap = <figure class="csc-textpic-imagewrap"> | </figure>
-	imageStdWrapNoWidth.wrap = <figure class="csc-textpic-imagewrap"> | </figure>
+	imageStdWrap.dataWrap = <div class="csc-textpic-imagewrap" style="width:{register:totalwidth}px;"> | </div>
+	imageStdWrapNoWidth.wrap = <div class="csc-textpic-imagewrap"> | </div>
 
 	# if noRows is set, wrap around each column:
-	imageColumnStdWrap.dataWrap = <div class="csc-textpic-imagecolumn norows"> | </div>
+	imageColumnStdWrap.dataWrap = <div class="csc-textpic-imagecolumn" style="width:{register:columnwidth}px;"> | </div>
 
 	layout = CASE
 	layout {
@@ -967,17 +951,13 @@ tt_content.image.20 {
 				}
 			}
 			allStdWrap {
-				wrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
-				wrap >
-				dataWrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
-
+				wrap = <div class="csc-textpic-imagewrap"> | </div>
 				innerWrap.cObject = CASE
 				innerWrap.cObject {
 					key.field = imageorient
 					# above-center
 					0 = TEXT
-					#0.value = <div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"> | </div></div>
-					0.value =  |
+					0.value = <div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"> | </div></div>
 					# below-center
 					8 < .0
 				}
@@ -985,8 +965,7 @@ tt_content.image.20 {
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"> | </div>
 				wrap {
-					#override = <figure class="csc-textpic-image###CLASSES###"> | </figure>
-					override = |
+					override = <figure class="csc-textpic-image###CLASSES###"> | </figure>
 					override {
 						if {
 							value = html5
@@ -1006,24 +985,17 @@ tt_content.image.20 {
 		noCaption {
 			# Multiple images and no caption at all
 			fallbackRendering < tt_content.image.20.rendering.singleNoCaption.fallbackRendering.10
-			#allStdWrap.wrap = <div class="csc-textpic-imagewrap"> | </div>
-
-			allStdWrap.wrap >
-			allStdWrap.dataWrap = <div class="csc-textpic-imagewrap" data-csc-images="{register:imageCount}" data-csc-cols="{field:imagecols}"> | </div>
-
+			allStdWrap.wrap = <div class="csc-textpic-imagewrap"> | </div>
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"> | </div>
 				wrap {
-					override = |
+					override = <figure class="csc-textpic-image###CLASSES###"> | </figure>
 				}
 			}
-			#rowStdWrap.wrap = <div class="csc-textpic-imagerow"> | </div>
-			rowStdWrap.wrap = |<br class="columnbreak">
-			#noRowsStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-none"> | </div>
-			noRowsStdWrap.wrap = <div class="csc-textpic-imagerow-none"> | </div>
-			#lastRowStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-last"> | </div>
-			lastRowStdWrap.wrap = |
-			columnStdWrap.wrap = <figure class="csc-textpic-imagecolumn###CLASSES###"> | </figure>
+			rowStdWrap.wrap = <div class="csc-textpic-imagerow"> | </div>
+			noRowsStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-none"> | </div>
+			lastRowStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-last"> | </div>
+			columnStdWrap.wrap = <div class="csc-textpic-imagecolumn###CLASSES###"> | </div>
 		}
 		singleCaption {
 			# Just one image with a caption
@@ -1031,7 +1003,7 @@ tt_content.image.20 {
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"><table>###CAPTION###<tbody><tr><td> | </td></tr></tbody></table></div>
 				wrap {
-					override = |###CAPTION###
+					override = <figure class="csc-textpic-image###CLASSES###">|###CAPTION###</figure>
 					override {
 						if {
 							value = html5
@@ -1042,8 +1014,7 @@ tt_content.image.20 {
 			}
 			caption {
 				required = 1
-				#wrap = <caption class="csc-textpic-caption###CLASSES###"> | </caption>
-				wrap = <div class="csc-textpic-caption###CLASSES###"> | </div>
+				wrap = <caption class="csc-textpic-caption###CLASSES###"> | </caption>
 				wrap {
 					override = <figcaption class="csc-textpic-caption###CLASSES###"> | </figcaption>
 					override {
@@ -1060,7 +1031,7 @@ tt_content.image.20 {
 			singleStdWrap {
 				wrap = <div class="csc-textpic-image###CLASSES###"><table>###CAPTION###<tbody><tr><td> | </td></tr></tbody></table></div>
 				wrap {
-					override = |###CAPTION###
+					override = <figure class="csc-textpic-image###CLASSES###">|###CAPTION###</figure>
 					override {
 						if {
 							value = html5
@@ -1069,14 +1040,10 @@ tt_content.image.20 {
 					}
 				}
 			}
-			#rowStdWrap.wrap = <div class="csc-textpic-imagerow"> | </div>
-			rowStdWrap.wrap = |
-			#noRowsStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-none"> | </div>
-			noRowsStdWrap.wrap = |
-			#lastRowStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-last"> | </div>
-			lastRowStdWrap.wrap = |
-			columnStdWrap.wrap = <figure class="csc-textpic-imagecolumn###CLASSES###"> | </figure>
-
+			rowStdWrap.wrap = <div class="csc-textpic-imagerow"> | </div>
+			noRowsStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-none"> | </div>
+			lastRowStdWrap.wrap = <div class="csc-textpic-imagerow csc-textpic-imagerow-last"> | </div>
+			columnStdWrap.wrap = <div class="csc-textpic-imagecolumn###CLASSES###"> | </div>
 			caption {
 				required = 1
 				wrap = <caption class="csc-textpic-caption###CLASSES###"> | </caption>
@@ -1164,7 +1131,6 @@ tt_content.textpic {
 		}
 		text.20 = < tt_content.text.20
 		text.wrap = <div class="csc-textpic-text"> | </div>
-		text.required = 1
 	}
 }
 
@@ -1193,17 +1159,6 @@ tt_content.bullets {
 			2.wrap = <li class="even">|</li>
 		}
 		dataWrap = <ul class="csc-bulletlist csc-bulletlist-{field:layout}">|</ul>
-
-		# real ordered list for introduction package
-		dataWrap {
-			override = <ol class="csc-bulletlist csc-bulletlist-{field:layout}">|</ol>
-			override {
-				if {
-					value = 1
-					equals.field = layout
-				}
-			}
-		}
 	 	editIcons = tt_content: bodytext, [layout]
 	 	editIcons.beforeLastTag = 1
 	 	editIcons.iconTitle.data = LLL:EXT:css_styled_content/pi1/locallang.php:eIcon.bullets
@@ -1211,7 +1166,6 @@ tt_content.bullets {
 	 	prefixComment = 2 | Bullet list:
 	}
 }
-
 
 
 # *****************
@@ -1234,6 +1188,8 @@ tt_content.uploads {
 		# get from path (backwards compatibility, contains strings like "fileadmin/user_uploads/")
 		folders.field = select_key
 
+		sorting.field = filelink_sorting
+
 		# render the files
 		renderObj = COA
 		renderObj {
@@ -1248,9 +1204,10 @@ tt_content.uploads {
 					typolink {
 						parameter.data = file:current:originalUid // file:current:uid
 						parameter.wrap = file:|
-						target < lib.parseTarget
-						target =
-						target.override = {$styles.content.uploads.target}
+						fileTarget < lib.parseTarget
+						fileTarget =
+						fileTarget.override = {$styles.content.uploads.target}
+						fileTarget.override.override.field = target
 						removePrependedNumbers = 1
 
 						/*
@@ -1861,8 +1818,7 @@ tt_content.menu {
 		2 {
 			stdWrap < tt_content.menu.20.default.stdWrap
 			stdWrap {
-				#outerWrap = <div class="csc-sitemap">|</div>
-				outerWrap = |
+				outerWrap = <div class="csc-sitemap">|</div>
 			}
 			1 = TMENU
 			1 {
@@ -1870,9 +1826,7 @@ tt_content.menu {
 				target =
 				target.override = {$PAGE_TARGET}
 				expAll = 1
-				#wrap = <ul>|</ul>
-				wrap = <ul class="csc-sitemap">|</ul>
-
+				wrap = <ul>|</ul>
 				NO {
 					stdWrap.htmlSpecialChars = 1
 					wrapItemAndSub = <li>|</li>

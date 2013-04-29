@@ -53,12 +53,13 @@
 			font-family: 'Share', $font-main
 			font-size: em(18px)
 
+
 		+respond-min(481px)
 			font-size: em(24px)
 		+respond-min(768px)
-			margin: 0 em(48px,24px) em(36px,24px) em(48px,24px)
+			margin: em(48px,24px) 0
 		+respond-min(1024px)
-			margin: em(48px,24px)
+			margin: em(48px,24px) 0
 
 		.sub &
 			margin: 0
@@ -77,6 +78,10 @@
 			.fontface &
 				font-family: 'Share', $font-main
 				font-size: em(24px)
+				+respond-min(481px)
+					font-size: em(36px,20px)
+				+respond-min(600px)
+					font-size: em(48px,20px)
 
 
 			@media only screen and (-webkit-max-device-pixel-ratio: 0.75)
@@ -99,7 +104,7 @@
 		margin: 0
 	+respond-min(768px)
 		width: 50%
-		margin-left: em(32px,16px)
+		margin-left: em(32px,16px) 0
 
 	> li
 		//padding: 3px 0
@@ -128,7 +133,7 @@
 	@extend .nav-language
 
 	&.icon-locked:before
-		font-size: 24px
+		font-size: 21px
 		height: 40px
 		line-height: 40px
 		margin-right: 0

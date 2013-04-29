@@ -13,7 +13,7 @@
   @extend .clearfix;
   max-width: $containerMax;
   margin: 0 auto;
-  padding: $padding;
+  padding: $padding 0.75em;
   width: 100%;
 }
 
@@ -146,6 +146,9 @@
   margin: 0;
   font-size: 1em;
   float: left;
+  @include respond-min(1200px) {
+    margin-left: -0.75em;
+  }
   a {
     display: inline-block;
     background: none;

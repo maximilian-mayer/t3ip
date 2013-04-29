@@ -2,7 +2,7 @@
 The following line does not work, thus please include the static CSC
 template in the template record.
 */
-<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/csc-new.ts">
+#<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/responsive/TypoScript/System/CssStyledContent/csc-new.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:form/Configuration/TypoScript/setup.txt">
 
 # new header
